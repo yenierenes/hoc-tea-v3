@@ -82,7 +82,8 @@
     var gallery = $("[data-pdp-gallery]", el);
     var slides = gallery && $(".hoc-pdp__slides", gallery);
     var thumbs = gallery ? $$("[data-pdp-thumb]", gallery) : [];
-    var packImg = $('[data-pdp-scene="pack"] > img', el);
+    var packImg = $('[data-pdp-pack="doypack"]', el);
+    var packPics = $$("[data-pdp-pack]", el);
     var originalSrc = packImg && packImg.getAttribute("src");
     var originalSrcset = packImg && packImg.getAttribute("srcset");
     var io = null,
@@ -111,8 +112,12 @@
         status.textContent = (input.dataset.label || input.value) + ", " + (input.dataset.price || "");
       }
       announced = true;
+      // The picture follows the pack: white doypack, colour label or tin.
+      packPics.forEach(function (pic) {
+        pic.hidden = pic.getAttribute("data-pdp-pack") !== input.value;
+      });
       // On Shopify a variant may bring its own image.
-      if (packImg) {
+      if (packImg && input.dataset.imageUrl) {
         if (input.dataset.imageUrl) {
           packImg.removeAttribute("srcset");
           packImg.src = input.dataset.imageUrl;

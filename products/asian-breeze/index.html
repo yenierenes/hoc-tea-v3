@@ -9,13 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/hoc-core.css?v=e683d9a3c9">
+<link rel="stylesheet" href="../../assets/css/hoc-core.css?v=432273fa81">
 <link rel="stylesheet" href="../../assets/css/hoc-sections.css?v=c69b9c40b4">
-<link rel="stylesheet" href="../../assets/css/hoc-product.css?v=53231c8d0e">
+<link rel="stylesheet" href="../../assets/css/hoc-product.css?v=bd9a5b727a">
 <meta property="og:type" content="product">
 <meta property="og:title" content="Asian Breeze — HOC Tea">
 <meta property="og:description" content="Tropical fruit and the natural sweetness of rooibos.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Asian Breeze","description":"Fruity rooibos. Tropical fruit and the natural sweetness of rooibos.","brand":{"@type":"Brand","name":"HOC Tea"},"image":["../../assets/img/sticker-asian-breeze-1000.webp?v=96d7c9bd28"],"offers":[{"@type":"Offer","name":"Tin 80 g","price":"19.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Doypack 100 g","price":"15.00","priceCurrency":"EUR"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Asian Breeze","description":"Fruity rooibos. Tropical fruit and the natural sweetness of rooibos.","brand":{"@type":"Brand","name":"HOC Tea"},"image":["../../assets/img/pack-asian-breeze-900.webp?v=72fdaefdef"],"offers":[{"@type":"Offer","name":"Doypack 100 g","price":"15.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Colour doypack 100 g","price":"15.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Tin 80 g","price":"19.00","priceCurrency":"EUR"}]}</script>
 <script>window.HOC = { assetBase: '../../' };</script>
 <script>document.documentElement.classList.add('hoc-js');</script>
 </head>
@@ -73,7 +73,19 @@
       <div class="hoc-pdp__grid">
         <div class="hoc-pdp__gallery" data-pdp-gallery>
           <div class="hoc-pdp__slides">
-            <figure class="hoc-pdp__slide" data-pdp-scene="pack"><img class="hoc-doypack hoc-pdp__pack-image" src="../../assets/img/sticker-asian-breeze-600.webp?v=288e3f278d" srcset="../../assets/img/sticker-asian-breeze-600.webp?v=288e3f278d 600w, ../../assets/img/sticker-asian-breeze-1000.webp?v=96d7c9bd28 1000w" sizes="(max-width: 1023px) 62vw, 30vw" width="1000" height="1500" alt="Asian Breeze doypack" fetchpriority="high" decoding="async"></figure>
+            <figure class="hoc-pdp__slide" data-pdp-scene="pack"><img data-pdp-pack="doypack" class="hoc-doypack hoc-pdp__pack-image hoc-doypack--white"
+        src="../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057"
+        srcset="../../assets/img/pack-asian-breeze-420.webp?v=640d2f8f0e 420w, ../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057 640w, ../../assets/img/pack-asian-breeze-900.webp?v=72fdaefdef 900w, ../../assets/img/pack-asian-breeze-1200.webp?v=5d3a80d105 1200w"
+        sizes="(max-width: 1023px) 62vw, 30vw"
+        width="900" height="1422"
+        alt="Asian Breeze doypack"
+        fetchpriority="high" decoding="async"><img data-pdp-pack="doypack-colour" hidden class="hoc-doypack hoc-pdp__pack-image" src="../../assets/img/sticker-asian-breeze-600.webp?v=288e3f278d" srcset="../../assets/img/sticker-asian-breeze-600.webp?v=288e3f278d 600w, ../../assets/img/sticker-asian-breeze-1000.webp?v=96d7c9bd28 1000w" sizes="(max-width: 1023px) 62vw, 30vw" width="1000" height="1500" alt="Asian Breeze doypack" loading="lazy" decoding="async"><img data-pdp-pack="tin" hidden class="hoc-tinphoto hoc-pdp__pack-image"
+        src="../../assets/img/tin-asian-breeze.jpg?v=e270175a41"
+        srcset="../../assets/img/tin-asian-breeze-640.webp?v=770a344b12 640w, ../../assets/img/tin-asian-breeze-1024.webp?v=04521dd60a 1024w"
+        sizes="(max-width: 1023px) 100vw, 50vw"
+        width="640" height="754"
+        alt="Asian Breeze tins"
+        loading="lazy" decoding="async"></figure>
           </div>
         </div>
 
@@ -89,9 +101,15 @@
           <form class="hoc-pdp__form" id="pdp-form-asian-breeze" data-pdp-form action="../../blends/">
             <fieldset class="hoc-pdp__packs">
               <legend class="hoc-micro">Choose your pack</legend>
-                <label class="hoc-pdp__pack hoc-pdp__pack--thumb">
-                  <input type="radio" name="pack" value="doypack" data-pdp-variant data-price="€15" data-label="Doypack, 100 g" checked><span class="hoc-pdp__pack-thumb" aria-hidden="true"><img src="../../assets/img/sticker-asian-breeze-600.webp?v=288e3f278d" alt="" width="600" height="900" decoding="async"></span>
+                <label class="hoc-pdp__pack">
+                  <input type="radio" name="pack" value="doypack" data-pdp-variant data-price="€15" data-label="Doypack, 100 g" checked>
                   <span class="hoc-pdp__pack-name">Doypack</span>
+                  <span class="hoc-pdp__pack-meta"><span>100 g</span><span>≈ 25–33 cups</span></span>
+                  <span class="hoc-pdp__pack-price">€15</span>
+                </label>
+                <label class="hoc-pdp__pack">
+                  <input type="radio" name="pack" value="doypack-colour" data-pdp-variant data-price="€15" data-label="Colour doypack, 100 g">
+                  <span class="hoc-pdp__pack-name">Colour doypack</span>
                   <span class="hoc-pdp__pack-meta"><span>100 g</span><span>≈ 25–33 cups</span></span>
                   <span class="hoc-pdp__pack-price">€15</span>
                 </label>
@@ -257,28 +275,52 @@
       <ul class="hoc-pdp-more__rail">
         <li class="hoc-pdp-more__item" style="--accent:#85475E;--accent-2:#B37F92;--accent-wash:#EBE0E4;--accent-ink:#4E2D39;--liquid:#9E4A5E">
           <a href="../../products/souls-rest/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-souls-rest-600.webp?v=a520391265" srcset="../../assets/img/sticker-souls-rest-600.webp?v=a520391265 600w, ../../assets/img/sticker-souls-rest-1000.webp?v=ceaf245352 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f"
+        srcset="../../assets/img/pack-souls-rest-420.webp?v=159b1d2257 420w, ../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f 640w, ../../assets/img/pack-souls-rest-900.webp?v=d2e3429f07 900w, ../../assets/img/pack-souls-rest-1200.webp?v=64de53f207 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Soul's Rest</span>
             <span class="hoc-pdp-more__meta">Rose oolong, caffeinated</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#6B8B41;--accent-2:#9DB87A;--accent-wash:#E6ECDF;--accent-ink:#405129;--liquid:#6E8A3F">
           <a href="../../products/gold-skies/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-gold-skies-600.webp?v=29d582115c" srcset="../../assets/img/sticker-gold-skies-600.webp?v=29d582115c 600w, ../../assets/img/sticker-gold-skies-1000.webp?v=e9d5e6e302 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gold-skies-640.webp?v=d9113171e2"
+        srcset="../../assets/img/pack-gold-skies-420.webp?v=71865a59f8 420w, ../../assets/img/pack-gold-skies-640.webp?v=d9113171e2 640w, ../../assets/img/pack-gold-skies-900.webp?v=0fa6fe3add 900w, ../../assets/img/pack-gold-skies-1200.webp?v=20d58d312c 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Gold Skies</span>
             <span class="hoc-pdp-more__meta">Fruity green tea, caffeinated</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#89436B;--accent-2:#B67C9D;--accent-wash:#ECDFE6;--accent-ink:#502A40;--liquid:#B0362A">
           <a href="../../products/pink-senses/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73" srcset="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73 600w, ../../assets/img/sticker-pink-senses-1000.webp?v=eb7f64c7ce 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10"
+        srcset="../../assets/img/pack-pink-senses-420.webp?v=62049059ee 420w, ../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10 640w, ../../assets/img/pack-pink-senses-900.webp?v=f4f9b4a93b 900w, ../../assets/img/pack-pink-senses-1200.webp?v=d28daacec3 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Pink Senses</span>
             <span class="hoc-pdp-more__meta">Fruity jasmine tea, low caffeine</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F">
           <a href="../../products/wintertide/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-wintertide-600.webp?v=aca69e16d3" srcset="../../assets/img/sticker-wintertide-600.webp?v=aca69e16d3 600w, ../../assets/img/sticker-wintertide-1000.webp?v=fb9dcab970 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a"
+        srcset="../../assets/img/pack-wintertide-420.webp?v=93734c03ed 420w, ../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a 640w, ../../assets/img/pack-wintertide-900.webp?v=937e04ef72 900w, ../../assets/img/pack-wintertide-1200.webp?v=69ac0ce502 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Wintertide</span>
             <span class="hoc-pdp-more__meta">Fruity fennel tea, caffeine-free</span>
           </a>
@@ -832,5 +874,5 @@
 </svg>
 
 <script src="../../assets/vendor/gsap.min.js?v=b9a1a52787"></script><script src="../../assets/vendor/ScrollTrigger.min.js?v=4aeb84b07a"></script><script src="../../assets/vendor/SplitText.min.js?v=03f532f721"></script><script src="../../assets/vendor/CustomEase.min.js?v=155a4e7ffe"></script><script src="../../assets/vendor/DrawSVGPlugin.min.js?v=1022fa54a7"></script><script src="../../assets/vendor/Flip.min.js?v=b42ca485d0"></script><script src="../../assets/vendor/ScrambleTextPlugin.min.js?v=258f54d8bd"></script><script src="../../assets/vendor/Observer.min.js?v=298b0ea32d"></script><script src="../../assets/vendor/lenis.min.js?v=804047c1d9"></script><script src="../../assets/vendor/embla-carousel.umd.js?v=181961bf7d"></script>
-<script src="../../assets/js/hoc-data.js?v=a9b469af73"></script><script src="../../assets/js/hoc-core.js?v=78b7a501fa"></script><script src="../../assets/js/hoc-botanicals.js?v=0caae7f19b"></script><script src="../../assets/js/hoc-webgl.js?v=5d4a3d1df4"></script><script src="../../assets/js/hoc-motion.js?v=c70841a2a0"></script><script src="../../assets/js/hoc-product.js?v=6836f8e403"></script>
+<script src="../../assets/js/hoc-data.js?v=e1e90aa17f"></script><script src="../../assets/js/hoc-core.js?v=a2fb44a3f9"></script><script src="../../assets/js/hoc-botanicals.js?v=0caae7f19b"></script><script src="../../assets/js/hoc-webgl.js?v=5d4a3d1df4"></script><script src="../../assets/js/hoc-motion.js?v=c70841a2a0"></script><script src="../../assets/js/hoc-product.js?v=98d74a6afb"></script>
 </body></html>

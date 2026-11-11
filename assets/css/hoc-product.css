@@ -103,6 +103,18 @@
 .hoc-pdp__slide > .hoc-doypack--empty {
   background: rgb(255 255 255 / 0.28);
 }
+.hoc-pdp__slide > [hidden] {
+  display: none;
+}
+/* The tin is a studio photograph: it fills the frame. */
+.hoc-pdp__slide > img.hoc-tinphoto.hoc-pdp__pack-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: none;
+}
 .hoc-pdp__thumbs {
   display: flex;
   gap: 0.6rem;
@@ -204,7 +216,7 @@
    front as a small thumbnail; the tin tile is words only. */
 .hoc-pdp__packs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   gap: 0.75rem;
   min-width: 0;
   margin: 0;

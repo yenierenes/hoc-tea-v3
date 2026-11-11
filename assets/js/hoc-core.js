@@ -694,10 +694,19 @@
 
     /* The real pack: the doypack front as printed, or an empty frame for a
        blend whose doypack design has not arrived yet. Never a drawing. */
-    function packThumb(b) {
-      if (!b.sticker) return '<span class="hoc-doypack hoc-doypack--empty" aria-hidden="true"></span>';
-      return '<img class="hoc-doypack" src="' + (HOC.assetBase || "") + "assets/img/sticker-" + b.slug +
-        '-600.webp" alt="" width="600" height="900" loading="lazy" decoding="async">';
+    /* The pack in the line: the white doypack, the colour label or the tin. */
+    function packThumb(b, pack) {
+      var base = HOC.assetBase || "";
+      if (pack === "tin") {
+        return '<img class="hoc-tinphoto" src="' + base + "assets/img/tin-" + b.slug +
+          '-640.webp" alt="" width="640" height="754" loading="lazy" decoding="async">';
+      }
+      if (pack === "doypack-colour" && b.sticker) {
+        return '<img class="hoc-doypack" src="' + base + "assets/img/sticker-" + b.slug +
+          '-600.webp" alt="" width="600" height="900" loading="lazy" decoding="async">';
+      }
+      return '<img class="hoc-doypack hoc-doypack--white" src="' + base + "assets/img/pack-" + b.slug +
+        '-420.webp" alt="" width="420" height="664" loading="lazy" decoding="async">';
     }
 
     function render() {
@@ -722,7 +731,7 @@
               '" data-pack="' +
               i.pack +
               '">' +
-              '<div class="hoc-cartitem__thumb">' + packThumb(b) + "</div>" +
+              '<div class="hoc-cartitem__thumb">' + packThumb(b, i.pack) + "</div>" +
               "<div>" +
               '<p class="hoc-cartitem__name">' +
               b.name +
@@ -765,7 +774,7 @@
       if (!pick) return "";
       return (
         '<div class="hoc-upsell">' +
-        '<span class="hoc-upsell__media">' + packThumb(pick) + "</span>" +
+        '<span class="hoc-upsell__media">' + packThumb(pick, "doypack") + "</span>" +
         "<div><p class=\"hoc-micro\">Try another ritual.</p>" +
         '<p class="hoc-cartitem__name">' +
         pick.name +

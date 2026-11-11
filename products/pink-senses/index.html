@@ -9,13 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/hoc-core.css?v=e683d9a3c9">
+<link rel="stylesheet" href="../../assets/css/hoc-core.css?v=432273fa81">
 <link rel="stylesheet" href="../../assets/css/hoc-sections.css?v=c69b9c40b4">
-<link rel="stylesheet" href="../../assets/css/hoc-product.css?v=53231c8d0e">
+<link rel="stylesheet" href="../../assets/css/hoc-product.css?v=bd9a5b727a">
 <meta property="og:type" content="product">
 <meta property="og:title" content="Pink Senses — HOC Tea">
 <meta property="og:description" content="Pineapple and jasmine. Perfumed, fruity, elegant.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pink Senses","description":"Fruity jasmine tea. Pineapple and jasmine. Perfumed, fruity, elegant.","brand":{"@type":"Brand","name":"HOC Tea"},"image":["../../assets/img/sticker-pink-senses-1000.webp?v=eb7f64c7ce"],"offers":[{"@type":"Offer","name":"Tin 80 g","price":"22.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Doypack 100 g","price":"18.00","priceCurrency":"EUR"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pink Senses","description":"Fruity jasmine tea. Pineapple and jasmine. Perfumed, fruity, elegant.","brand":{"@type":"Brand","name":"HOC Tea"},"image":["../../assets/img/pack-pink-senses-900.webp?v=f4f9b4a93b"],"offers":[{"@type":"Offer","name":"Doypack 100 g","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Colour doypack 100 g","price":"18.00","priceCurrency":"EUR"},{"@type":"Offer","name":"Tin 80 g","price":"22.00","priceCurrency":"EUR"}]}</script>
 <script>window.HOC = { assetBase: '../../' };</script>
 <script>document.documentElement.classList.add('hoc-js');</script>
 </head>
@@ -73,7 +73,19 @@
       <div class="hoc-pdp__grid">
         <div class="hoc-pdp__gallery" data-pdp-gallery>
           <div class="hoc-pdp__slides">
-            <figure class="hoc-pdp__slide" data-pdp-scene="pack"><img class="hoc-doypack hoc-pdp__pack-image" src="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73" srcset="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73 600w, ../../assets/img/sticker-pink-senses-1000.webp?v=eb7f64c7ce 1000w" sizes="(max-width: 1023px) 62vw, 30vw" width="1000" height="1500" alt="Pink Senses doypack" fetchpriority="high" decoding="async"></figure>
+            <figure class="hoc-pdp__slide" data-pdp-scene="pack"><img data-pdp-pack="doypack" class="hoc-doypack hoc-pdp__pack-image hoc-doypack--white"
+        src="../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10"
+        srcset="../../assets/img/pack-pink-senses-420.webp?v=62049059ee 420w, ../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10 640w, ../../assets/img/pack-pink-senses-900.webp?v=f4f9b4a93b 900w, ../../assets/img/pack-pink-senses-1200.webp?v=d28daacec3 1200w"
+        sizes="(max-width: 1023px) 62vw, 30vw"
+        width="900" height="1422"
+        alt="Pink Senses doypack"
+        fetchpriority="high" decoding="async"><img data-pdp-pack="doypack-colour" hidden class="hoc-doypack hoc-pdp__pack-image" src="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73" srcset="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73 600w, ../../assets/img/sticker-pink-senses-1000.webp?v=eb7f64c7ce 1000w" sizes="(max-width: 1023px) 62vw, 30vw" width="1000" height="1500" alt="Pink Senses doypack" loading="lazy" decoding="async"><img data-pdp-pack="tin" hidden class="hoc-tinphoto hoc-pdp__pack-image"
+        src="../../assets/img/tin-pink-senses.jpg?v=a148b1f427"
+        srcset="../../assets/img/tin-pink-senses-640.webp?v=8e3e5adc5c 640w, ../../assets/img/tin-pink-senses-1024.webp?v=a18a29ac96 1024w"
+        sizes="(max-width: 1023px) 100vw, 50vw"
+        width="640" height="754"
+        alt="Pink Senses tins"
+        loading="lazy" decoding="async"></figure>
           </div>
         </div>
 
@@ -89,9 +101,15 @@
           <form class="hoc-pdp__form" id="pdp-form-pink-senses" data-pdp-form action="../../blends/">
             <fieldset class="hoc-pdp__packs">
               <legend class="hoc-micro">Choose your pack</legend>
-                <label class="hoc-pdp__pack hoc-pdp__pack--thumb">
-                  <input type="radio" name="pack" value="doypack" data-pdp-variant data-price="€18" data-label="Doypack, 100 g" checked><span class="hoc-pdp__pack-thumb" aria-hidden="true"><img src="../../assets/img/sticker-pink-senses-600.webp?v=f8575efe73" alt="" width="600" height="900" decoding="async"></span>
+                <label class="hoc-pdp__pack">
+                  <input type="radio" name="pack" value="doypack" data-pdp-variant data-price="€18" data-label="Doypack, 100 g" checked>
                   <span class="hoc-pdp__pack-name">Doypack</span>
+                  <span class="hoc-pdp__pack-meta"><span>100 g</span><span>≈ 25–33 cups</span></span>
+                  <span class="hoc-pdp__pack-price">€18</span>
+                </label>
+                <label class="hoc-pdp__pack">
+                  <input type="radio" name="pack" value="doypack-colour" data-pdp-variant data-price="€18" data-label="Colour doypack, 100 g">
+                  <span class="hoc-pdp__pack-name">Colour doypack</span>
                   <span class="hoc-pdp__pack-meta"><span>100 g</span><span>≈ 25–33 cups</span></span>
                   <span class="hoc-pdp__pack-price">€18</span>
                 </label>
@@ -252,28 +270,52 @@
       <ul class="hoc-pdp-more__rail">
         <li class="hoc-pdp-more__item" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F">
           <a href="../../products/wintertide/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-wintertide-600.webp?v=aca69e16d3" srcset="../../assets/img/sticker-wintertide-600.webp?v=aca69e16d3 600w, ../../assets/img/sticker-wintertide-1000.webp?v=fb9dcab970 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a"
+        srcset="../../assets/img/pack-wintertide-420.webp?v=93734c03ed 420w, ../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a 640w, ../../assets/img/pack-wintertide-900.webp?v=937e04ef72 900w, ../../assets/img/pack-wintertide-1200.webp?v=69ac0ce502 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Wintertide</span>
             <span class="hoc-pdp-more__meta">Fruity fennel tea, caffeine-free</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#954437;--accent-2:#C17C71;--accent-wash:#EEDFDD;--accent-ink:#572B24;--liquid:#A63B2E">
           <a href="../../products/bloomera/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-bloomera-600.webp?v=b312cbdddb" srcset="../../assets/img/sticker-bloomera-600.webp?v=b312cbdddb 600w, ../../assets/img/sticker-bloomera-1000.webp?v=9530438ffb 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-bloomera-640.webp?v=5830276783"
+        srcset="../../assets/img/pack-bloomera-420.webp?v=587fb70166 420w, ../../assets/img/pack-bloomera-640.webp?v=5830276783 640w, ../../assets/img/pack-bloomera-900.webp?v=e6393c2039 900w, ../../assets/img/pack-bloomera-1200.webp?v=a18b64415c 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Bloomera</span>
             <span class="hoc-pdp-more__meta">Apple &amp; cinnamon stick tea, caffeine-free</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#164A52;--accent-2:#9CC3C6;--accent-wash:#D6E2E3;--accent-ink:#0F363C;--liquid:#8C2A33">
           <a href="../../products/gift-of-nature/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-gift-of-nature-600.webp?v=afbdf5a6ec" srcset="../../assets/img/sticker-gift-of-nature-600.webp?v=afbdf5a6ec 600w, ../../assets/img/sticker-gift-of-nature-1000.webp?v=8b84df86e2 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3"
+        srcset="../../assets/img/pack-gift-of-nature-420.webp?v=9b51650d20 420w, ../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3 640w, ../../assets/img/pack-gift-of-nature-900.webp?v=9f23da778d 900w, ../../assets/img/pack-gift-of-nature-1200.webp?v=46f5374fad 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Gift of Nature</span>
             <span class="hoc-pdp-more__meta">Hibiscus &amp; lemongrass tea, caffeine-free</span>
           </a>
         </li>
         <li class="hoc-pdp-more__item" style="--accent:#553B91;--accent-2:#8A75BD;--accent-wash:#E2DEED;--accent-ink:#342654;--liquid:#4D3A8C">
           <a href="../../products/mystic-butterfly/">
-            <span class="hoc-pdp-more__media"><img class="hoc-doypack" src="../../assets/img/sticker-mystic-butterfly-600.webp?v=0e9f895fb9" srcset="../../assets/img/sticker-mystic-butterfly-600.webp?v=0e9f895fb9 600w, ../../assets/img/sticker-mystic-butterfly-1000.webp?v=70850ee664 1000w" sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></span>
+            <span class="hoc-pdp-more__media"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58"
+        srcset="../../assets/img/pack-mystic-butterfly-420.webp?v=df7d0e2059 420w, ../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58 640w, ../../assets/img/pack-mystic-butterfly-900.webp?v=1d3d99960f 900w, ../../assets/img/pack-mystic-butterfly-1200.webp?v=fc3c9650e9 1200w"
+        sizes="(max-width: 699px) 40vw, (max-width: 1023px) 22vw, 14vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></span>
             <span class="hoc-pdp-more__name">Mystic Butterfly</span>
             <span class="hoc-pdp-more__meta">Hibiscus &amp; butterfly pea tea, caffeine-free</span>
           </a>
@@ -827,5 +869,5 @@
 </svg>
 
 <script src="../../assets/vendor/gsap.min.js?v=b9a1a52787"></script><script src="../../assets/vendor/ScrollTrigger.min.js?v=4aeb84b07a"></script><script src="../../assets/vendor/SplitText.min.js?v=03f532f721"></script><script src="../../assets/vendor/CustomEase.min.js?v=155a4e7ffe"></script><script src="../../assets/vendor/DrawSVGPlugin.min.js?v=1022fa54a7"></script><script src="../../assets/vendor/Flip.min.js?v=b42ca485d0"></script><script src="../../assets/vendor/ScrambleTextPlugin.min.js?v=258f54d8bd"></script><script src="../../assets/vendor/Observer.min.js?v=298b0ea32d"></script><script src="../../assets/vendor/lenis.min.js?v=804047c1d9"></script><script src="../../assets/vendor/embla-carousel.umd.js?v=181961bf7d"></script>
-<script src="../../assets/js/hoc-data.js?v=a9b469af73"></script><script src="../../assets/js/hoc-core.js?v=78b7a501fa"></script><script src="../../assets/js/hoc-botanicals.js?v=0caae7f19b"></script><script src="../../assets/js/hoc-webgl.js?v=5d4a3d1df4"></script><script src="../../assets/js/hoc-motion.js?v=c70841a2a0"></script><script src="../../assets/js/hoc-product.js?v=6836f8e403"></script>
+<script src="../../assets/js/hoc-data.js?v=e1e90aa17f"></script><script src="../../assets/js/hoc-core.js?v=a2fb44a3f9"></script><script src="../../assets/js/hoc-botanicals.js?v=0caae7f19b"></script><script src="../../assets/js/hoc-webgl.js?v=5d4a3d1df4"></script><script src="../../assets/js/hoc-motion.js?v=c70841a2a0"></script><script src="../../assets/js/hoc-product.js?v=98d74a6afb"></script>
 </body></html>

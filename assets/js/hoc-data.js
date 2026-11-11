@@ -444,7 +444,10 @@
 
   var PACKAGING = [
     { id: "tin", label: "Tin", weight: "80 g", delta: 400 },
-    { id: "doypack", label: "Doypack", weight: "100 g", delta: 0 }
+    { id: "doypack", label: "Doypack", weight: "100 g", delta: 0 },
+    /* The same doypack with the blend's printed colour label. Offered only
+       for blends whose label design exists (blend.sticker). */
+    { id: "doypack-colour", label: "Colour doypack", weight: "100 g", delta: 0, printed: true }
   ];
 
   /* ------------------------------------------------------------------
