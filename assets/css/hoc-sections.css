@@ -2676,6 +2676,13 @@ html:not(.hoc-js) .hoc-alchemy__controls {
 .hoc-range__pile--photo img {
   object-fit: cover;
 }
+/* No photograph yet: the same round slot, empty, saying so. */
+.hoc-range__pile--empty {
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgb(var(--hoc-ink-rgb) / 0.3);
+  color: var(--on-surface);
+}
 .hoc-range__price--soon {
   font-family: var(--ff-ui);
 }

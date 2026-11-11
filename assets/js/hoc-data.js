@@ -442,6 +442,44 @@
     cta: "See how a bowl is made"
   };
 
+  /* HOJICHA and UBE — coming soon, from the same doypack file (pp.4–5).
+     Only what the packs say: roasted matcha powder / purple sweet potato
+     powder, premium, 250 g. Colours are taken from each printed pack. No
+     photograph yet, so the round photo slot waits for one. */
+  var HOJICHA = {
+    slug: "hojicha",
+    name: "Hojicha",
+    type: "Roasted matcha powder",
+    descriptor: "Japanese · Roasted · Green tea powder",
+    notes: ["Roasted matcha powder", "250 g"],
+    ingredients: ["Roasted matcha powder"],
+    weight: "250 g",
+    accent: "#835C34",
+    accent2: "#C5A27C",
+    wash: "#EFE6DA",
+    accentInk: "#4E3620",
+    liquid: "#AA7745",
+    sticker: true,
+    comingSoon: true
+  };
+
+  var UBE = {
+    slug: "ube",
+    name: "Ube",
+    type: "Purple sweet potato powder",
+    descriptor: "Purple sweet potato · Powder",
+    notes: ["Purple sweet potato powder", "250 g"],
+    ingredients: ["Purple sweet potato powder"],
+    weight: "250 g",
+    accent: "#6E3F69",
+    accent2: "#CC7DA3",
+    wash: "#F1E2EA",
+    accentInk: "#45263F",
+    liquid: "#9A5A84",
+    sticker: true,
+    comingSoon: true
+  };
+
   var PACKAGING = [
     { id: "tin", label: "Tin", weight: "80 g", delta: 400 },
     { id: "doypack", label: "Doypack", weight: "100 g", delta: 0 },
@@ -701,6 +739,7 @@
       return b.featured;
     }),
     matcha: MATCHA,
+    soon: [MATCHA, HOJICHA, UBE],
     money: money
   };
 })(window);
