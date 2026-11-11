@@ -1,0 +1,442 @@
+/* ==========================================================================
+   HOC TEA — hoc-matcha.css
+   The matcha chapter at the end of /blends/ (tools/pages/matcha.mjs).
+
+   1. The product, coming soon: photograph, name, doypack.
+   2. How a bowl is made: one line drawing, inked and set in motion by
+      hoc-matcha.js on a pinned, scrubbed stage (.is-live). Without it the
+      drawing is a finished still life beside the full list of steps.
+
+   Teal ink for every line; matcha green only where the tea itself is
+   (powder, tea, froth).
+   ========================================================================== */
+
+.hoc-matcha {
+  --m-ink: var(--hoc-ink);
+  --m-water: var(--hoc-teal-lift);
+  --m-ground: var(--hoc-bone);
+  --m-powder: #4e7a2c;
+  --m-tea: #6b9640;
+  --m-froth: #bed5a4;
+  --m-sw: 1.6; /* line weight, in drawing units */
+  padding-block: clamp(3.5rem, 8vh, 6rem) clamp(4rem, 9vh, 7rem);
+}
+
+/* --------------------------------------------------------------------------
+   1. INTRO
+   -------------------------------------------------------------------------- */
+
+.hoc-matcha__intro {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  padding-top: clamp(2.5rem, 6vh, 4.5rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.hoc-matcha__name {
+  line-height: 0.9;
+}
+.hoc-matcha__type {
+  margin-top: clamp(0.75rem, 1.6vh, 1.25rem);
+  font-family: var(--ff-display);
+  font-size: var(--fs-lede);
+  line-height: 1.3;
+  color: var(--on-surface-dim);
+}
+
+.hoc-matcha__photo {
+  min-width: 0;
+  /* a portrait, kept within one screen */
+  width: 100%;
+  max-width: calc(78vh * 0.8);
+  max-width: calc(78svh * 0.8);
+}
+.hoc-matcha__frame {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--hoc-bone-soft);
+  border-start-start-radius: var(--curve-lg);
+  border-end-end-radius: var(--curve-lg);
+}
+.hoc-matcha__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hoc-matcha__credit {
+  margin-top: 0.75rem;
+  font-size: var(--fs-micro);
+  color: var(--on-surface-dim);
+}
+
+.hoc-matcha__body {
+  max-width: 36ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* Where the price and the bag button would be: the pack, the weight and a
+   plain "coming soon". */
+.hoc-matcha__buy {
+  display: grid;
+  grid-template-columns: minmax(0, clamp(7.5rem, 10vw, 10.5rem)) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin-top: clamp(1.75rem, 4vh, 2.75rem);
+  padding-top: clamp(1.5rem, 3vh, 2rem);
+  border-top: 1px solid var(--hairline);
+}
+.hoc-matcha__pack .hoc-doypack {
+  width: 100%;
+}
+.hoc-matcha__status {
+  display: grid;
+  justify-items: start;
+  gap: 0.85rem;
+  padding-bottom: 0.25rem;
+}
+.hoc-matcha__weight {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  line-height: 1;
+}
+.hoc-matcha__soon .hoc-micro {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  color: var(--on-surface);
+  border: 1px solid currentColor;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+.hoc-matcha__note {
+  max-width: 30ch;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--on-surface-dim);
+}
+.hoc-matcha__note a {
+  color: var(--on-surface);
+}
+
+@media (min-width: 900px) {
+  .hoc-matcha__intro {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "photo . head"
+      "photo . detail";
+    column-gap: var(--col-gap);
+    row-gap: clamp(1.5rem, 3vh, 2.5rem);
+  }
+  .hoc-matcha__photo { grid-area: photo; }
+  .hoc-matcha__head { grid-area: head; padding-top: clamp(0.5rem, 3vh, 2.5rem); }
+  /* Description under the name; the pack row sits level with the photo's
+     foot, above its credit. */
+  .hoc-matcha__detail {
+    grid-area: detail;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2.4rem;
+  }
+  .hoc-matcha__buy {
+    margin-top: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. HOW A BOWL IS MADE
+   -------------------------------------------------------------------------- */
+
+.hoc-matcha__make {
+  padding-top: var(--space-section);
+}
+.hoc-matcha__makehead {
+  display: grid;
+  gap: 1rem clamp(2rem, 5vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+.hoc-matcha__title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-section);
+  line-height: 1;
+  letter-spacing: var(--ls-display);
+}
+.hoc-matcha__lede {
+  max-width: 34ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+@media (min-width: 900px) {
+  .hoc-matcha__makehead {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+
+.hoc-matcha__stage {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hoc-matcha__stage {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+.hoc-matcha__fig {
+  min-width: 0;
+}
+/* Standing still (no JS, reduced motion), the drawing is its final still
+   life: crop the empty air the sieve and the lifted whisk need. */
+.hoc-matcha:not(.is-live) .hoc-matcha__fig {
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 584 / 300;
+  overflow: hidden;
+}
+.hoc-matcha:not(.is-live) .hoc-matcha__svg {
+  flex: none;
+}
+
+/* --- the drawing ----------------------------------------------------------- */
+
+.hoc-matcha__svg {
+  width: 100%;
+  height: auto;
+}
+.hoc-matcha__svg .m-l,
+.hoc-matcha__svg .m-water,
+.hoc-matcha__svg .m-green,
+.hoc-matcha__svg .m-meniscus,
+.hoc-matcha__svg .m-wpath {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hoc-matcha__svg .m-l {
+  stroke: var(--m-ink);
+  stroke-width: var(--m-sw);
+}
+/* Tints are stroke/fill opacity, so the timeline is free to use opacity. */
+.hoc-matcha__svg .m-fine { stroke-width: calc(var(--m-sw) * 0.62); }
+.hoc-matcha__svg .m-hair { stroke-width: calc(var(--m-sw) * 0.5); stroke-opacity: 0.45; }
+.hoc-matcha__svg .m-soft { stroke-opacity: 0.6; }
+.hoc-matcha__svg .m-occlude { fill: var(--m-ground); }
+
+.hoc-matcha__svg .m-water {
+  stroke: var(--m-water);
+  stroke-width: calc(var(--m-sw) * 0.85);
+}
+.hoc-matcha__svg .m-stream { stroke-width: calc(var(--m-sw) * 1.15); }
+.hoc-matcha__svg .m-wipe { stroke-width: calc(var(--m-sw) * 1.6); stroke-opacity: 0.5; }
+
+.hoc-matcha__svg .m-dots { fill: var(--m-powder); }
+.hoc-matcha__svg .m-mound { fill: var(--m-powder); fill-opacity: 0.85; }
+.hoc-matcha__svg .m-tea { fill: var(--m-tea); }
+.hoc-matcha__svg .m-froth-base { fill: var(--m-froth); }
+.hoc-matcha__svg .m-froth { fill-opacity: 0.6; }
+.hoc-matcha__svg .m-meniscus,
+.hoc-matcha__svg .m-green,
+.hoc-matcha__svg .m-wpath {
+  stroke: var(--m-powder);
+  stroke-width: calc(var(--m-sw) * 0.7);
+}
+.hoc-matcha__svg .m-bubbles {
+  fill: none;
+  stroke: var(--m-powder);
+  stroke-width: calc(var(--m-sw) * 0.5);
+}
+
+/* Props that only appear mid-sequence. The timeline sets their opacity. */
+.hoc-matcha__svg .m-t {
+  opacity: 0;
+}
+
+/* --- the steps ------------------------------------------------------------- */
+
+.hoc-matcha__side {
+  min-width: 0;
+}
+.hoc-matcha__steps {
+  border-top: 1px solid var(--hairline);
+}
+.hoc-matcha__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  padding-block: clamp(0.85rem, 1.9vh, 1.2rem);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--on-surface);
+}
+.hoc-matcha__num {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  color: var(--on-surface-dim);
+  transform: translateY(-0.1em);
+}
+.hoc-matcha__cap {
+  font-family: var(--ff-display);
+  font-size: clamp(1.3rem, 0.9vw + 0.85rem, 1.75rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.hoc-matcha__data {
+  display: grid;
+  justify-items: end;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--hoc-teal-deep);
+}
+
+.hoc-matcha__bar {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. LIVE — the pinned, scrubbed sequence (set by hoc-matcha.js)
+   -------------------------------------------------------------------------- */
+
+.hoc-matcha.is-live .hoc-matcha__step {
+  color: var(--on-surface-dim);
+  transition: color var(--t-ui) var(--e-hoc);
+}
+.hoc-matcha.is-live .hoc-matcha__step.is-on {
+  color: var(--on-surface);
+}
+.hoc-matcha.is-live .hoc-matcha__num {
+  transition: color var(--t-ui) var(--e-hoc);
+}
+.hoc-matcha.is-live .hoc-matcha__step.is-on .hoc-matcha__num {
+  color: var(--on-surface);
+}
+/* Each step's rule inks in while it plays and stays inked once done, so the
+   list ticks itself off (--p is set by hoc-matcha.js). */
+.hoc-matcha.is-live .hoc-matcha__step::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--on-surface);
+  transform-origin: left center;
+  transform: scaleX(var(--p, 0));
+}
+.hoc-matcha__bar span {
+  display: block;
+  height: 100%;
+  background: var(--on-surface);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* The whole block pins, title included: one screen, like a page from a
+   recipe book. */
+.hoc-matcha.is-live .hoc-matcha__make {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100svh;
+  padding-top: calc(var(--header-h-scrolled) + clamp(1rem, 4.5vh, 3rem));
+  padding-bottom: clamp(1rem, 4vh, 2.5rem);
+}
+.hoc-matcha.is-live .hoc-matcha__makehead {
+  flex: none;
+  margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+}
+
+@media (min-width: 900px) {
+  .hoc-matcha.is-live .hoc-matcha__stage {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .hoc-matcha.is-live .hoc-matcha__fig {
+    display: grid;
+    align-items: end;
+    height: 100%;
+    min-height: 0;
+  }
+  .hoc-matcha.is-live .hoc-matcha__svg {
+    max-height: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. PHONES — drawing above, one step at a time below it
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+  .hoc-matcha {
+    --m-sw: 2.2;
+  }
+  .hoc-matcha__buy {
+    grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  }
+  .hoc-matcha.is-live .hoc-matcha__make {
+    justify-content: center;
+    padding-top: calc(var(--header-h-scrolled) + 1rem);
+    padding-bottom: 1.25rem;
+  }
+  .hoc-matcha.is-live .hoc-matcha__stage {
+    gap: 1.25rem;
+  }
+  .hoc-matcha.is-live .hoc-matcha__steps {
+    display: grid;
+    border-top: 0;
+  }
+  /* Every step stays in the list for screen readers; only the current one
+     is shown. */
+  .hoc-matcha.is-live .hoc-matcha__step {
+    grid-area: 1 / 1;
+    align-items: start;
+    border-bottom: 0;
+    padding-block: 0;
+    opacity: 0;
+    transform: translateY(0.35rem); /* still to come: waits just below */
+    /* leaving is quick, so two captions barely overlap */
+    transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+  }
+  .hoc-matcha.is-live .hoc-matcha__step.is-past {
+    transform: translateY(-0.35rem); /* done: leaves upwards */
+  }
+  .hoc-matcha.is-live .hoc-matcha__step.is-on {
+    opacity: 1;
+    transform: none;
+    /* arriving takes a beat longer, just after the last one has gone */
+    transition: opacity 0.42s var(--e-hoc) 0.1s, transform 0.42s var(--e-hoc) 0.1s;
+  }
+  .hoc-matcha.is-live .hoc-matcha__step::after {
+    display: none;
+  }
+  /* One step at a time, so the whole sequence gets one rule. */
+  .hoc-matcha.is-live .hoc-matcha__bar {
+    display: block;
+    height: 1px;
+    margin-top: 1rem;
+    background: var(--hairline);
+  }
+  .hoc-matcha.is-live .hoc-matcha__num {
+    transform: translateY(0.45em);
+  }
+  .hoc-matcha.is-live .hoc-matcha__cap {
+    font-size: clamp(1.45rem, 5.6vw, 1.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hoc-matcha__step,
+  .hoc-matcha__num {
+    transition: none;
+  }
+}

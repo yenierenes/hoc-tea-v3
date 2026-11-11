@@ -1,0 +1,870 @@
+/* ==========================================================================
+   HOC TEA — hoc-about.css
+   The About page (/about/). Loaded only there, after hoc-core.css and
+   hoc-sections.css. Every class is prefixed .hoc-ab- so nothing leaks.
+
+   Grounds alternate strictly: bone → deep teal → bone → deep teal → bone →
+   deep teal → bone, then the shared newsletter/footer (deep teal).
+
+   The one bold thing is the opening balance (1). Everything after it is
+   hairlines, whitespace and type.
+   ========================================================================== */
+
+.template-about {
+  --ab-h2: clamp(2.25rem, 4.6vw, 4.5rem);
+  --ab-pad: clamp(4.5rem, 9vh + 2.5rem, 9.5rem);
+}
+
+/* Shared H2: the display serif, one size for every section head. */
+.hoc-ab-h2 {
+  font-family: var(--ff-display);
+  font-size: var(--ab-h2);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+}
+
+/* Deep-teal sections: the lighter teal takes over as the accent, so focus
+   rings and underlines stay visible on the dark ground. */
+.hoc-ab-hand,
+.hoc-ab-palette,
+.hoc-ab-venues {
+  --accent: var(--hoc-teal-light);
+}
+
+/* A blend name that links to its page. */
+.hoc-ab-blend {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: rgb(var(--hoc-ink-rgb) / 0.32);
+  transition: text-decoration-color var(--t-micro) var(--e-hoc),
+    color var(--t-micro) var(--e-hoc);
+}
+.hoc-ab-blend:hover,
+.hoc-ab-blend:focus-visible {
+  text-decoration-color: currentColor;
+}
+[data-theme="ink"] .hoc-ab-blend {
+  text-decoration-color: rgb(var(--hoc-bone-rgb) / 0.38);
+}
+[data-theme="ink"] .hoc-ab-blend:hover,
+[data-theme="ink"] .hoc-ab-blend:focus-visible {
+  color: var(--hoc-teal-light);
+  text-decoration-color: currentColor;
+}
+
+/* ==========================================================================
+   1. OPENING — "a base, a flower or fruit to carry it, and one small touch
+   that sets the balance." Set on a beam over a fulcrum. Type size is the
+   proportion; the heavy word sits near the pivot, the light one far out.
+   ========================================================================== */
+
+.hoc-ab-open {
+  /* same header-safe top as .hoc-pagehead on /blends/ */
+  padding-block: calc(var(--header-h) + clamp(2.5rem, 7vh, 5.5rem))
+    clamp(4.5rem, 11vh, 8.5rem);
+  overflow: clip; /* the beam tips a few pixels past its box while it settles */
+}
+
+/* Title left, lede right, sharing a bottom edge; the lede's colon hands the
+   reader down to the beam. */
+.hoc-ab-open__head {
+  display: grid;
+  gap: clamp(1.25rem, 3vh, 2rem) clamp(2rem, 5vw, 6rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-open__head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    align-items: end;
+    align-items: last baseline;
+  }
+}
+.hoc-ab-open__title {
+  font-family: var(--ff-display);
+  font-size: var(--fs-display-l);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+}
+.hoc-ab-keep {
+  white-space: nowrap;
+}
+.hoc-ab-open__lede {
+  max-width: 34ch;
+  font-size: var(--fs-lede);
+  line-height: 1.45;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+.hoc-ab-scale {
+  --pivot: 30%;
+  position: relative;
+  display: block;
+  margin-top: clamp(3rem, 10vh, 7rem);
+  padding-bottom: 1.3rem; /* the fulcrum hangs in here */
+}
+
+/* The beam: the three parts sit on one line, last baselines aligned, with the
+   rule underneath. It turns about the fulcrum's apex. */
+.hoc-ab-scale__beam {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-items: last baseline;
+  gap: clamp(1.25rem, 3vw, 3.5rem);
+  padding-bottom: clamp(0.85rem, 1.9vw, 1.9rem);
+  transform-origin: var(--pivot) 100%;
+}
+.hoc-ab-scale__beam::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--on-surface);
+}
+
+.hoc-ab-scale__part {
+  display: block;
+  min-width: 0;
+  color: var(--on-surface);
+}
+
+/* Heaviest: the base. */
+.hoc-ab-scale__part--base {
+  flex: none;
+  font-family: var(--ff-display);
+  font-size: clamp(4rem, 11vw, 10.5rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+/* Lighter: the flower or fruit that carries it. */
+.hoc-ab-scale__part--carry {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.55rem, 3.3vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  max-width: 8.6em;
+  text-wrap: balance;
+}
+
+/* Lightest: the touch. The accent colour, because in a layout the accent is
+   exactly that — the small thing that sets the balance. */
+.hoc-ab-scale__part--touch {
+  font-family: var(--ff-ui);
+  font-size: clamp(0.95rem, 0.45vw + 0.82rem, 1.3rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+  max-width: 13.5em;
+  text-align: right;
+  color: var(--hoc-teal-lift);
+  text-wrap: balance;
+}
+
+.hoc-ab-scale__pivot {
+  position: absolute;
+  left: var(--pivot);
+  bottom: 0;
+  width: 2.1rem;
+  height: 1.35rem;
+  transform: translateX(-50%);
+  fill: var(--surface);
+  stroke: var(--on-surface);
+  stroke-width: 1.25;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+/* Before the script takes over, the parts wait (only where motion is on).
+   If the script never arrives they show themselves at 2.4s. */
+@media (prefers-reduced-motion: no-preference) {
+  html.hoc-js .hoc-ab-scale:not(.is-armed) .hoc-ab-scale__part {
+    opacity: 0;
+    animation: hoc-ab-failsafe 0.6s var(--e-hoc) 2.4s forwards;
+  }
+}
+@keyframes hoc-ab-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Narrow screens: the parts stack, still stepping from heavy (left) to
+   light (right), still over the same fulcrum. */
+@media (max-width: 767px) {
+  .hoc-ab-scale {
+    --pivot: 28%;
+    margin-top: 2.75rem;
+  }
+  .hoc-ab-scale__beam {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+    padding-bottom: 1.1rem;
+  }
+  .hoc-ab-scale__part--base {
+    align-self: flex-start;
+    font-size: clamp(3.5rem, 19vw, 5.5rem);
+  }
+  .hoc-ab-scale__part--carry {
+    align-self: center;
+    max-width: 10em;
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+  }
+  .hoc-ab-scale__part--touch {
+    align-self: flex-end;
+    max-width: 12em;
+  }
+}
+
+/* ==========================================================================
+   2. MADE BY HAND — deep teal. The real photograph, and the three numbers.
+   ========================================================================== */
+
+.hoc-ab-hand {
+  padding-block: var(--ab-pad);
+}
+
+.hoc-ab-hand__grid {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 6rem);
+  align-items: end;
+}
+@media (min-width: 900px) {
+  .hoc-ab-hand__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+.hoc-ab-hand__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--hoc-ink-lift);
+}
+.hoc-ab-hand__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%; /* keep the hand in frame when the box is cropped */
+  transform: scale(1.09); /* room for the quiet parallax */
+}
+/* Single column but wide (tablets): a full-width 4:5 frame would fill the
+   screen, so the photograph goes square. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .hoc-ab-hand__media {
+    aspect-ratio: 1;
+  }
+}
+
+.hoc-ab-hand__copy {
+  padding-bottom: clamp(0rem, 3vw, 2.5rem);
+}
+.hoc-ab-hand__copy .hoc-ab-h2 {
+  max-width: 9.5em;
+}
+.hoc-ab-hand__body {
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  max-width: 36ch;
+  font-size: var(--fs-lede);
+  line-height: 1.5;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* The numbers. Each one opens to show what it counts (native <details>,
+   one open at a time). Hairline-divided, no boxes. */
+.hoc-ab-counts {
+  display: grid;
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+  border-top: 1px solid var(--hairline);
+}
+@media (min-width: 768px) {
+  .hoc-ab-counts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .hoc-ab-count + .hoc-ab-count {
+    border-left: 1px solid var(--hairline);
+    padding-left: clamp(1.25rem, 3vw, 3rem);
+  }
+  .hoc-ab-count:not(:last-child) {
+    padding-right: clamp(1.25rem, 3vw, 3rem);
+  }
+}
+@media (max-width: 767px) {
+  .hoc-ab-count {
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+
+.hoc-ab-count__sum {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "n cue"
+    "label label";
+  align-items: start;
+  gap: 0.6rem 1rem;
+  padding-block: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 2.5vw, 2rem);
+  cursor: pointer;
+  list-style: none;
+}
+.hoc-ab-count__sum::-webkit-details-marker {
+  display: none;
+}
+.hoc-ab-count__sum:focus-visible {
+  outline-offset: 6px;
+}
+
+.hoc-ab-count__n {
+  grid-area: n;
+  font-family: var(--ff-display);
+  font-size: clamp(4.5rem, 10vw, 9rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  font-variant-numeric: lining-nums;
+}
+.hoc-ab-count__label {
+  grid-area: label;
+  max-width: 22ch;
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--on-surface-dim);
+}
+
+/* The cue: a plus that turns to a cross when open. Drawn, not typed, so it
+   sits optically centred. */
+.hoc-ab-count__cue {
+  grid-area: cue;
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 0.25rem;
+  border: 1px solid rgb(var(--hoc-bone-rgb) / 0.3);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  transition: border-color var(--t-micro) var(--e-hoc),
+    background-color var(--t-micro) var(--e-hoc);
+}
+.hoc-ab-count__cue::before,
+.hoc-ab-count__cue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.75rem;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform var(--t-ui) var(--e-hoc);
+}
+.hoc-ab-count__cue::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.hoc-ab-count__item[open] .hoc-ab-count__cue {
+  background: rgb(var(--hoc-bone-rgb) / 0.08);
+}
+.hoc-ab-count__item[open] .hoc-ab-count__cue::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.hoc-ab-count__item[open] .hoc-ab-count__cue::after {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hoc-ab-count__sum:hover .hoc-ab-count__cue {
+    border-color: var(--hoc-teal-light);
+  }
+}
+
+.hoc-ab-count__list {
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--on-surface);
+}
+.hoc-ab-count__list li {
+  display: inline;
+  white-space: nowrap;
+}
+/* The comma stays with its name; the space between items (in the markup)
+   is where a line may break. */
+.hoc-ab-count__list li:not(:last-child)::after {
+  content: ",";
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hoc-ab-count__item[open] .hoc-ab-count__list {
+    animation: hoc-ab-open-list var(--t-ui) var(--e-hoc);
+  }
+}
+@keyframes hoc-ab-open-list {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+}
+
+/* ==========================================================================
+   3. PRINCIPLES — bone. Heading left, three rows right.
+   ========================================================================== */
+
+.hoc-ab-rules {
+  padding-block: var(--ab-pad);
+}
+.hoc-ab-rules__grid {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-rules__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(3rem, 7vw, 8rem);
+  }
+}
+.hoc-ab-rules__head .hoc-ab-h2 {
+  max-width: 9em;
+}
+.hoc-ab-rules__intro {
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 38ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+.hoc-ab-rules__list {
+  border-top: 1px solid var(--on-surface);
+}
+.hoc-ab-rule {
+  display: grid;
+  gap: 0.7rem;
+  padding-block: clamp(1.5rem, 3vw, 2.4rem);
+  border-bottom: 1px solid var(--hairline);
+}
+.hoc-ab-rule__name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+.hoc-ab-rule__copy {
+  max-width: 46ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   4. PALETTE — deep teal. A typeset index: category, then the ingredients
+   set in the display serif like a line of verse.
+   ========================================================================== */
+
+.hoc-ab-palette {
+  padding-block: var(--ab-pad);
+}
+.hoc-ab-palette__head {
+  display: grid;
+  gap: 1rem 3rem;
+  margin-bottom: clamp(2.25rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-palette__head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
+}
+.hoc-ab-palette__intro {
+  max-width: 34ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+.hoc-ab-palette__index {
+  border-top: 1px solid var(--on-surface);
+}
+.hoc-ab-palette__row {
+  display: grid;
+  gap: 0.5rem 2rem;
+  padding-block: clamp(1.1rem, 2.2vw, 1.7rem);
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 768px) {
+  .hoc-ab-palette__row {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    align-items: baseline;
+  }
+}
+.hoc-ab-palette__name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--on-surface-dim);
+}
+.hoc-ab-palette__name > span {
+  transform: translateY(-0.05em);
+}
+.hoc-ab-palette__glyph {
+  width: 2.6rem;
+  height: 1.9rem;
+  color: var(--hoc-teal-light);
+  stroke-width: 2.4;
+}
+.hoc-ab-palette__glyph--wide {
+  stroke-width: 3.4; /* drawn smaller per unit, so a heavier stroke reads the same */
+}
+.hoc-ab-palette__items {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.9vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.hoc-ab-palette__link {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+/* ==========================================================================
+   5. THROUGH THE DAY — bone. A timetable: the moment, its blends, a note.
+   ========================================================================== */
+
+.hoc-ab-day {
+  padding-block: var(--ab-pad);
+}
+.hoc-ab-day__head {
+  display: grid;
+  gap: 1rem 3rem;
+  margin-bottom: clamp(2.25rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-day__head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
+}
+.hoc-ab-day__intro {
+  max-width: 30ch;
+  color: var(--on-surface-dim);
+}
+
+.hoc-ab-day__list {
+  border-top: 1px solid var(--on-surface);
+}
+.hoc-ab-moment {
+  display: grid;
+  gap: 0.5rem 2rem;
+  padding-block: clamp(1.1rem, 2.2vw, 1.6rem);
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 900px) {
+  .hoc-ab-moment {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr);
+    align-items: baseline;
+  }
+}
+.hoc-ab-moment__when {
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+.hoc-ab-moment__blends {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.35rem;
+  font-family: var(--ff-display);
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  line-height: 1.3;
+}
+.hoc-ab-moment__note {
+  max-width: 34ch;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--on-surface-dim);
+}
+
+.hoc-ab-brew {
+  display: grid;
+  gap: 1.25rem 2rem;
+  margin-top: clamp(2.75rem, 6vw, 4.5rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-brew {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    align-items: start;
+  }
+}
+.hoc-ab-brew__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.hoc-ab-brew__rules {
+  display: grid;
+  gap: 1.5rem 2rem;
+}
+@media (min-width: 700px) {
+  .hoc-ab-brew__rules {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.hoc-ab-brew__rules dd {
+  margin-top: 0.6rem;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   6. FOR VENUES — deep teal. The guest line as the heading, four venues in
+   a hairline cross, then the two formats.
+   ========================================================================== */
+
+.hoc-ab-venues {
+  padding-block: var(--ab-pad);
+}
+.hoc-ab-venues__head {
+  display: grid;
+  gap: 1.5rem 4rem;
+}
+@media (min-width: 900px) {
+  .hoc-ab-venues__head {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    align-items: end;
+  }
+}
+.hoc-ab-venues__title {
+  max-width: 11em;
+}
+.hoc-ab-venues__lede {
+  max-width: 34ch;
+  font-size: var(--fs-lede);
+  line-height: 1.45;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+.hoc-ab-venues__grid {
+  display: grid;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  border-top: 1px solid var(--hairline);
+}
+.hoc-ab-venue {
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 768px) {
+  .hoc-ab-venues__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hoc-ab-venue:nth-child(odd) {
+    padding-right: clamp(1.5rem, 4vw, 4rem);
+    border-right: 1px solid var(--hairline);
+  }
+  .hoc-ab-venue:nth-child(even) {
+    padding-left: clamp(1.5rem, 4vw, 4rem);
+  }
+}
+.hoc-ab-venue__name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.hoc-ab-venue__copy {
+  margin-top: 0.8rem;
+  max-width: 40ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+.hoc-ab-formats {
+  display: grid;
+  gap: 1.25rem 2rem;
+  margin-top: clamp(2.75rem, 6vw, 4.5rem);
+}
+@media (min-width: 900px) {
+  .hoc-ab-formats {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    align-items: start;
+  }
+}
+.hoc-ab-formats__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.hoc-ab-formats__list {
+  display: grid;
+  gap: 1.5rem 2rem;
+}
+@media (min-width: 700px) {
+  .hoc-ab-formats__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.hoc-ab-formats__list dt {
+  font-weight: 600;
+  font-size: var(--fs-small);
+  color: var(--hoc-teal-light);
+}
+.hoc-ab-formats__list dd {
+  margin-top: 0.5rem;
+  max-width: 40ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   7. LET'S START WITH A CUP — bone. The real tasting tube, the four steps,
+   the three terms.
+   ========================================================================== */
+
+.hoc-ab-start {
+  padding-block: var(--ab-pad);
+}
+.hoc-ab-start__top {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 5rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hoc-ab-start__top {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+}
+.hoc-ab-start__title {
+  font-family: var(--ff-display);
+  font-size: var(--fs-display-l);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  max-width: 8em;
+  text-wrap: balance;
+}
+.hoc-ab-start__lede {
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  max-width: 32ch;
+  font-size: var(--fs-lede);
+  line-height: 1.45;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+.hoc-ab-start__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+.hoc-ab-start__media {
+  position: relative;
+  aspect-ratio: 1060 / 960;
+  overflow: hidden;
+  background: var(--hoc-bone-soft);
+}
+.hoc-ab-start__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hoc-ab-steps {
+  display: grid;
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+  border-top: 1px solid var(--on-surface);
+  counter-reset: none;
+}
+.hoc-ab-step {
+  display: grid;
+  align-content: start;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  padding-block: clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 900px) {
+  .hoc-ab-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .hoc-ab-step {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: clamp(1rem, 2.5vw, 2.5rem);
+    border-bottom: 0;
+  }
+  .hoc-ab-step + .hoc-ab-step {
+    padding-left: clamp(1rem, 2vw, 1.75rem);
+    border-left: 1px solid var(--hairline);
+  }
+}
+.hoc-ab-step__n {
+  grid-row: span 2;
+  font-family: var(--ff-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--hoc-teal-lift);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.hoc-ab-step__name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.hoc-ab-step__copy {
+  margin-top: 0.6rem;
+  max-width: 30ch;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+@media (min-width: 900px) {
+  .hoc-ab-step__n {
+    grid-row: auto;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+@media (max-width: 899px) {
+  .hoc-ab-step:last-child {
+    border-bottom: 0; /* the terms' own rule follows */
+  }
+}
+
+.hoc-ab-terms {
+  display: grid;
+  gap: 1.25rem 2rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.25rem, 2.5vw, 2rem);
+  border-top: 1px solid var(--hairline);
+}
+@media (min-width: 700px) {
+  .hoc-ab-terms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.hoc-ab-terms dd {
+  margin-top: 0.55rem;
+  font-size: var(--fs-small);
+  color: var(--on-surface-dim);
+}
+.hoc-ab-terms__v {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.05;
+  color: var(--on-surface);
+}

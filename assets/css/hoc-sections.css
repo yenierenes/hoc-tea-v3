@@ -1,0 +1,2901 @@
+/* ==========================================================================
+   HOC TEA — hoc-sections.css
+   One block per homepage section, in page order. Depends on hoc-core.css.
+   ========================================================================== */
+
+/* ==========================================================================
+   01  HERO  §10
+
+   LIGHT-KEY. The delivered film is shot on a pale mint set — silver tins,
+   white doypack, crimson liquid as the only saturated note. Overlay type is
+   therefore INK, and the scrim lifts the plate toward bone rather than
+   crushing it toward black.
+
+   (The earlier dark treatment was a response to having no film. Grading this
+   footage down would have thrown away the art direction that makes it good.)
+   ========================================================================== */
+
+.hoc-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 620px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  /* Sampled off the film's set, so there is no colour jump before it paints. */
+  background: #bfcfcb;
+  color: var(--hoc-ink);
+}
+@media (min-width: 1024px) {
+  .hoc-hero {
+    min-height: 760px;
+  }
+}
+
+.hoc-hero__media {
+  position: absolute;
+  inset: 0;
+}
+.hoc-hero__media > picture,
+.hoc-hero__poster,
+.hoc-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hoc-hero__poster,
+.hoc-hero__video {
+  object-fit: cover;
+}
+/* Portrait: the film is 16:9, so cover crops the sides hard. Bias the crop to
+   the product cluster — the same crop build-poster.py uses for the 3:4
+   poster, so the two never disagree (§42). */
+@media (max-width: 767px) {
+  .hoc-hero__poster,
+  .hoc-hero__video {
+    object-position: 55% center;
+  }
+}
+.hoc-hero__video {
+  opacity: 0;
+  transition: opacity var(--t-scene) var(--e-hoc);
+}
+.hoc-hero__video.is-playing {
+  opacity: 1;
+}
+/* Bone wash from the bottom-left, where the copy sits.
+
+   Three layers, not one. The two linear washes set the general falloff; the
+   radial is anchored on the copy block specifically, because the film has one
+   moment — crimson diffusing through the pitcher at ~4.8s — where a dark
+   ribbon crosses the headline. Measured with tools/hero-contrast.mjs: without
+   the radial, 8.2% of the area behind the headline drops under 4.5:1 at that
+   frame while every other frame sits at 0%. Washing the whole plate harder
+   would have fixed it too, at the cost of flattening the film for the other
+   nine seconds. */
+.hoc-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      64% 68% at 15% 70%,
+      rgb(241 239 232 / 0.78) 0%,
+      rgb(241 239 232 / 0.40) 44%,
+      rgb(241 239 232 / 0) 80%
+    ),
+    linear-gradient(
+      to top,
+      rgb(241 239 232 / 0.88) 0%,
+      rgb(241 239 232 / 0.66) 26%,
+      rgb(241 239 232 / 0.12) 58%,
+      rgb(241 239 232 / 0) 100%
+    ),
+    linear-gradient(to right, rgb(241 239 232 / 0.70), rgb(241 239 232 / 0) 52%);
+}
+@media (max-width: 767px) {
+  .hoc-hero__scrim {
+    background: linear-gradient(
+      to top,
+      rgb(241 239 232 / 0.95) 0%,
+      rgb(241 239 232 / 0.86) 30%,
+      rgb(241 239 232 / 0.28) 62%,
+      rgb(241 239 232 / 0) 100%
+    );
+  }
+}
+
+.hoc-hero__copy {
+  position: relative;
+  width: 100%;
+  padding-bottom: clamp(2.5rem, 12vh, 8rem);
+  color: var(--hoc-ink);
+}
+.hoc-hero__copy .hoc-micro {
+  color: rgb(var(--hoc-ink-rgb) / 0.8);
+  margin-bottom: clamp(1rem, 2vh, 1.75rem);
+}
+/* Three lines, not two. Keeps the headline clear of the centred logo card in
+   the film's closing beat, and stacks better in display serif.
+
+   Measured in em, not ch: `ch` is the width of "0", which in Instrument Serif
+   is far narrower than the average glyph — 12ch measured out at 636px and let
+   "Nature, steeped" (566px) sit on one line. 4.1em is just under the width of
+   that phrase and just over "differently.", which is exactly the break we
+   want, and it scales with the clamped font size instead of fighting it. */
+.hoc-hero__h1 {
+  max-width: 4.1em;
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+.hoc-hero__copy .hoc-lede {
+  color: rgb(var(--hoc-ink-rgb) / 0.9);
+  margin-bottom: clamp(1.75rem, 4vh, 2.75rem);
+}
+.hoc-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.hoc-hero__cta .hoc-btn {
+  --btn-fg: var(--hoc-ink);
+  --btn-edge: rgb(var(--hoc-ink-rgb) / 0.5);
+}
+.hoc-hero__cta .hoc-btn:hover,
+.hoc-hero__cta .hoc-btn:focus-visible {
+  color: var(--hoc-bone);
+}
+.hoc-hero__cta .hoc-btn--solid {
+  --btn-bg: var(--hoc-ink);
+  --btn-edge: var(--hoc-ink);
+  color: var(--hoc-bone);
+}
+.hoc-hero__cta .hoc-btn--solid::before {
+  background: var(--hoc-teal-lift);
+}
+.hoc-hero__cta .hoc-btn--solid:hover,
+.hoc-hero__cta .hoc-btn--solid:focus-visible {
+  color: #fff;
+  border-color: var(--hoc-teal-lift);
+}
+
+.hoc-hero__foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.25rem, 3vh, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  color: rgb(var(--hoc-ink-rgb) / 0.6);
+  pointer-events: none;
+}
+.hoc-hero__rule {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  animation: hoc-scrollrule 2.6s var(--e-hoc) infinite;
+}
+@keyframes hoc-scrollrule {
+  0%,
+  100% {
+    transform: scaleX(0.25);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 767px) {
+  .hoc-hero__foot {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   02  FEATURED BLENDS  §11
+   ========================================================================== */
+
+.hoc-featured {
+  padding-block: clamp(4.5rem, 8vh, 6.5rem);
+  overflow: hidden;
+  transition: background-color var(--t-scene) var(--e-hoc);
+}
+.hoc-featured__head {
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+}
+.hoc-featured__head .hoc-micro {
+  margin-bottom: 0.65rem;
+}
+.hoc-featured__head h2 {
+  max-width: none;
+  font-size: clamp(3.4rem, 6vw, 6.5rem);
+  line-height: 0.94;
+}
+
+.hoc-featured__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: center;
+}
+
+/* Ingredient portraits use the real dry-blend cutouts. The prototype's
+   recoloured pouch photos have the wrong printed names for blends 02/03. */
+.hoc-featured__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: clamp(420px, 43vw, 560px);
+  min-width: 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hoc-featured__ground {
+  position: absolute;
+  inset: 0;
+  border-start-start-radius: clamp(55px, 9vw, 135px);
+  border-end-end-radius: clamp(55px, 9vw, 135px);
+  background: var(--accent-wash, #d6e2e3);
+  transition: background-color var(--t-ui) var(--e-hoc);
+  pointer-events: none;
+}
+.hoc-featured__ground::after {
+  content: "";
+  position: absolute;
+  inset: 13% 12% 16%;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 50%;
+}
+.hoc-featured__stage-label {
+  position: absolute;
+  z-index: 2;
+  top: 2rem;
+  right: 2rem;
+  color: var(--accent-ink);
+}
+
+.hoc-featured__packs {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+.hoc-pack {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 2%, 0) scale(0.97);
+}
+.hoc-pack.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.hoc-pack > a { display: block; position: relative; width: 100%; height: 100%; }
+.hoc-pack__img {
+  position: absolute;
+  z-index: 2;
+    left: -15%;
+    bottom: 10%;
+    width: 51%;
+    height: 55%;
+  object-fit: contain;
+    transform: scale(1.16);
+  filter: drop-shadow(0 15px 14px rgb(35 35 34 / .13));
+  pointer-events: none;
+}
+.hoc-pack__duo {
+  position: absolute;
+  inset: 1% 0 auto;
+  width: 100%;
+  height: 94%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 16px rgb(35 35 34 / .09));
+  pointer-events: none;
+}
+.hoc-pack__caption {
+  position: absolute;
+  z-index: 3;
+  inset-inline: clamp(1.25rem, 3vw, 3rem);
+  bottom: clamp(1.25rem, 3vw, 2.5rem);
+  display: grid;
+  gap: .15rem;
+  width: fit-content;
+  color: var(--accent-ink);
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  line-height: 1;
+}
+.hoc-pack__caption .hoc-micro {
+  font-family: var(--ff-ui);
+  color: var(--accent-ink);
+}
+
+/* --- selector + panels --------------------------------------------------- */
+.hoc-featured__side {
+  display: grid;
+  min-width: 0;
+  gap: clamp(1.25rem, 2vw, 2rem);
+  align-content: start;
+}
+
+.hoc-selector {
+  overflow: hidden;
+}
+.hoc-selector__list {
+  display: block;
+  border-top: 1px solid var(--hairline);
+}
+.hoc-selector__item {
+  min-width: 0;
+}
+.hoc-selector__btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: .48rem .2rem;
+  text-align: left;
+  color: var(--on-surface-dim);
+  border-bottom: 1px solid var(--hairline);
+  transition: color var(--t-ui) var(--e-hoc),
+    border-color var(--t-ui) var(--e-hoc);
+}
+.hoc-selector__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.hoc-selector__name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.35rem, 2.05vw, 1.9rem);
+  line-height: 1.1;
+}
+.hoc-selector__btn[aria-selected="true"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.hoc-selector__btn:hover, .hoc-selector__btn:focus-visible {
+  color: var(--on-surface);
+}
+
+.hoc-featured__panels {
+  position: relative;
+  min-width: 0;
+}
+.hoc-blendpanel[hidden] {
+  display: none;
+}
+.hoc-blendpanel__name {
+  margin-bottom: 0.25rem;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+}
+.hoc-blendpanel__story {
+  margin-block: 1.25rem .8rem;
+  max-width: 49ch;
+}
+
+.hoc-inglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1rem;
+  margin-bottom: 0;
+}
+.hoc-inglist__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--fs-small);
+  color: var(--on-surface-dim);
+}
+.hoc-bot {
+  width: 1.9em;
+  height: 1.9em;
+  flex: none;
+  color: var(--accent);
+  stroke-width: 2.2;
+  overflow: visible;
+}
+
+.hoc-blendpanel__buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .85rem;
+  border-block: 1px solid var(--hairline);
+  margin-bottom: 1rem;
+}
+.hoc-packsel {
+  display: flex;
+  gap: 0.5rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.hoc-packsel__opt {
+  position: relative;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--hairline);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  cursor: pointer;
+  transition: border-color var(--t-micro) var(--e-hoc),
+    color var(--t-micro) var(--e-hoc);
+}
+.hoc-packsel__opt input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+.hoc-packsel__label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+.hoc-packsel__opt:has(input:checked) {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.hoc-packsel__opt:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.hoc-price {
+  font-family: var(--ff-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.hoc-blendpanel__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.hoc-blendpanel__actions .hoc-btn--solid {
+  --btn-bg: var(--accent);
+  --btn-edge: var(--accent);
+  color: #fff;
+}
+.hoc-blendpanel__actions .hoc-btn--solid::before {
+  background: var(--accent-ink);
+}
+
+@media (max-width: 1100px) {
+  .hoc-featured__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .hoc-featured__stage { height: clamp(390px, 47vw, 500px); }
+  .hoc-blendpanel__name { font-size: clamp(2.35rem, 4vw, 3.3rem); }
+  .hoc-packsel__opt { padding: .45rem .6rem; }
+}
+@media (max-width: 699px) {
+  .hoc-featured { padding-block: 3.75rem 4.5rem; }
+  .hoc-featured__head { margin-bottom: 1.4rem; }
+  .hoc-featured__head h2 { font-size: clamp(3.2rem, 12vw, 5.2rem); }
+  .hoc-featured__body { display: block; }
+  .hoc-featured__stage { height: clamp(265px, 80vw, 390px); margin-bottom: 1.35rem; }
+  .hoc-featured__stage-label { top: 1.1rem; right: 1.2rem; font-size: .55rem; }
+  .hoc-featured__ground { border-start-start-radius: 60px; border-end-end-radius: 60px; }
+    .hoc-pack__img { left: -17%; bottom: 9%; width: 43%; height: 48%; transform: scale(1.08); }
+  .hoc-pack__duo { height: 90%; top: 3%; }
+  .hoc-pack__caption { bottom: 1.1rem; font-size: 1.55rem; }
+  .hoc-pack__caption .hoc-micro { font-size: .56rem; }
+  .hoc-selector { overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-snap-type: x proximity; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+  .hoc-selector::-webkit-scrollbar { display: none; }
+  .hoc-selector__list { display: flex; gap: .5rem; border: 0; width: max-content; }
+  .hoc-selector__item { flex: 0 0 auto; scroll-snap-align: start; }
+  .hoc-selector__btn { width: auto; white-space: nowrap; gap: .5rem; padding: .6rem .7rem; border: 1px solid var(--hairline); border-start-start-radius: var(--curve-sm); border-end-end-radius: var(--curve-sm); }
+  .hoc-selector__name { font-size: 1.2rem; }
+  .hoc-featured__side { gap: 1.3rem; }
+  .hoc-blendpanel__name { font-size: clamp(2.6rem, 10vw, 3.6rem); }
+  .hoc-blendpanel__story { margin-block: 1.1rem .8rem; }
+  .hoc-blendpanel__buy { align-items: center; }
+}
+@media (max-width: 359px) {
+  .hoc-featured__head h2 { font-size: 3rem; }
+  .hoc-pack__caption { font-size: 1.3rem; }
+  .hoc-blendpanel__actions { gap: 1rem; }
+  .hoc-blendpanel__actions .hoc-btn { min-width: 0; }
+}
+
+/* ==========================================================================
+   03  MANIFESTO  §12
+   ========================================================================== */
+
+.hoc-manifesto {
+  --surface: var(--hoc-ink); /* the deep teal, the brand's main tone */
+  --on-surface: var(--hoc-bone);
+  padding-block: clamp(2rem, 3vw, 3rem) clamp(2.5rem, 3.5vw, 3.5rem);
+  overflow: hidden;
+  scroll-margin-top: var(--header-h-scrolled);
+}
+.hoc-manifesto__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(241 239 232 / .2);
+  color: #c4cdbc;
+}
+.hoc-manifesto__composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(2.5rem, 3vw, 3rem);
+}
+.hoc-manifesto__copy { min-width: 0; }
+.hoc-manifesto__title {
+  font-family: var(--ff-display);
+  font-size: clamp(4.4rem, 8.1vw, 8.3rem);
+  font-weight: 400;
+  line-height: .91;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.hoc-manifesto__title > span { display: block; max-width: 8ch; }
+.hoc-manifesto__title > em {
+  display: block;
+  margin-top: .09em;
+  padding-right: .08em;
+  color: #bacbb7;
+  font-weight: 400;
+}
+.hoc-manifesto__body {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 35ch;
+  color: #c6cac1;
+  font-size: clamp(.95rem, 1.15vw, 1.125rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+.hoc-manifesto__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-block: .65rem;
+  border-bottom: 1px solid rgb(241 239 232 / .5);
+  font-size: .8rem;
+  transition: color .3s, border-color .3s;
+}
+.hoc-manifesto__link:hover { color: #bacbb7; border-color: currentColor; }
+.hoc-manifesto__media { min-width: 0; }
+.hoc-manifesto__image {
+  aspect-ratio: 1.2;
+  overflow: hidden;
+  border-start-start-radius: clamp(4rem, 9vw, 9rem);
+  border-end-end-radius: clamp(4rem, 9vw, 9rem);
+  background: #191b17;
+}
+.hoc-manifesto__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+.hoc-manifesto__media figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  color: #b9c0b3;
+  font-size: .72rem;
+}
+.hoc-manifesto__notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgb(241 239 232 / .2);
+  padding-top: 1.75rem;
+  gap: 2rem;
+}
+.hoc-manifesto__notes li { display: flex; align-items: baseline; gap: 1rem; }
+.hoc-manifesto__notes li > span { font: italic 2rem/1 var(--ff-display); color: #c4d0bd; }
+.hoc-manifesto__notes p { color: #bfc5bb; font-size: .72rem; }
+@media (min-width: 768px) and (max-width: 1100px) {
+  .hoc-manifesto__composition { gap: 2rem; }
+  .hoc-manifesto__title { font-size: clamp(4rem, 7.8vw, 5.5rem); }
+  .hoc-manifesto__notes li { display: block; }
+  .hoc-manifesto__notes p { margin-top: .5rem; }
+}
+@media (max-width: 767px) {
+  .hoc-manifesto__signature { display: none; }
+  .hoc-manifesto__composition { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; padding-block: 2.5rem 2rem; }
+  .hoc-manifesto__title { font-size: clamp(3.75rem, 16vw, 6.5rem); }
+  .hoc-manifesto__title > span { max-width: 12ch; }
+  .hoc-manifesto__body { max-width: 37ch; margin-top: 1.5rem; }
+  .hoc-manifesto__link { margin-top: .75rem; }
+  .hoc-manifesto__image { aspect-ratio: 1.18; }
+  .hoc-manifesto__media figcaption { gap: .3rem 1rem; }
+  .hoc-manifesto__notes { gap: .75rem; padding-top: 1.5rem; }
+  .hoc-manifesto__notes li { display: block; }
+  .hoc-manifesto__notes li > span { font-size: 1.65rem; }
+  .hoc-manifesto__notes p { margin-top: .6rem; font-size: .68rem; line-height: 1.5; max-width: 15ch; }
+}
+
+/* ==========================================================================
+   04  FROM LEAF TO GLASS  §13
+   ========================================================================== */
+
+.hoc-brewstory {
+  --surface: #eeeae1;
+  --on-surface: #292e29;
+  --on-surface-dim: #626c60;
+  --hairline: #cdcfc3;
+  scroll-margin-top: var(--header-h-scrolled);
+}
+.hoc-brewstory__stage { padding-block: clamp(2.5rem, 4vw, 4rem); }
+.hoc-brewstory__head {
+  display: flex; align-items: end; justify-content: space-between;
+  gap: 2rem; margin-bottom: 2rem;
+}
+.hoc-brewstory__head .hoc-micro { margin-bottom: .85rem; color: #426588; }
+.hoc-brewstory__head h2 { font: 400 clamp(3.3rem, 5.6vw, 6rem)/.95 var(--ff-display); letter-spacing: -.035em; text-wrap: balance; }
+.hoc-brewstory__head h2 em { color: #46698c; font-weight: 400; }
+.hoc-brewstory__intro { font-size: .9rem; line-height: 1.6; color: #646b60; padding-bottom: .1rem; }
+.hoc-brewstory__controls { display: none; align-items: center; border-block: 1px solid var(--hairline); gap: 2rem; }
+.hoc-brewstory__controls button { padding-block: .8rem; font-size: .82rem; border-bottom: 2px solid transparent; margin-bottom: -1px; color: #666f63; }
+.hoc-brewstory__controls button[aria-pressed="true"] { color: #2d4968; border-bottom-color: #46698c; }
+.hoc-brewstory__hint { margin-left: auto; font-size: .59rem; }
+.hoc-brewstory__hint span { display: inline-block; margin-left: 1rem; }
+.hoc-brewstory__scenes { display: grid; gap: 3rem; }
+.hoc-brewstep {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center; gap: clamp(2rem, 5vw, 5rem);
+}
+.hoc-brewstep + .hoc-brewstep { border-top: 1px solid var(--hairline); padding-top: 3rem; }
+.hoc-brewstep__copy { min-width: 0; max-width: 34rem; }
+.hoc-brewstep__eyebrow { color: #4b6c8e; font-size: .64rem; }
+.hoc-brewstep__eyebrow span { margin-inline: .5rem; color: #919caa; }
+.hoc-brewstep h3 { max-width: 13ch; margin-top: 1.1rem; font: 400 clamp(2.6rem, 4vw, 4.4rem)/1 var(--ff-display); letter-spacing: -.025em; text-wrap: balance; }
+.hoc-brewstep__body { max-width: 36ch; margin-top: 1.5rem; font-size: clamp(.94rem, 1.1vw, 1.05rem); line-height: 1.75; color: #626a72; text-wrap: pretty; }
+.hoc-brewstep__cue { margin-top: 1.5rem; color: #41618a; font-size: .65rem; }
+.hoc-brewstep__ingredients { display: flex; flex-wrap: wrap; gap: .75rem 1rem; margin-top: 1.65rem; padding-top: 1rem; border-top: 1px solid var(--hairline); }
+.hoc-brewstep__ingredients li { display: flex; align-items: center; gap: .35rem; color: #616e7c; font-size: .7rem; }
+.hoc-brewstep__ingredients .hoc-bot { width: 1.65rem; height: 1.65rem; color: #5379a0; }
+.hoc-brewstep__visual { min-width: 0; width: min(100%, 580px); justify-self: end; }
+.hoc-brewstep__photo { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; border-start-start-radius: clamp(3.5rem, 6vw, 7rem); border-end-end-radius: clamp(3.5rem, 6vw, 7rem); background: #e2d9c9; }
+.hoc-brewstep__photo img { display: block; width: 300%; height: 100%; max-width: none; transform: translateX(calc(var(--scene) * -33.333333%)); }
+.hoc-brewstep__photo.is-single img { width: 100%; transform: none; object-fit: cover; }
+.hoc-brewstep__visual figcaption { margin-top: .75rem; font-size: .56rem; color: #686e61; text-align: right; }
+.hoc-brewstory__foot { display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-top: 1px solid var(--hairline); padding-top: 1.2rem; margin-top: 2rem; }
+.hoc-brewstory__recipe { display: flex; gap: clamp(1.5rem, 4vw, 4.5rem); }
+.hoc-brewstory__recipe dt { font-size: .54rem; letter-spacing: .12em; color: #617081; }
+.hoc-brewstory__recipe dd { font: 400 1.8rem/1.3 var(--ff-display); color: #334e6b; }
+.hoc-brewstory__recipe dd span { font: 400 .72rem/1.3 var(--ff-ui); }
+.hoc-brewstory__link { display: inline-flex; align-items: center; gap: 2rem; padding-block: .8rem; font-size: .8rem; border-bottom: 1px solid #6a8099; color: #324e6c; }
+.hoc-brewstory__link:hover { color: #172536; border-color: currentColor; }
+.hoc-brewstory__meter { display: none; height: 2px; background: #d3d7ca; margin-top: 1rem; overflow: hidden; }
+.hoc-brewstory__meter span { display: block; width: 100%; height: 100%; background: #52749a; transform: scaleX(0); transform-origin: left; }
+.hoc-brewstory.is-enhanced .hoc-brewstory__track { height: 250svh; }
+.hoc-brewstory.is-enhanced .hoc-brewstory__stage { position: sticky; top: var(--header-h-scrolled); min-height: calc(100svh - var(--header-h-scrolled)); display: flex; align-items: center; padding-block: clamp(1.25rem, 2.5vh, 2rem); }
+.hoc-brewstory.is-enhanced .hoc-brewstory__head { margin-bottom: 1.25rem; }
+.hoc-brewstory.is-enhanced .hoc-brewstory__controls { display: flex; }
+.hoc-brewstory.is-enhanced .hoc-brewstory__scenes { gap: 0; margin-top: 1.5rem; }
+.hoc-brewstory.is-enhanced .hoc-brewstep { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; border: 0; padding: 0; transition: opacity .6s var(--e-hoc), transform .7s var(--e-hoc), visibility .6s; }
+.hoc-brewstory.is-enhanced .hoc-brewstep.is-active { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.hoc-brewstory.is-enhanced .hoc-brewstep__visual { width: min(100%, 49svh, 530px); }
+.hoc-brewstory.is-enhanced .hoc-brewstory__foot { margin-top: 1.1rem; padding-top: 1rem; }
+.hoc-brewstory.is-enhanced .hoc-brewstory__meter { display: block; }
+@media (min-width: 900px) and (max-height: 820px) {
+  .hoc-brewstory.is-enhanced .hoc-brewstep__visual { width: min(100%, 44svh); }
+  .hoc-brewstory.is-enhanced .hoc-brewstory__head h2 { font-size: 3.5rem; }
+  .hoc-brewstory.is-enhanced .hoc-brewstep h3 { font-size: 2.8rem; }
+  .hoc-brewstory.is-enhanced .hoc-brewstep__body { margin-top: 1rem; font-size: .9rem; }
+  .hoc-brewstory.is-enhanced .hoc-brewstep__ingredients { margin-top: 1rem; padding-top: .7rem; }
+  .hoc-brewstory.is-enhanced .hoc-brewstep__cue { margin-top: 1rem; }
+}
+@media (max-width: 899px) {
+  .hoc-brewstory__head { display: block; margin-bottom: 2.5rem; }
+  .hoc-brewstory__head h2 { max-width: 13ch; }
+  .hoc-brewstory__intro { margin-top: 1.25rem; }
+  .hoc-brewstep { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .hoc-brewstep__visual { width: 100%; max-width: 600px; justify-self: center; }
+  .hoc-brewstep__copy { max-width: none; }
+  .hoc-brewstep h3 { max-width: 19ch; }
+  .hoc-brewstep__body { max-width: 45ch; margin-top: 1rem; }
+  .hoc-brewstep__ingredients { display: none; }
+  .hoc-brewstep__cue { margin-top: 1rem; }
+  .hoc-brewstory__foot { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .hoc-brewstory__recipe { justify-content: space-between; gap: .75rem; }
+  .hoc-brewstory__link { justify-content: space-between; align-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hoc-brewstep { transition: none !important; transform: none !important; }
+}
+
+/* ==========================================================================
+   05  COLOR ALCHEMY  §14
+   One cause, one control, one effect you can read. Hibiscus goes in; the
+   butterfly-pea blue turns violet, then magenta; the scale names each stage
+   as the glass reaches it. hoc-motion.js renders the glass in WebGL; the SVG
+   glass here is what shows without it (and in the theme editor).
+   ========================================================================== */
+
+.hoc-alchemy {
+  /* The liquid as it reads at the centre of the glass. hoc-core.js mixes
+     these into --alc-liquid on the same ramp as the shader. */
+  --alc-blue: #162fa8;
+  --alc-violet: #6226a9;
+  --alc-magenta: #c31c62;
+  --alc-hibiscus: #b4324b;
+  --alc-liquid: var(--alc-blue);
+  --alc-level: 0;
+  --alc-w: min(32svh, 300px);
+  --alc-ground: #0b0c14;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--alc-ground);
+  color: var(--hoc-bone);
+}
+
+.hoc-alchemy__gl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.9s var(--e-hoc);
+  pointer-events: none;
+}
+.hoc-alchemy.is-gl .hoc-alchemy__gl {
+  opacity: 1;
+}
+
+.hoc-alchemy__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: minmax(0, 40fr) minmax(0, 26fr) minmax(0, 34fr);
+  grid-template-rows: 1fr auto auto auto 1fr;
+  grid-template-areas:
+    ".        stage scale"
+    "copy     stage scale"
+    "controls stage scale"
+    "outro    stage scale"
+    ".        stage scale";
+  column-gap: clamp(2rem, 4.5vw, 5.5rem);
+  padding-block: calc(var(--header-h) + clamp(1rem, 3vh, 2rem))
+    clamp(2.5rem, 7vh, 4.5rem);
+}
+
+/* ---- the words ------------------------------------------------------- */
+.hoc-alchemy__copy {
+  grid-area: copy;
+}
+.hoc-alchemy__eyebrow {
+  margin-bottom: 1.25rem;
+  color: rgb(241 239 232 / 0.66);
+}
+.hoc-alchemy__title {
+  max-width: 6em; /* "Watch nature / change its mind." — em, not ch (§5 note) */
+  font-size: clamp(2.625rem, 4.7vw, 5.25rem);
+}
+.hoc-alchemy__lede {
+  max-width: 37ch;
+  margin-top: clamp(1.25rem, 2.6vh, 1.75rem);
+  color: rgb(241 239 232 / 0.76);
+}
+
+/* ---- the one control --------------------------------------------------- */
+.hoc-alchemy__controls {
+  grid-area: controls;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.15rem;
+  margin-top: clamp(1.75rem, 4vh, 2.5rem);
+}
+.hoc-alchemy__add {
+  --btn-edge: rgb(241 239 232 / 0.55);
+  padding-inline: 1.2em 1.9em;
+}
+/* What you are adding, cut from the same drawing the glass uses. The
+   image itself is set inline, so its URL resolves against the page and not
+   against this stylesheet. */
+.hoc-alchemy__icon {
+  flex: none;
+  width: 2.3em;
+  height: 2.3em;
+  margin-block: -0.7em;
+  background-position: 0 0;
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  transition: transform var(--t-ui) var(--e-hoc);
+}
+.hoc-alchemy__add:hover .hoc-alchemy__icon,
+.hoc-alchemy__add:focus-visible .hoc-alchemy__icon {
+  transform: rotate(-16deg) translateY(2px);
+}
+.hoc-alchemy__again {
+  display: none;
+  flex: none;
+  width: 1.45em;
+  height: 1.45em;
+}
+.hoc-alchemy__add[data-mode="again"] {
+  padding-inline: 1.5em 1.9em;
+}
+.hoc-alchemy__add[data-mode="again"] .hoc-alchemy__icon {
+  display: none;
+}
+.hoc-alchemy__add[data-mode="again"] .hoc-alchemy__again {
+  display: block;
+}
+/* Touch browsers keep :hover on whatever was tapped last, which would leave
+   this button filled after the first of four taps — read as "stuck". The
+   fill stays for keyboard focus; on touch the press itself is the feedback. */
+@media (hover: none) {
+  .hoc-alchemy__add:hover:not(:focus-visible) {
+    color: var(--btn-fg);
+  }
+  .hoc-alchemy__add:hover:not(:focus-visible)::before {
+    transform: scale(1.02) translate3d(0, 101%, 0);
+  }
+  .hoc-alchemy__add:hover .hoc-alchemy__icon {
+    transform: none;
+  }
+  .hoc-alchemy__add:active {
+    transform: scale(0.97);
+  }
+}
+.hoc-alchemy__add.is-nudge {
+  animation: hoc-alc-nudge 0.62s var(--e-hoc);
+}
+@keyframes hoc-alc-nudge {
+  30% {
+    transform: translate3d(0, -3px, 0);
+    border-color: var(--hoc-bone);
+  }
+}
+
+/* One mark per piece; four turn the glass all the way. */
+.hoc-alchemy__dots {
+  display: inline-flex;
+  gap: 7px;
+}
+.hoc-alchemy__dots i {
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgb(241 239 232 / 0.42);
+  border-radius: 50%;
+  transition: background-color var(--t-ui) var(--e-hoc),
+    border-color var(--t-ui) var(--e-hoc), transform var(--t-ui) var(--e-hoc);
+}
+.hoc-alchemy__dots i.is-on {
+  background: var(--alc-hibiscus);
+  border-color: var(--alc-hibiscus);
+  transform: scale(1.15);
+}
+.hoc-alchemy__hint {
+  flex-basis: 100%;
+  color: rgb(241 239 232 / 0.5);
+  transition: opacity var(--t-ui) var(--e-hoc);
+}
+.hoc-alchemy__hint .is-touch {
+  display: none;
+}
+@media (hover: none) {
+  .hoc-alchemy__hint .is-hover {
+    display: none;
+  }
+  .hoc-alchemy__hint .is-touch {
+    display: inline;
+  }
+}
+.hoc-alchemy.is-full .hoc-alchemy__hint {
+  opacity: 0;
+}
+
+/* ---- the glass --------------------------------------------------------- */
+.hoc-alchemy__stage {
+  grid-area: stage;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.hoc-alchemy.is-full .hoc-alchemy__stage,
+.hoc-alchemy.is-resetting .hoc-alchemy__stage,
+html:not(.hoc-js) .hoc-alchemy__stage {
+  cursor: default;
+}
+.hoc-alchemy__vessel {
+  position: relative;
+  flex: none;
+  width: min(100%, var(--alc-w));
+  aspect-ratio: 1 / 2;
+}
+
+/* The SVG glass: the whole story without WebGL. */
+.hoc-alchemy__glass {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: opacity 0.6s var(--e-hoc), visibility 0s linear 0s;
+}
+.hoc-alchemy.is-gl .hoc-alchemy__glass {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s var(--e-hoc), visibility 0s linear 0.6s;
+}
+/* a backlight the colour of whatever it shines through */
+.hoc-alchemy__vessel::before {
+  content: "";
+  position: absolute;
+  inset: -16% -75% -10%;
+  z-index: -1;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--alc-liquid) 30%, transparent),
+    transparent
+  );
+  transition: opacity 0.6s var(--e-hoc);
+  pointer-events: none;
+}
+.hoc-alchemy.is-gl .hoc-alchemy__vessel::before {
+  opacity: 0;
+}
+.hoc-alchemy__g-back {
+  fill: rgb(241 239 232 / 0.035);
+}
+.hoc-alchemy__g-liquid {
+  transition: opacity 0.25s linear;
+}
+.hoc-alchemy__g-body,
+.hoc-alchemy__g-tint,
+.hoc-alchemy__g-surface {
+  fill: var(--alc-liquid);
+}
+.hoc-alchemy__g-tint {
+  opacity: 0.4;
+}
+.hoc-alchemy__g-sheen {
+  fill: rgb(255 255 255 / 0.14);
+}
+.hoc-alchemy__g-foot {
+  fill: var(--alc-liquid);
+  opacity: 0.28;
+}
+.hoc-alchemy__g-spec {
+  fill: rgb(255 255 255 / 0.1);
+}
+.hoc-alchemy__g-line {
+  fill: none;
+  stroke: rgb(241 239 232 / 0.52);
+  stroke-width: 1.25px;
+  vector-effect: non-scaling-stroke;
+}
+.hoc-alchemy__g-line--soft {
+  stroke: rgb(241 239 232 / 0.22);
+}
+
+/* ---- the scale ----------------------------------------------------------- */
+.hoc-alchemy__scale {
+  grid-area: scale;
+  align-self: center;
+  justify-self: start;
+  width: 100%;
+  max-width: 21rem;
+}
+.hoc-alchemy__scalehead {
+  margin-bottom: clamp(1rem, 2.6vh, 1.75rem);
+  color: rgb(241 239 232 / 0.66);
+}
+.hoc-alchemy__meter {
+  position: relative;
+}
+.hoc-alchemy__stops {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+.hoc-alchemy__stops li {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  column-gap: 1.15rem;
+  align-content: center;
+  align-items: center;
+  padding-block: clamp(0.85rem, 2.3vh, 1.45rem);
+  opacity: 0.4;
+  transition: opacity var(--t-ui) var(--e-hoc);
+}
+.hoc-alchemy__stops li[aria-current] {
+  opacity: 1;
+}
+.hoc-alchemy__sw {
+  position: relative;
+  z-index: 1;
+  grid-row: 1 / span 2;
+  justify-self: center;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--sw);
+  box-shadow: 0 0 0 4px var(--alc-ground);
+}
+.hoc-alchemy [data-stop="0"] {
+  --sw: var(--alc-blue);
+}
+.hoc-alchemy [data-stop="1"] {
+  --sw: var(--alc-violet);
+}
+.hoc-alchemy [data-stop="2"] {
+  --sw: var(--alc-magenta);
+}
+.hoc-alchemy__stopname {
+  grid-column: 2;
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 2.3vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: var(--ls-display);
+}
+.hoc-alchemy__stopnote {
+  grid-column: 2;
+  margin-top: 0.4rem;
+  font-size: var(--fs-small);
+  line-height: 1.35;
+  color: rgb(241 239 232 / 0.66);
+}
+.hoc-alchemy__ph {
+  color: var(--hoc-bone);
+  font-variant-numeric: tabular-nums;
+}
+/* The rail runs through the three swatches; the marker is the glass, read
+   off the same number its colour comes from. */
+.hoc-alchemy__rail {
+  position: absolute;
+  top: calc(100% / 6);
+  bottom: calc(100% / 6);
+  left: calc(0.625rem - 1px);
+  width: 2px;
+}
+.hoc-alchemy__rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1px;
+  background: linear-gradient(
+    var(--alc-blue),
+    var(--alc-violet),
+    var(--alc-magenta)
+  );
+  opacity: 0.5;
+}
+.hoc-alchemy__marker {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--alc-level) * 100%);
+  left: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: var(--alc-liquid);
+  box-shadow: 0 0 0 2px var(--alc-ground), 0 0 0 3.5px rgb(241 239 232 / 0.9),
+    0 0 22px 3px color-mix(in srgb, var(--alc-liquid) 65%, transparent);
+  transform: translate(-50%, -50%);
+}
+
+/* ---- the payoff ---------------------------------------------------------- */
+.hoc-alchemy__outro {
+  grid-area: outro;
+  max-width: 34ch;
+  margin-top: clamp(1.1rem, 2.4vh, 1.6rem);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 0.6rem, 0);
+  transition: opacity 0.7s var(--e-hoc), transform 0.7s var(--e-hoc),
+    visibility 0s linear 0.7s;
+}
+.hoc-alchemy.is-complete .hoc-alchemy__outro,
+html:not(.hoc-js) .hoc-alchemy__outro {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+.hoc-alchemy__outro p {
+  margin-bottom: 0.9rem;
+  color: rgb(241 239 232 / 0.82);
+}
+html:not(.hoc-js) .hoc-alchemy__controls {
+  display: none;
+}
+
+/* ---- phones and small tablets: one column, the glass and its control
+        kept together so both are on screen when you press it ----------- */
+@media (max-width: 899px) {
+  .hoc-alchemy {
+    --alc-w: min(22svh, 190px);
+  }
+  .hoc-alchemy__inner {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas: "copy" "stage" "controls" "scale" "outro";
+    padding-block: calc(var(--header-h) + 1.5rem) 3.5rem;
+  }
+  .hoc-alchemy__lede {
+    max-width: 40ch;
+  }
+  .hoc-alchemy__stage {
+    padding-block: calc(var(--alc-w) * 0.5) calc(var(--alc-w) * 0.14);
+  }
+  .hoc-alchemy__vessel {
+    width: var(--alc-w);
+  }
+  .hoc-alchemy__controls {
+    justify-content: center;
+    margin-top: 0.35rem;
+  }
+  .hoc-alchemy__hint {
+    text-align: center;
+  }
+  .hoc-alchemy__scale {
+    justify-self: stretch;
+    max-width: 30rem;
+    margin: 2.25rem auto 0;
+  }
+  .hoc-alchemy__scalehead {
+    text-align: center;
+  }
+  .hoc-alchemy__stops {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+  }
+  .hoc-alchemy__stops li {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-content: start;
+    padding: 0 0.25rem;
+    text-align: center;
+  }
+  .hoc-alchemy__sw {
+    grid-row: auto;
+    margin-bottom: 0.7rem;
+  }
+  .hoc-alchemy__stopname,
+  .hoc-alchemy__stopnote {
+    grid-column: 1;
+  }
+  .hoc-alchemy__stopname {
+    font-size: 1.5rem;
+  }
+  .hoc-alchemy__stopnote {
+    font-size: 0.75rem;
+  }
+  /* pH on its own line, the caption under it — no orphaned last word */
+  .hoc-alchemy__ph {
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .hoc-alchemy__sep {
+    display: none;
+  }
+  .hoc-alchemy__rail {
+    top: calc(0.4rem - 1px);
+    bottom: auto;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    width: auto;
+    height: 2px;
+  }
+  .hoc-alchemy__rail::before {
+    background: linear-gradient(
+      90deg,
+      var(--alc-blue),
+      var(--alc-violet),
+      var(--alc-magenta)
+    );
+  }
+  .hoc-alchemy__marker {
+    top: 50%;
+    left: calc(var(--alc-level) * 100%);
+  }
+  .hoc-alchemy__outro {
+    justify-self: center;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   06  FIND YOUR HOC  §15
+   ========================================================================== */
+
+.hoc-moods {
+  position: relative;
+  overflow: clip;
+  transition: background-color var(--t-scene) var(--e-hoc);
+}
+.hoc-moods__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.72fr);
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.75rem);
+}
+.hoc-moods__head .hoc-micro {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+}
+.hoc-moods__head h2 {
+  max-width: 13ch;
+  text-wrap: balance;
+}
+.hoc-moods__list {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--hairline);
+}
+.hoc-mood {
+  border-bottom: 1px solid var(--hairline);
+}
+.hoc-mood__btn {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding-block: clamp(0.7rem, 1.8vh, 1.3rem);
+  text-align: left;
+  color: var(--on-surface);
+  transition: color var(--t-ui) var(--e-hoc);
+}
+/* Bigger than display-l: these six words are the section. */
+.hoc-mood__word {
+  font-family: var(--ff-display);
+  font-size: clamp(3.1rem, 6.2vw, 6.25rem);
+  line-height: 0.9;
+  letter-spacing: var(--ls-display);
+  transition: transform var(--t-ui) var(--e-hoc);
+  will-change: transform;
+  white-space: nowrap;
+}
+/* Metadata is always readable — it gives the right column something to hold
+   and it is not hover-only content (§45). It only brightens on hover. */
+.hoc-mood__aside {
+  flex: none;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  max-width: 27ch;
+  text-align: right;
+}
+.hoc-mood__meta {
+  line-height: 1.45;
+  opacity: 0.42;
+  transition: opacity var(--t-ui) var(--e-hoc),
+    color var(--t-ui) var(--e-hoc);
+}
+.hoc-mood__destination {
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition: opacity var(--t-micro) var(--e-hoc),
+    transform var(--t-ui) var(--e-hoc);
+}
+@media (hover: hover) and (min-width: 900px) {
+  .hoc-mood__btn {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.88fr) minmax(13rem, 0.62fr) minmax(15rem, 0.5fr);
+    min-height: clamp(6.6rem, 10vw, 9.2rem);
+    padding-block: clamp(1rem, 1.8vh, 1.5rem);
+  }
+  .hoc-mood__word {
+    grid-column: 1;
+    align-self: center;
+  }
+  .hoc-mood__aside {
+    grid-column: 3;
+    justify-self: end;
+  }
+  .hoc-mood.is-on .hoc-mood__word {
+    transform: translateX(clamp(0.45rem, 1vw, 1rem));
+  }
+  .hoc-mood.is-on .hoc-mood__btn {
+    color: var(--accent);
+  }
+  .hoc-mood.is-on .hoc-mood__meta {
+    opacity: 1;
+    color: var(--accent);
+  }
+  .hoc-mood.is-on .hoc-mood__destination {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hoc-moods__list:has(.hoc-mood.is-on) .hoc-mood:not(.is-on) .hoc-mood__btn {
+    color: var(--on-surface-dim);
+  }
+  .hoc-mood__reveal {
+    display: none;
+  }
+}
+
+/* Desktop product stage. It locks to the active row; the pointer only adds a
+   restrained depth shift, so the pack never obscures the mood word. */
+.hoc-moods__preview {
+  position: absolute;
+  top: 0;
+  left: 54%;
+  z-index: 3;
+  width: clamp(210px, 17vw, 292px);
+  aspect-ratio: 4 / 5;
+  translate: -50% 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.35s var(--e-hoc);
+}
+.hoc-moods__preview.is-on {
+  opacity: 1;
+}
+.hoc-moods__previewinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 54% 38%, rgb(255 255 255 / 0.72), transparent 43%),
+    var(--accent-wash, #e6e6e6);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent, #777) 15%, transparent);
+  box-shadow: 0 28px 55px rgb(35 35 34 / 0.11);
+  will-change: transform;
+  transition: background-color var(--t-ui) var(--e-hoc),
+    border-color var(--t-ui) var(--e-hoc);
+}
+.hoc-moods__previewinner::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgb(255 255 255 / 0.42);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.hoc-moods__previewinner img {
+  position: relative;
+  z-index: 1;
+  width: 76%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgb(35 35 34 / 0.18));
+}
+.hoc-moods__previewinner .hoc-doypack {
+  position: relative;
+  z-index: 1;
+  width: 60%;
+  filter: none;
+}
+@media (max-width: 899px), (hover: none) {
+  .hoc-moods__preview {
+    display: none;
+  }
+}
+
+/* Mobile: tap to reveal, stacked §15 */
+@media (max-width: 899px) {
+  .hoc-moods__head {
+    display: block;
+    margin-bottom: clamp(2rem, 8vw, 3.5rem);
+  }
+  .hoc-mood__btn {
+    gap: 0.75rem;
+    padding-block: 1.15rem;
+  }
+  .hoc-mood__word {
+    min-width: 0;
+    font-size: clamp(2.75rem, 13vw, 5.4rem);
+    white-space: normal;
+  }
+  .hoc-mood__reveal {
+    display: grid;
+    grid-template-columns: 34% 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height var(--t-ui) var(--e-hoc),
+      opacity var(--t-ui) var(--e-hoc);
+  }
+  .hoc-mood.is-open .hoc-mood__reveal {
+    height: auto;
+    opacity: 1;
+    padding-bottom: 1.5rem;
+  }
+  .hoc-mood__pack {
+    background: var(--accent-wash);
+    padding: 0.75rem;
+  }
+  .hoc-mood__name {
+    margin-block: 0.2rem 0.6rem;
+  }
+  .hoc-mood__ings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+  .hoc-mood__ings li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .hoc-mood__ings .hoc-bot {
+    width: 1.6em;
+    height: 1.6em;
+  }
+  .hoc-mood__meta {
+    opacity: 1;
+    font-size: 0.625rem;
+    max-width: 19ch;
+  }
+  .hoc-mood__destination {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .hoc-mood__btn {
+    align-items: center;
+  }
+  .hoc-mood__word {
+    font-size: clamp(2.6rem, 12.5vw, 3.6rem);
+  }
+  .hoc-mood__aside {
+    max-width: 13ch;
+  }
+  .hoc-mood__reveal {
+    grid-template-columns: minmax(7rem, 38%) minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
+   07  INGREDIENT ATLAS  §16
+   A grid of botanicals driving one large lead panel.
+   ========================================================================== */
+
+.hoc-atlas {
+  background: var(--hoc-bone-soft);
+}
+.hoc-atlas > .hoc-wrap {
+  padding-block: clamp(4.5rem, 8vh, 7rem);
+}
+.hoc-atlas__top {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+@media (min-width: 900px) {
+  .hoc-atlas__top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+}
+.hoc-atlas__head {
+  min-width: 0;
+}
+.hoc-atlas__head .hoc-display-l {
+  max-width: 100%;
+  overflow-wrap: normal;
+}
+.hoc-atlas__head .hoc-micro {
+  margin-bottom: 1rem;
+}
+.hoc-atlas__head .hoc-body {
+  margin-top: 1.25rem;
+  max-width: 38ch;
+}
+
+.hoc-atlas__lead {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 34%) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: #fff;
+  border-start-start-radius: var(--curve-lg);
+  border-end-end-radius: var(--curve-lg);
+}
+.hoc-atlas__leadinfo {
+  min-width: 0;
+}
+.hoc-atlas__leadart {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.hoc-atlas__bigsvg {
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  stroke-width: 1.15;
+}
+.hoc-atlas__leadname {
+  font-size: clamp(2.2rem, 3.4vw, 4rem);
+  line-height: 1.02;
+}
+.hoc-atlas__bot {
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--on-surface-dim);
+  margin-top: 0.35rem;
+}
+.hoc-atlas__facts {
+  display: grid;
+  gap: 0.35rem;
+  margin: 1.25rem 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hairline);
+}
+.hoc-atlas__facts > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.hoc-atlas__facts dt {
+  color: var(--on-surface-dim);
+}
+.hoc-atlas__facts dd {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--accent-ink, var(--on-surface));
+  font-weight: 500;
+}
+.hoc-atlas__note {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--on-surface-dim);
+  max-width: 40ch;
+}
+
+/* Fixed column counts — an auto-fill grid orphaned cells at 12 items.
+   Three up on phones, not two: twelve tiles become four rows instead of six,
+   which is what lets the lead panel and the grid share a viewport. */
+.hoc-atlas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+@media (min-width: 600px) {
+  .hoc-atlas__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .hoc-atlas__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+.hoc-atlas__item {
+  background: var(--hoc-bone);
+  transition: background-color var(--t-ui) var(--e-hoc);
+}
+.hoc-atlas__item.is-on,
+.hoc-atlas__item:hover {
+  background: #fff;
+}
+.hoc-atlas__btn {
+  display: grid;
+  gap: 0.7rem;
+  place-items: center;
+  width: 100%;
+  padding: clamp(1rem, 1.5vw, 1.4rem) 0.6rem;
+  text-align: center;
+}
+/* Each tile carries its ingredient's colour as --accent (mango, chamomile
+   and lemongrass are golden); the focus ring stays in the brand teal. */
+.hoc-atlas__btn:focus-visible {
+  outline-color: var(--hoc-ink);
+}
+.hoc-atlas__art {
+  display: block;
+  width: clamp(40px, 4vw, 58px);
+  aspect-ratio: 1;
+  transition: transform var(--t-ui) var(--e-hoc);
+}
+.hoc-atlas__svg {
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  stroke-width: 1.8;
+}
+.hoc-atlas__item.is-on .hoc-atlas__art,
+.hoc-atlas__item:hover .hoc-atlas__art {
+  transform: scale(1.06);
+}
+.hoc-atlas__name {
+  color: var(--on-surface-dim);
+  transition: color var(--t-micro) var(--e-hoc);
+}
+.hoc-atlas__item.is-on .hoc-atlas__name {
+  color: var(--on-surface);
+}
+
+/* --- Atlas on phones -------------------------------------------------------
+
+   The panel is what changes when you tap a tile, so the panel has to be on
+   screen when you tap. Stacked at full size it is not: it ends ~50px above
+   where the grid begins.
+
+   So below 900px the panel becomes a horizontal band and sticks under the
+   header while the grid scrolls past it. `display: contents` on the wrapper is
+   what makes that possible — it promotes the head and the panel to children of
+   .hoc-wrap, whose box spans the grid as well, giving the sticky element
+   something long enough to stick within.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+  .hoc-atlas__top {
+    display: contents;
+  }
+  .hoc-atlas__head {
+    margin-bottom: clamp(1.5rem, 4vh, 2.25rem);
+  }
+  .hoc-atlas__head .hoc-body {
+    margin-top: 0.9rem;
+  }
+
+  .hoc-atlas__lead {
+    position: sticky;
+    top: calc(var(--header-h-scrolled) + 0.5rem);
+    z-index: 2;
+    grid-template-columns: 4.75rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 1.15rem 1.15rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--hairline);
+  }
+  .hoc-atlas__leadart {
+    aspect-ratio: 1;
+    align-self: center;
+  }
+  .hoc-atlas__bigsvg {
+    stroke-width: 1.6;
+  }
+  .hoc-atlas__leadname {
+    font-size: 1.5rem;
+  }
+  .hoc-atlas__bot {
+    margin-top: 0.2rem;
+  }
+  .hoc-atlas__facts {
+    gap: 0.25rem;
+    margin: 0.7rem 0 0.6rem;
+    padding-top: 0.6rem;
+  }
+  .hoc-atlas__facts dd {
+    font-size: 0.8125rem;
+    text-align: right;
+  }
+  .hoc-atlas__note {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .hoc-atlas__svg {
+    stroke-width: 2;
+  }
+  /* One line is enough at every width from 360px up — measured, not assumed:
+     only "Cinnamon Stick" wraps, and only at 320. Centring in a one-line box
+     keeps the rows even without paying for a reserve nothing uses. */
+  .hoc-atlas__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.25em;
+    line-height: 1.2;
+  }
+}
+
+/* Phones: three up, so the marks come down and the box tightens. */
+@media (max-width: 599px) {
+  .hoc-atlas__btn {
+    gap: 0.5rem;
+    padding: 0.85rem 0.3rem 0.75rem;
+  }
+  .hoc-atlas__art {
+    width: 36px;
+  }
+  .hoc-atlas__name {
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Small tablets: the lead panel is nearly 740px wide here, and with the facts
+   set space-between the label and its value ended up 500px apart — technically
+   aligned, unreadable in practice. Cap the text column instead of letting it
+   stretch, and give the drawing the width it can now afford. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .hoc-atlas__lead {
+    grid-template-columns: 7.5rem minmax(0, 30rem);
+    justify-content: start;
+    gap: 1.75rem;
+    padding: 1.5rem 1.75rem;
+  }
+  .hoc-atlas__head {
+    max-width: none;
+  }
+  .hoc-atlas__head .hoc-body {
+    max-width: 52ch;
+  }
+
+  .hoc-atlas__btn {
+    gap: 0.65rem;
+    padding: 1.15rem 0.5rem 1rem;
+  }
+  .hoc-atlas__art {
+    width: 48px;
+  }
+}
+
+/* Very narrow phones: the one label that wraps needs the second line back,
+   and the marks give up a few pixels so three columns still breathe. */
+@media (max-width: 359px) {
+  .hoc-atlas__btn {
+    padding-inline: 0.15rem;
+  }
+  .hoc-atlas__art {
+    width: 32px;
+  }
+  .hoc-atlas__name {
+    min-height: 2.5em;
+  }
+}
+
+/* ==========================================================================
+   08  SHOP THE COLLECTION  §17
+   ========================================================================== */
+
+.hoc-rail {
+  padding-block: var(--space-section);
+  overflow: hidden;
+}
+.hoc-rail__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2rem, 5vh, 3.5rem);
+}
+.hoc-rail__head .hoc-micro {
+  margin-bottom: 0.9rem;
+}
+.hoc-rail__tools {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hoc-rail__nav {
+  display: flex;
+  gap: 0.5rem;
+}
+.hoc-rail__arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hairline);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  transition: border-color var(--t-micro) var(--e-hoc),
+    background-color var(--t-micro) var(--e-hoc),
+    color var(--t-micro) var(--e-hoc);
+}
+.hoc-rail__arrow:hover:not([disabled]) {
+  background: var(--hoc-ink);
+  border-color: var(--hoc-ink);
+  color: var(--hoc-bone);
+}
+.hoc-rail__arrow[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+@media (max-width: 767px) {
+  .hoc-rail__nav {
+    display: none;
+  }
+}
+
+.hoc-rail__viewport {
+  overflow: hidden;
+  padding-inline: var(--gutter);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  cursor: grab;
+}
+.hoc-rail__viewport:active {
+  cursor: grabbing;
+}
+.hoc-rail__list {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  backface-visibility: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+.hoc-card {
+  flex: 0 0 auto;
+  width: 82vw;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .hoc-card {
+    width: 42vw;
+  }
+}
+@media (min-width: 900px) {
+  /* 3.2 cards visible §17 */
+  .hoc-card {
+    width: calc((100% - 2 * clamp(1rem, 2vw, 2rem)) / 3.2);
+  }
+}
+.hoc-card__link {
+  display: block;
+}
+.hoc-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--hoc-bone-soft);
+}
+.hoc-card__ground {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    70% 60% at 50% 44%,
+    var(--accent-wash) 0%,
+    transparent 74%
+  );
+}
+.hoc-card__img {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 66%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity var(--t-ui) var(--e-hoc),
+    transform var(--t-ui) var(--e-hoc);
+  filter: drop-shadow(0 18px 22px rgb(35 35 34 / 0.12));
+  will-change: transform;
+}
+.hoc-card__img--b {
+  opacity: 0;
+}
+@media (hover: hover) {
+  .hoc-card:hover .hoc-card__img--a {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  .hoc-card:hover .hoc-card__img--b {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+.hoc-card__body {
+  display: grid;
+  gap: 0.3rem;
+  padding-top: 1.1rem;
+}
+.hoc-card__name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+  line-height: 1.05;
+  font-weight: 400;
+}
+.hoc-card__desc {
+  color: var(--accent-ink);
+}
+.hoc-card__price {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-small);
+  color: var(--on-surface-dim);
+}
+.hoc-card__add {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  padding: 0.55rem 0.9rem;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--ls-micro);
+  text-transform: uppercase;
+  background: var(--hoc-bone);
+  color: var(--hoc-ink);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  transition: opacity var(--t-ui) var(--e-hoc),
+    transform var(--t-ui) var(--e-hoc), background-color var(--t-micro) var(--e-hoc);
+}
+.hoc-card__add:hover {
+  background: var(--accent);
+  color: #fff;
+}
+/* Desktop: appears on hover. Mobile: always available §56 */
+@media (hover: hover) and (min-width: 900px) {
+  .hoc-card__add {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  .hoc-card:hover .hoc-card__add,
+  .hoc-card:focus-within .hoc-card__add {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hoc-rail__bar {
+  margin-top: clamp(1.5rem, 4vh, 2.5rem);
+  height: 1px;
+  background: var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+.hoc-rail__bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30%;
+  background: var(--hoc-ink);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   09  HOSPITALITY  §19
+   ========================================================================== */
+
+.hoc-horeca__grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: var(--space-section) var(--gutter);
+}
+@media (min-width: 900px) {
+  .hoc-horeca__grid {
+    grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  }
+}
+.hoc-horeca__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--hoc-ink-lift);
+}
+.hoc-horeca__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+.hoc-horeca__copy .hoc-micro:first-child {
+  margin-bottom: 1rem;
+}
+.hoc-horeca__copy h2 {
+  margin-bottom: 1.5rem;
+}
+.hoc-horeca__copy .hoc-body {
+  color: rgb(var(--hoc-bone-rgb) / 0.82);
+}
+.hoc-horeca__points {
+  display: grid;
+  gap: 0.55rem;
+  margin-block: 1.75rem;
+}
+.hoc-horeca__points li {
+  padding-left: 1.1rem;
+  position: relative;
+  color: rgb(241 239 232 / 0.8);
+}
+.hoc-horeca__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 6px;
+  height: 6px;
+  background: var(--hoc-teal-light);
+  border-start-start-radius: 2px;
+  border-end-end-radius: 2px;
+}
+.hoc-horeca__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.hoc-horeca__cta .hoc-btn {
+  --btn-edge: rgb(241 239 232 / 0.4);
+}
+/* On the deep teal ground the solid button turns over: bone with teal type,
+   filling with the lighter teal on hover. */
+.hoc-horeca__cta .hoc-btn--solid {
+  --btn-bg: var(--hoc-bone);
+  --btn-edge: var(--hoc-bone);
+  color: var(--hoc-ink);
+}
+.hoc-horeca__cta .hoc-btn--solid::before {
+  background: var(--hoc-teal-lift);
+}
+.hoc-horeca__cta .hoc-btn--solid:hover,
+.hoc-horeca__cta .hoc-btn--solid:focus-visible {
+  color: #fff;
+  border-color: var(--hoc-teal-lift);
+}
+
+/* ==========================================================================
+   10  THE RITUAL  §20
+   ========================================================================== */
+
+.hoc-ritual > .hoc-wrap {
+  padding-block: clamp(4.5rem, 8vh, 7rem);
+}
+.hoc-ritual__head {
+  display: grid;
+  gap: 1.25rem clamp(2rem, 5vw, 5rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.hoc-ritual__head .hoc-micro {
+  margin-bottom: 0.85rem;
+}
+.hoc-ritual__head h2 {
+  max-width: 12.5em;
+  font-size: clamp(3rem, 5.2vw, 5.25rem);
+}
+.hoc-ritual__intro {
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  line-height: 1.5;
+}
+.hoc-ritual__body {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+@media (min-width: 900px) {
+  .hoc-ritual__head {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: end;
+  }
+  .hoc-ritual__intro {
+    justify-self: end;
+    margin-bottom: 0.35rem;
+  }
+  .hoc-ritual__body {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: stretch;
+  }
+}
+.hoc-ritual__viz {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 390px;
+  padding: clamp(1.5rem, 2.6vw, 2.75rem);
+  background: var(--hoc-bone-soft);
+  border-start-start-radius: var(--curve-lg);
+  border-end-end-radius: var(--curve-lg);
+}
+.hoc-ritual__viztop {
+  color: var(--hoc-teal-deep);
+}
+.hoc-ritual__vizstage {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+.hoc-ritual__frame {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(0.6rem);
+  transition: opacity var(--t-ui) var(--e-hoc),
+    transform var(--t-ui) var(--e-hoc);
+}
+.hoc-ritual__frame.is-on {
+  opacity: 1;
+  transform: none;
+}
+.hoc-ritual__bot {
+  width: clamp(3rem, 5vw, 5.5rem);
+  height: auto;
+  aspect-ratio: 1;
+  color: var(--hoc-teal);
+  stroke-width: 1.4;
+}
+.hoc-ritual__data {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 5.5vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.hoc-ritual__frame-label {
+  color: var(--on-surface-dim);
+}
+.hoc-ritual__vizfoot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+  color: var(--on-surface-dim);
+}
+.hoc-ritual__instructions {
+  min-width: 0;
+}
+
+.hoc-ritual__steps {
+  border-top: 1px solid var(--hairline);
+}
+.hoc-ritual__step {
+  border-bottom: 1px solid var(--hairline);
+}
+.hoc-ritual__btn {
+  display: grid;
+  /* name | instruction. (A step-number column used to lead this grid; the
+     numbers were removed, so the name took that 2.25rem track and ran into
+     the text beside it.) */
+  grid-template-columns: minmax(7.5rem, 0.3fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.35rem clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  padding-block: clamp(0.9rem, 1.65vh, 1.25rem);
+  text-align: left;
+  color: var(--on-surface);
+}
+.hoc-ritual__btn:focus-visible {
+  outline-offset: 3px;
+}
+.hoc-ritual__label {
+  font-family: var(--ff-display);
+  font-size: clamp(1.65rem, 2.3vw, 2.15rem);
+  line-height: 1;
+  color: var(--on-surface-dim);
+  transition: color var(--t-micro) var(--e-hoc);
+}
+.hoc-ritual__step.is-on .hoc-ritual__label,
+.hoc-ritual__btn:hover .hoc-ritual__label {
+  color: var(--hoc-ink);
+}
+.hoc-ritual__inline-data {
+  display: none;
+}
+.hoc-ritual__copy {
+  max-width: 52ch;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.5;
+}
+.hoc-ritual__cold {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 0.3fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: 1.25rem 0 0;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.5;
+  color: var(--on-surface-dim);
+}
+.hoc-ritual__cold .hoc-micro {
+  color: var(--hoc-teal-deep);
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .hoc-ritual__btn {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hoc-ritual__cold {
+    display: block;
+  }
+  .hoc-ritual__cold .hoc-micro {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+}
+@media (max-width: 899px) {
+  .hoc-ritual__head h2 {
+    max-width: 16ch;
+    font-size: clamp(2.625rem, 8vw, 4rem);
+  }
+  .hoc-ritual__intro {
+    max-width: 40ch;
+  }
+  .hoc-ritual__viz {
+    display: none;
+  }
+  .hoc-ritual__body {
+    display: block;
+  }
+  .hoc-ritual__btn {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-block: 1rem;
+  }
+  .hoc-ritual__label {
+    grid-column: 1;
+  }
+  .hoc-ritual__inline-data {
+    display: block;
+    grid-column: 2;
+    color: var(--hoc-teal-deep);
+    text-align: right;
+  }
+  .hoc-ritual__copy {
+    grid-column: 1 / -1;
+    max-width: 58ch;
+  }
+  .hoc-ritual__cold {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hoc-ritual__frame,
+  .hoc-ritual__label {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   11  JOURNAL  §21
+   ========================================================================== */
+
+.hoc-journal__head {
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+.hoc-journal__head .hoc-micro {
+  margin-bottom: 1rem;
+}
+.hoc-journal__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+@media (min-width: 900px) {
+  /* one lead, two stacked §21 — a grid, not a carousel */
+  .hoc-journal__grid {
+    grid-template-columns: minmax(0, 52fr) minmax(0, 44fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+  .hoc-jcard--lead {
+    grid-row: 1 / span 2;
+  }
+}
+.hoc-jcard__media {
+  overflow: hidden;
+  margin-bottom: 1.15rem;
+  aspect-ratio: 3 / 2;
+  background: var(--hoc-bone-soft);
+}
+/* The lead spans two rows; let its media absorb whatever height the two
+   stacked cards produce rather than leaving a gap under it. */
+.hoc-jcard--lead .hoc-jcard__media {
+  aspect-ratio: 4 / 3;
+}
+@media (min-width: 900px) {
+  .hoc-jcard--lead,
+  .hoc-jcard--lead .hoc-jcard__link {
+    height: 100%;
+  }
+  .hoc-jcard--lead .hoc-jcard__link {
+    display: flex;
+    flex-direction: column;
+  }
+  .hoc-jcard--lead .hoc-jcard__media {
+    aspect-ratio: auto;
+    flex: 1 1 auto;
+    min-height: 24rem;
+  }
+}
+.hoc-jcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: clip-path var(--t-scene) var(--e-hoc),
+    transform var(--t-scene) var(--e-hoc);
+  clip-path: inset(0 0 0 0);
+}
+@media (hover: hover) {
+  .hoc-jcard:hover .hoc-jcard__img {
+    clip-path: inset(0 0 0 6%);
+    transform: scale(1.04);
+  }
+}
+.hoc-jcard__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+  line-height: 1.06;
+  font-weight: 400;
+  margin-block: 0.35rem 0.6rem;
+}
+.hoc-jcard--lead .hoc-jcard__title {
+  font-size: clamp(1.85rem, 3.2vw, 3rem);
+}
+
+/* ==========================================================================
+   12  NEWSLETTER + FOOTER  §22
+   ========================================================================== */
+
+.hoc-news__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+}
+@media (min-width: 900px) {
+  .hoc-news__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  }
+}
+.hoc-news__form {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+}
+.hoc-news__field {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 0.5rem;
+}
+.hoc-news__field input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  padding: 0.75rem 0;
+  font-size: var(--fs-body);
+}
+.hoc-news__field input::placeholder {
+  color: rgb(var(--hoc-bone-rgb) / 0.7);
+}
+.hoc-news__field input:focus {
+  outline: none;
+}
+.hoc-news__field:focus-within {
+  border-bottom-color: var(--hoc-teal-light);
+}
+.hoc-news__form .hoc-btn {
+  --btn-edge: rgb(241 239 232 / 0.4);
+  padding-inline: 1.5rem;
+}
+.hoc-news__msg {
+  min-height: 1.2em;
+  color: var(--hoc-teal-light);
+}
+
+.hoc-footer {
+  position: relative;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+.hoc-footer__grid {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  padding-top: clamp(2.5rem, 6vh, 4rem);
+  border-top: 1px solid var(--hairline);
+}
+@media (min-width: 700px) {
+  .hoc-footer__grid {
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+  }
+}
+.hoc-footer__brand .hoc-lockup .hoc-mark {
+  height: 40px;
+  width: 40px;
+}
+.hoc-footer__tag {
+  margin-top: 0.9rem;
+}
+.hoc-footer__h {
+  margin-bottom: 0.9rem;
+  color: rgb(var(--hoc-bone-rgb) / 0.76);
+}
+.hoc-footer__col li {
+  padding-block: 0.28rem;
+}
+.hoc-footer__col a {
+  font-size: var(--fs-small);
+  color: rgb(241 239 232 / 0.8);
+  transition: color var(--t-micro) var(--e-hoc);
+}
+.hoc-footer__col a:hover {
+  color: var(--hoc-bone);
+}
+
+.hoc-current { margin-block: clamp(2.5rem, 6vh, 4.5rem) 1rem; }
+.hoc-current__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: #b9c9c2; }
+.hoc-current__pause { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; padding: .6rem 0 .6rem 1rem; cursor: pointer; }
+.hoc-current__pause:hover { color: var(--hoc-bone); }
+.hoc-current__viewport { position: relative; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: #626b64 transparent; }
+.hoc-current__track { display: flex; list-style: none; padding: 0; margin: 0; }
+.hoc-current__item { box-sizing: border-box; flex: 0 0 600px; width: 600px; height: 250px; display: grid; grid-template-columns: 322px 242px; grid-template-rows: 150px 43px; align-content: center; column-gap: 24px; padding-right: 12px; }
+.hoc-current__blend { display: flex; align-items: center; flex-direction: column; grid-column: 1; grid-row: 1 / 3; align-self: start; position: relative; width: 322px; min-width: 0; }
+.hoc-current__media { position: relative; display: block; width: 322px; height: 150px; isolation: isolate; }
+.hoc-current__media img { width: 100%; height: 100%; object-fit: contain; transition: opacity .3s ease; }
+.hoc-current.is-matrix-ready .hoc-current__media > img { opacity: 0; }
+.hoc-current__name { display: block; width: 100%; font-family: var(--ff-display); font-size: 29px; line-height: 1.06; color: var(--hoc-bone); text-align: center; transform: translateY(12px); }
+.hoc-current__saying { grid-column: 2; grid-row: 1; align-self: center; margin: 0; font-family: var(--ff-display); font-style: italic; font-size: 38px; line-height: 1.08; max-width: 242px; color: #d1d9c9; }
+.hoc-current__petal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background-size: 600% 500%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.hoc-current.is-flowing .hoc-current__viewport { overflow: hidden; }
+.hoc-current.is-flowing .hoc-current__track { position: relative; display: block; height: 250px; }
+.hoc-current.is-flowing .hoc-current__item { position: absolute; top: 0; left: 0; will-change: transform; }
+.hoc-current.is-flowing .hoc-current__name,
+.hoc-current.is-flowing .hoc-current__saying {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 699px) {
+  .hoc-footer__grid { grid-template-columns: 1fr 1fr; }
+  .hoc-footer__brand { grid-column: 1 / -1; }
+  .hoc-current__head { font-size: 10px; letter-spacing: .12em; }
+  .hoc-current__viewport { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); }
+}
+
+.hoc-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+  color: rgb(var(--hoc-bone-rgb) / 0.76);
+}
+.hoc-footer__legal a:hover {
+  color: var(--hoc-bone);
+}
+
+/* ==========================================================================
+   Cart drawer detail that depends on section tokens
+   ========================================================================== */
+
+.hoc-drawer__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-small);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.hoc-drawer__total span:last-child {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SUPPORTING TEMPLATES
+   The brief is a homepage spec; these are the minimum styles the other routes
+   need so the theme installs and every page stays in the design system.
+   ========================================================================== */
+
+/* Collection / search / list-collections share one grid. */
+.hoc-collection__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(2rem, 5vh, 3.5rem);
+}
+@media (min-width: 768px) {
+  .hoc-collection__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .hoc-collection__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+/* In a grid the cards are not carousel slides. */
+.hoc-collection__grid .hoc-card {
+  width: auto;
+}
+
+/* ==========================================================================
+   08b  THE RANGE  §17 (reworked)
+
+   Three columns. The outer two are image stacks parallaxing past each other;
+   the middle is a panel that holds position, drifts a beat behind the scroll
+   and swaps to whichever blend you are level with.
+
+   Motion intensity 3/5 — the movement is the outer columns sliding at
+   different rates, not the panel doing tricks.
+   ========================================================================== */
+
+.hoc-range {
+  --range-row: clamp(420px, 62svh, 600px);
+  padding-block: var(--space-section);
+  overflow: clip;
+}
+.hoc-range__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.hoc-range__head .hoc-micro {
+  margin-bottom: 1rem;
+}
+.hoc-range__head h2 {
+  max-width: 16ch;
+  font-size: clamp(3.25rem, 5.8vw, 6rem);
+  line-height: .97;
+}
+.hoc-range__intro { font-size: var(--fs-small); line-height: 1.7; padding-bottom: .3rem; }
+.hoc-range__intro span { color: var(--on-surface-dim); }
+
+/* --- desktop three-column stage ---------------------------------------- */
+.hoc-range__stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 30fr) minmax(0, 40fr) minmax(0, 30fr);
+  gap: clamp(.75rem, 2vw, 2rem);
+  align-items: stretch;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hoc-range__col {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Both stacks share their first row and never accumulate a vertical offset. */
+.hoc-range__col--right {
+  padding-top: 0;
+}
+
+.hoc-range__cell {
+  position: relative;
+  height: var(--range-row);
+  display: grid;
+  place-items: center;
+}
+
+.hoc-range__pile {
+  position: relative;
+  width: min(136%, 520px);
+  aspect-ratio: 1;
+  flex: none;
+  border-radius: 50%;
+  touch-action: pan-y;
+  contain: layout paint style;
+}
+.hoc-range__pile img, .hoc-range__pile canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hoc-range__pile canvas { position: absolute; inset: 0; pointer-events: none; }
+.hoc-range__infusion {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: blur(3px);
+}
+.hoc-range__center-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.hoc-range__pile.is-ready img { opacity: 0; }
+
+.hoc-range__pack {
+  position: relative;
+  width: min(94%, 330px);
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  background: transparent;
+}
+.hoc-range__packground {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+.hoc-range__pack img {
+  position: absolute;
+  width: 88%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 20px rgb(35 35 34 / 0.12));
+}
+/* The real doypack front stands upright in the column, at pouch scale. */
+.hoc-range__pack .hoc-doypack {
+  position: relative;
+  width: min(74%, 244px);
+  height: auto;
+  filter: none;
+}
+
+/* A product without a loose-blend pile (matcha) shows its photograph in the
+   same round slot, so the left column keeps one rhythm. */
+.hoc-range__pile--photo {
+  width: min(96%, 380px);
+  overflow: hidden;
+  background: var(--accent-wash);
+}
+.hoc-range__pile--photo img {
+  object-fit: cover;
+}
+.hoc-range__price--soon {
+  font-family: var(--ff-ui);
+}
+.hoc-range__price--soon .hoc-micro {
+  padding: 0.45rem 0.8rem;
+  color: var(--accent-ink);
+  border: 1px solid currentColor;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+
+/* --- the centre panel --------------------------------------------------- */
+.hoc-range__centre {
+  position: relative;
+  min-width: 0;
+}
+.hoc-range__sticky {
+  position: sticky;
+  top: max(62px, calc(50svh + 31px - var(--range-row) / 2));
+  height: var(--range-row);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hoc-range__frame {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 24rem;
+  padding: clamp(1rem, 2vw, 2rem) .5rem;
+  transform: translateY(var(--range-drift, 0px));
+}
+
+.hoc-range__panel {
+  grid-area: 1 / 1;
+  display: grid;
+  gap: .8rem;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .4s var(--e-hoc), transform .6s var(--e-hoc), visibility .4s;
+}
+.hoc-range__panel.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.hoc-range__name {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 1.02;
+  font-weight: 400;
+}
+.hoc-range__ings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin-block: 0.5rem;
+}
+.hoc-range__ings li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--on-surface-dim);
+}
+.hoc-range__ings .hoc-bot {
+  width: 1.6em;
+  height: 1.6em;
+}
+.hoc-range__price {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.hoc-range__price .hoc-micro {
+  font-family: var(--ff-ui);
+}
+.hoc-range__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.hoc-range__actions .hoc-btn--solid {
+  --btn-bg: var(--accent);
+  --btn-edge: var(--accent);
+  color: #fff;
+}
+.hoc-range__actions .hoc-btn--solid::before {
+  background: var(--accent-ink);
+}
+
+/* The tagline sits outside the frame, as in the reference. */
+.hoc-range__notes {
+  position: relative;
+  display: grid;
+  min-height: 1.5em;
+  transform: translateY(var(--range-drift, 0px));
+}
+.hoc-range__note {
+  grid-area: 1 / 1;
+  text-align: center;
+  font-size: var(--fs-small);
+  color: var(--on-surface-dim);
+  opacity: 0;
+  transition: opacity var(--t-ui) var(--e-hoc);
+}
+.hoc-range__note.is-on {
+  opacity: 1;
+}
+.hoc-range__mobile-pack { display: none; }
+.hoc-range__mcopy { display: none; }
+.hoc-range__mobile-pack img { width: 100%; height: auto; filter: drop-shadow(0 12px 12px rgb(35 35 34 / .1)); }
+.hoc-range__mobile-pack .hoc-doypack { width: min(74%, 150px); margin-inline: auto; filter: none; }
+
+/* --- mobile: no parallax, no sticky, no 700vh trap (§44) ---------------- */
+@media (max-width: 899px), (max-height: 619px) {
+  .hoc-range__head { align-items: start; flex-direction: column; gap: 1.5rem; }
+  .hoc-range__intro { max-width: 32ch; }
+  .hoc-range__stage {
+    display: block;
+    padding-bottom: var(--space-section);
+  }
+  .hoc-range__col--right,
+  .hoc-range__centre {
+    display: none;
+  }
+  .hoc-range__col--left {
+    display: grid;
+    gap: 0;
+  }
+  .hoc-range__cell {
+    height: auto;
+    min-height: 420px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    column-gap: .5rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hoc-range__pile {
+    width: 145%;
+    max-width: 400px;
+  }
+  /* The photograph is a hard-edged circle: unlike the soft piles it has to
+     stay inside its column, clear of the screen edge and the pack. */
+  .hoc-range__pile.hoc-range__pile--photo {
+    width: min(96%, 300px);
+  }
+  /* On /blends/ the matcha chapter follows straight on with its own
+     hairline and spacing: no second rule, no doubled gap. */
+  .hoc-range--headless .hoc-range__stage {
+    padding-bottom: 0;
+  }
+  .hoc-range--headless .hoc-range__cell:last-child {
+    border-bottom: 0;
+  }
+  .hoc-range__mobile-pack { display: block; width: min(82%, 210px); }
+  /* Mobile keeps each pile, pack and description together in normal flow. */
+  .hoc-range__mcopy {
+    text-align: center;
+    display: grid;
+    grid-column: 1 / -1;
+    gap: .7rem;
+    justify-items: center;
+    padding-block: .75rem;
+  }
+}
+/* Core content remains paired and readable if motion JS fails to load. */
+.hoc-range:not(.is-enhanced) .hoc-range__stage { display: block; }
+.hoc-range:not(.is-enhanced) .hoc-range__centre,
+.hoc-range:not(.is-enhanced) .hoc-range__col--right { display: none; }
+.hoc-range:not(.is-enhanced) .hoc-range__cell { height: auto; min-height: 420px; grid-template-columns: 1fr 1fr; padding-block: 1rem; }
+.hoc-range:not(.is-enhanced) .hoc-range__mcopy { display: grid; gap: .8rem; justify-items: center; grid-column: 1 / -1; text-align: center; }
+.hoc-range:not(.is-enhanced) .hoc-range__mobile-pack { display: block; width: min(82%, 210px); }
+@media (prefers-reduced-motion: reduce) {
+  .hoc-range__panel, .hoc-range__note { transition: none; }
+}
+
+/* ==========================================================================
+   PAGE HEADS — /blends/ and /about/
+   The page title sits where the hero sits on the homepage: large, left, and
+   clear of the fixed header.
+   ========================================================================== */
+.hoc-pagehead {
+  padding-block: calc(var(--header-h) + clamp(2.5rem, 7vh, 5.5rem)) clamp(1.5rem, 4vh, 3rem);
+}
+.hoc-pagehead__crumb {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+  color: var(--on-surface-dim);
+}
+.hoc-pagehead__crumb a {
+  color: var(--on-surface);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.hoc-pagehead__title {
+  max-width: 12ch;
+}
+.hoc-pagehead__lede {
+  max-width: 44ch;
+  margin-top: clamp(1rem, 2.5vh, 1.75rem);
+  color: var(--on-surface-dim);
+}
+/* On /blends/ the page head introduces the range, so the range's own head
+   is not repeated. */
+.hoc-range--headless {
+  padding-top: clamp(1rem, 3vh, 2rem);
+}

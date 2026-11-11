@@ -1,0 +1,1013 @@
+/* ==========================================================================
+   HOC TEA — hoc-product.css  (product pages only)
+
+   The v2 product page on the v3 palette: bone ground, deep teal type and
+   dark grounds, the teal family for every state. Nothing here uses yellow.
+
+     .hoc-pdp          gallery (the real doypack front) + sticky purchase panel
+     .hoc-pdp-inside   the ingredients as specimen plates
+     .hoc-pdp-brew     the brew console + the brew glass (deep teal)
+     .hoc-pdp-more     the next blends on a rail
+
+   Markup: tools/pages/product.mjs. Behaviour: assets/js/hoc-product.js.
+   ========================================================================== */
+
+/* Focus is always teal on these pages, never the per-blend accent. */
+.hoc-pdp :focus-visible,
+.hoc-pdp-inside :focus-visible,
+.hoc-pdp-more :focus-visible {
+  outline-color: var(--hoc-ink);
+}
+.hoc-pdp-brew :focus-visible {
+  outline-color: var(--hoc-teal-light);
+}
+
+/* --------------------------------------------------------------------------
+   THE PRODUCT
+   -------------------------------------------------------------------------- */
+.hoc-pdp {
+  padding-block: calc(var(--header-h) + clamp(1rem, 2.4vw, 2rem)) clamp(4rem, 9vw, 8rem);
+  overflow-x: clip;
+}
+.hoc-pdp__crumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  margin-block-end: clamp(1.2rem, 2.4vw, 2rem);
+  color: var(--on-surface-dim);
+}
+.hoc-pdp__crumb li + li::before {
+  content: "/";
+  margin-inline-end: 0.8rem;
+  color: rgb(var(--hoc-ink-rgb) / 0.35);
+}
+.hoc-pdp__crumb a {
+  color: var(--hoc-ink);
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--hoc-ink-rgb) / 0.35);
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color var(--t-micro) var(--e-hoc);
+}
+.hoc-pdp__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2.5rem, 5.5vw, 6.5rem);
+  align-items: start;
+}
+
+/* ---- the gallery: the blend's printed doypack ----------------------------
+   One strip of slides that scrolls natively (scroll-snap), so a swipe, a
+   trackpad and the arrow keys move the same thing once there is more than
+   one picture. Today there is one: the doypack front, shown whole on the
+   blend's wash, or the empty frame until its design arrives. */
+.hoc-pdp__gallery {
+  min-width: 0;
+}
+.hoc-pdp__slides {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  background: var(--accent-wash);
+  border-start-start-radius: var(--curve-lg);
+  border-end-end-radius: var(--curve-lg);
+}
+.hoc-pdp__slides::-webkit-scrollbar {
+  display: none;
+}
+.hoc-pdp__slides:focus-visible {
+  outline: 2px solid var(--hoc-ink);
+  outline-offset: 4px;
+}
+.hoc-pdp__slide {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  max-height: min(calc(100svh - var(--header-h) - 6rem), 780px);
+  scroll-snap-align: start;
+}
+/* Sized by the frame's height, so the 2:3 pack is shown whole whatever
+   shape the frame takes (it widens when the height is capped). */
+.hoc-pdp__slide > .hoc-pdp__pack-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 80%;
+  transform: translate(-50%, -50%);
+}
+.hoc-pdp__slide > .hoc-doypack--empty {
+  background: rgb(255 255 255 / 0.28);
+}
+.hoc-pdp__thumbs {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.9rem 0 0;
+}
+.hoc-pdp__thumbs button {
+  display: block;
+  width: 4.5rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  opacity: 0.55;
+  transition: opacity var(--t-micro) var(--e-hoc);
+}
+.hoc-pdp__thumbs button[aria-current="true"] {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--hoc-bone), 0 0 0 3px var(--hoc-ink);
+}
+
+/* ---- the purchase panel -------------------------------------------------- */
+.hoc-pdp__panel {
+  position: sticky;
+  top: calc(var(--header-h-scrolled) + 1.5rem);
+  min-width: 0;
+  padding-block-start: 0.5rem;
+}
+.hoc-pdp__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  color: var(--on-surface-dim);
+}
+.hoc-pdp__kicker span {
+  padding: 0.35em 0.6em;
+  color: var(--accent-ink);
+  border: 1px solid currentColor;
+  border-start-start-radius: 0.4rem;
+  border-end-end-radius: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.hoc-pdp__title {
+  margin-block: 0.9rem 0.8rem;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 5.4vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+}
+.hoc-pdp__taste {
+  max-width: 26ch;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem);
+  line-height: 1.18;
+  color: var(--accent-ink);
+  text-wrap: pretty;
+}
+.hoc-pdp__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-block: clamp(1.5rem, 3vw, 2.2rem);
+  border-block: 1px solid var(--hairline);
+}
+.hoc-pdp__fact {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  padding: 0.95rem 0.9rem 1rem 0;
+  font-size: var(--fs-small);
+  line-height: 1.3;
+}
+.hoc-pdp__fact + .hoc-pdp__fact {
+  padding-inline-start: 0.9rem;
+  border-inline-start: 1px solid var(--hairline);
+}
+/* Caffeine as a level: an empty dot is caffeine-free, half is low, full is
+   caffeinated. The word beside it says the same thing. */
+.hoc-pdp__caf {
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  margin-inline-end: 0.45em;
+  vertical-align: 0.02em;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--hoc-ink);
+}
+.hoc-pdp__caf.is-low {
+  background: linear-gradient(to top, var(--hoc-ink) 50%, transparent 50%);
+}
+.hoc-pdp__caf.is-full {
+  background: var(--hoc-ink);
+}
+
+/* ---- pack tiles ------------------------------------------------------------
+   Native radios under the whole tile. The doypack tile carries the printed
+   front as a small thumbnail; the tin tile is words only. */
+.hoc-pdp__packs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.hoc-pdp__packs legend {
+  margin-block-end: 0.8rem;
+  padding: 0;
+}
+.hoc-pdp__pack {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  gap: 0.3rem;
+  min-height: 48px;
+  padding: 1rem 2.4rem 1.05rem 1rem;
+  cursor: pointer;
+  background: rgb(255 255 255 / 0.32);
+  border: 1px solid var(--hairline);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  transition: border-color var(--t-micro) var(--e-hoc), background-color var(--t-micro) var(--e-hoc);
+}
+.hoc-pdp__pack--thumb {
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+}
+.hoc-pdp__pack input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.hoc-pdp__pack:has(input:checked) {
+  background: var(--hoc-teal-wash);
+  border-color: var(--hoc-ink);
+  box-shadow: inset 0 0 0 1px var(--hoc-ink);
+}
+.hoc-pdp__pack:has(input:checked)::after {
+  content: "";
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--hoc-ink)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4 6.8 11 12 5.6' fill='none' stroke='%23f1efe8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 80% no-repeat;
+}
+.hoc-pdp__pack:has(input:focus-visible) {
+  outline: 2px solid var(--hoc-ink);
+  outline-offset: 3px;
+}
+.hoc-pdp__pack:has(input:disabled) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.hoc-pdp__pack-thumb {
+  grid-row: 1 / -1;
+  align-self: start;
+  width: 2.9rem;
+  aspect-ratio: 2 / 3;
+}
+.hoc-pdp__pack-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 6px 12px -8px rgb(var(--hoc-ink-rgb) / 0.55);
+}
+.hoc-pdp__pack-thumb.is-empty {
+  border: 1px dashed rgb(var(--hoc-ink-rgb) / 0.32);
+  border-radius: 3px;
+  background: rgb(var(--hoc-ink-rgb) / 0.04);
+}
+.hoc-pdp__pack-name {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.hoc-pdp__pack-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.7rem;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  /* 4.8:1 on the selected tile's wash, 6:1 on bone */
+  color: rgb(var(--hoc-ink-rgb) / 0.82);
+}
+.hoc-pdp__pack-meta > span {
+  white-space: nowrap;
+}
+.hoc-pdp__pack-price {
+  align-self: end;
+  margin-top: 0.45rem;
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* ---- quantity + add ------------------------------------------------------- */
+.hoc-pdp__buy {
+  display: flex;
+  gap: 0.75rem;
+  margin-block-start: 1rem;
+}
+.hoc-pdp__qty {
+  display: flex;
+  align-items: stretch;
+  flex: none;
+  height: 56px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.32);
+  border: 1px solid var(--hairline);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+.hoc-pdp__qty button {
+  width: 48px;
+  font-size: 1.3rem;
+  color: var(--on-surface);
+  transition: background-color var(--t-micro) var(--e-hoc);
+}
+.hoc-pdp__qty button:active {
+  background: rgb(var(--hoc-ink-rgb) / 0.1);
+}
+.hoc-pdp__qty input {
+  width: 3ch;
+  padding: 0;
+  font-size: 1rem; /* 16px: no zoom-on-focus on iOS */
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  background: none;
+  border: 0;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.hoc-pdp__qty input::-webkit-outer-spin-button,
+.hoc-pdp__qty input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Deep teal, bone type; the hover fill is the lifted teal for every blend.
+   The label is last in the markup (the cart script relabels the last span
+   "Added") and first on screen. */
+.hoc-pdp__add,
+.hoc-pdp__bar-add {
+  justify-content: space-between;
+  transition: color var(--t-micro) var(--e-hoc), border-color var(--t-micro) var(--e-hoc), transform 160ms var(--e-hoc);
+}
+.hoc-pdp__add::before,
+.hoc-pdp__bar-add::before {
+  background: var(--hoc-teal-lift);
+}
+.hoc-pdp__add:hover,
+.hoc-pdp__add:focus-visible,
+.hoc-pdp__bar-add:hover,
+.hoc-pdp__bar-add:focus-visible {
+  color: var(--hoc-bone);
+  border-color: var(--hoc-teal-lift);
+}
+.hoc-pdp__add:active,
+.hoc-pdp__bar-add:active {
+  transform: scale(0.98);
+}
+.hoc-pdp__add {
+  flex: 1;
+  min-height: 56px;
+  padding-inline: 1.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+.hoc-pdp__add-label {
+  order: -1;
+}
+.hoc-pdp__add-price {
+  padding-inline-start: 1rem;
+  border-inline-start: 1px solid currentColor;
+  font-family: var(--ff-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.hoc-pdp__add[disabled],
+.hoc-pdp__bar-add[disabled] {
+  opacity: 0.55;
+}
+.hoc-pdp__jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-block-start: 1.6rem;
+}
+
+/* Standalone text links get a 44px-tall hit area without moving their
+   underline: the pseudo-element is part of the link for hit-testing. */
+.hoc-pdp__crumb a,
+.hoc-pdp__jumps .hoc-link,
+.hoc-pdp-more__head .hoc-link {
+  position: relative;
+}
+.hoc-pdp__crumb a::before,
+.hoc-pdp__jumps .hoc-link::before,
+.hoc-pdp-more__head .hoc-link::before {
+  content: "";
+  position: absolute;
+  inset: -0.75rem -0.35rem;
+}
+
+/* ---- the add bar on phones ------------------------------------------------ */
+.hoc-pdp__bar {
+  position: fixed;
+  z-index: calc(var(--z-header) - 1);
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
+  background: rgb(var(--hoc-bone-rgb) / 0.97);
+  border-top: 1px solid var(--hairline);
+  box-shadow: 0 -12px 30px -18px rgb(var(--hoc-ink-rgb) / 0.4);
+  transform: translate3d(0, 110%, 0);
+  transition: transform 0.42s var(--e-hoc);
+}
+.hoc-pdp__bar[hidden] {
+  display: none;
+}
+.hoc-pdp__bar.is-shown {
+  transform: none;
+}
+.hoc-pdp__bar-dot {
+  flex: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--liquid);
+  box-shadow: 0 0 0 3px var(--hoc-bone), 0 0 0 4px var(--hairline);
+}
+.hoc-pdp__bar-name {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.hoc-pdp__bar-name .hoc-micro {
+  font-family: var(--ff-ui);
+}
+.hoc-pdp__bar-add {
+  flex: none;
+  margin-inline-start: auto;
+  min-height: 48px;
+  gap: 0.9rem;
+  padding-inline: 1.1rem;
+}
+.hoc-pdp__bar-add .hoc-pdp__add-price {
+  padding-inline-start: 0.8rem;
+  font-size: 1.15rem;
+}
+@media (min-width: 1024px) {
+  .hoc-pdp__bar {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   IN THE BLEND: specimen plates
+   Each plate is a photograph from the atlas, framed in the HOC leaf shape.
+   -------------------------------------------------------------------------- */
+.hoc-pdp-inside {
+  padding-block: clamp(4.5rem, 10vw, 9rem);
+  background: var(--hoc-bone-soft);
+}
+.hoc-pdp-inside__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  column-gap: clamp(2.5rem, 6vw, 7rem);
+  row-gap: clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+.hoc-pdp-inside__head h2,
+.hoc-pdp-brew__intro h2,
+.hoc-pdp-more__head h2 {
+  margin-block-end: 1.1rem;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: var(--fs-section);
+  line-height: 0.98;
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+}
+.hoc-pdp-inside__head > p {
+  max-width: 44ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+.hoc-pdp-inside__plates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.hoc-pdp-plate {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "img name" "img note";
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  column-gap: 1.1rem;
+  row-gap: 0.3rem;
+  padding-block: 1.4rem;
+  border-top: 1px solid var(--hairline);
+}
+.hoc-pdp-plate__img {
+  grid-area: img;
+  width: clamp(4.5rem, 7vw, 5.6rem);
+  aspect-ratio: 1;
+  background-color: rgb(255 255 255 / 0.5);
+  background-size: 600% 500%;
+  background-position: var(--plate, 0 0);
+  background-repeat: no-repeat;
+  border-start-start-radius: 42%;
+  border-end-end-radius: 42%;
+  box-shadow: inset 0 0 0 1px rgb(var(--hoc-ink-rgb) / 0.08);
+}
+.hoc-pdp-plate__name {
+  grid-area: name;
+  margin-top: 0.5rem;
+  font-family: var(--ff-display);
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
+  line-height: 1.05;
+}
+.hoc-pdp-plate__note {
+  grid-area: note;
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   THE BREW CONSOLE  (deep teal)
+   -------------------------------------------------------------------------- */
+.hoc-pdp-brew {
+  padding-block: clamp(4.5rem, 10vw, 9rem);
+  overflow: hidden;
+}
+.hoc-pdp-brew__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr);
+  grid-template-areas: "intro console glass";
+  gap: clamp(2rem, 4.5vw, 5rem);
+  align-items: start;
+}
+.hoc-pdp-brew__intro {
+  grid-area: intro;
+}
+.hoc-pdp-brew__intro > p {
+  max-width: 34ch;
+  color: var(--on-surface-dim);
+  text-wrap: pretty;
+}
+.hoc-pdp-brew__console {
+  grid-area: console;
+  min-width: 0;
+}
+.hoc-pdp-brew__modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  border: 0;
+}
+.hoc-pdp-brew__modes legend {
+  width: 100%;
+  margin-block-end: 0.8rem;
+  padding: 0;
+}
+.hoc-pdp-brew__modes label {
+  position: relative;
+}
+.hoc-pdp-brew__modes input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.hoc-pdp-brew__modes span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 1.2rem;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--ls-micro);
+  text-transform: uppercase;
+  border: 1px solid var(--hairline);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+  transition: background-color var(--t-micro) var(--e-hoc), color var(--t-micro) var(--e-hoc),
+    border-color var(--t-micro) var(--e-hoc);
+}
+.hoc-pdp-brew__modes input:checked + span {
+  color: var(--hoc-ink);
+  background: var(--hoc-bone);
+  border-color: var(--hoc-bone);
+}
+.hoc-pdp-brew__modes input:focus-visible + span {
+  outline: 2px solid var(--hoc-teal-light);
+  outline-offset: 3px;
+}
+.hoc-pdp-brew__cups {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hoc-pdp-brew .hoc-pdp__qty {
+  height: 48px;
+  background: rgb(255 255 255 / 0.04);
+}
+.hoc-pdp-brew .hoc-pdp__qty button:active {
+  background: rgb(255 255 255 / 0.12);
+}
+.hoc-pdp-brew__readout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-block: 1.8rem 1.2rem;
+  border-block: 1px solid var(--hairline);
+}
+.hoc-pdp-brew__readout > div {
+  min-width: 0;
+  padding: 1.1rem 0.8rem 1.2rem 0;
+}
+.hoc-pdp-brew__readout > div + div {
+  padding-inline-start: 0.9rem;
+  border-inline-start: 1px solid var(--hairline);
+}
+.hoc-pdp-brew__readout dt {
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--ls-micro);
+  text-transform: uppercase;
+  color: var(--on-surface-dim);
+}
+.hoc-pdp-brew__readout dd {
+  margin: 0.4rem 0 0;
+  font-family: var(--ff-display);
+  font-size: clamp(1.9rem, 2.9vw, 2.9rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+.hoc-pdp-brew__readout small {
+  margin-inline-start: 0.2em;
+  font-family: var(--ff-ui);
+  font-size: 0.8rem;
+  color: var(--on-surface-dim);
+}
+.hoc-pdp-brew__readout small:empty {
+  display: none;
+}
+.hoc-pdp-brew__method {
+  max-width: 46ch;
+  color: rgb(var(--hoc-bone-rgb) / 0.86);
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   THE BREW GLASS
+   The homepage tumbler on the deep teal: clear water, the blend's own
+   botanicals, its brewed colour rising from the base. Beside it a plain
+   bar that fills with the colour and the steep time counting up. All of it
+   is decoration (aria-hidden); the readout carries the recipe.
+   Glass units: 1 unit = the vessel's width; the vessel is 1:2.
+   -------------------------------------------------------------------------- */
+.hoc-brewglass {
+  --glass-w: clamp(150px, 12.5vw, 200px);
+  grid-area: glass;
+  justify-self: center;
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.9rem, 1.5vw, 1.4rem);
+  /* headroom: the handful starts above the rim */
+  padding-top: calc(var(--glass-w) * 0.44);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.hoc-brewglass__vessel {
+  position: relative;
+  flex: none;
+  width: var(--glass-w);
+  aspect-ratio: 1 / 2;
+}
+.hoc-brewglass__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hoc-brewglass__back {
+  fill: rgb(var(--hoc-bone-rgb) / 0.035);
+}
+.hoc-brewglass__water {
+  fill: rgb(var(--hoc-bone-rgb) / 0.075);
+}
+.hoc-brewglass__ink {
+  stop-color: var(--liquid);
+}
+.hoc-brewglass__ink--clear {
+  stop-opacity: 0;
+}
+/* the same dye laid over the sunk pieces, so they take the colour too */
+.hoc-brewglass__veil {
+  opacity: 0.42;
+}
+.hoc-brewglass__streak {
+  opacity: 0;
+}
+.hoc-brewglass__ripple {
+  fill: none;
+  stroke: rgb(var(--hoc-bone-rgb) / 0.75);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+}
+.hoc-brewglass__sheen {
+  fill: rgb(255 255 255 / 0.12);
+}
+.hoc-brewglass__foot {
+  fill: var(--liquid);
+  opacity: 0.28;
+}
+.hoc-brewglass__spec {
+  fill: rgb(255 255 255 / 0.1);
+}
+.hoc-brewglass__line {
+  fill: none;
+  stroke: rgb(var(--hoc-bone-rgb) / 0.55);
+  stroke-width: 1.25px;
+  vector-effect: non-scaling-stroke;
+}
+.hoc-brewglass__line--soft {
+  stroke: rgb(var(--hoc-bone-rgb) / 0.22);
+}
+/* ice, for "Iced": hidden until the serve asks for it */
+.hoc-brewglass__cube {
+  opacity: 0;
+}
+.hoc-brewglass__cube rect {
+  fill: rgb(255 255 255 / 0.24);
+  stroke: rgb(var(--hoc-bone-rgb) / 0.72);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+.hoc-brewglass__cube path {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.6);
+  stroke-width: 1.2px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* The bar spans the liquid: from the surface to the base, in glass units
+   (surface 0.288 W below the vessel top, base 0.139 W above its foot). */
+.hoc-brewglass__bar {
+  position: relative;
+  flex: none;
+  width: 6px;
+  margin-block: calc(var(--glass-w) * 0.288) calc(var(--glass-w) * 0.139);
+  overflow: hidden;
+  background: rgb(var(--hoc-bone-rgb) / 0.14);
+  border-start-start-radius: 3px;
+  border-end-end-radius: 3px;
+}
+.hoc-brewglass__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--liquid);
+  transform-origin: 50% 100%;
+}
+.hoc-brewglass__clock {
+  align-self: flex-start;
+  margin-top: calc(var(--glass-w) * 0.288 - 0.1em);
+  font-family: var(--ff-display);
+  font-size: clamp(2.1rem, 2.7vw, 2.9rem);
+  line-height: 0.8;
+  white-space: nowrap;
+  color: var(--hoc-bone);
+}
+/* Instrument Serif has no tabular figures: one fixed cell per digit. */
+.hoc-brewglass__d {
+  display: inline-block;
+  width: 0.48em;
+  text-align: center;
+}
+.hoc-brewglass__c {
+  display: inline-block;
+  width: 0.24em;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   MORE BLENDS
+   -------------------------------------------------------------------------- */
+.hoc-pdp-more {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+.hoc-pdp-more__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-block-end: clamp(2rem, 4vw, 3rem);
+}
+.hoc-pdp-more__head h2 {
+  margin: 0;
+}
+.hoc-pdp-more__rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(14rem, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-block-end: 1rem;
+}
+.hoc-pdp-more__item {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.hoc-pdp-more__item a {
+  display: grid;
+  gap: 0.5rem;
+}
+.hoc-pdp-more__item a:focus-visible {
+  outline-offset: 4px;
+}
+.hoc-pdp-more__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--accent-wash);
+  border-start-start-radius: var(--curve-md);
+  border-end-end-radius: var(--curve-md);
+}
+.hoc-pdp-more__media > .hoc-doypack {
+  width: 50%;
+  transition: transform 0.6s var(--e-hoc);
+}
+.hoc-pdp-more__name {
+  margin-top: 0.4rem;
+  font-family: var(--ff-display);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.hoc-pdp-more__meta {
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  color: var(--on-surface-dim);
+}
+
+/* --------------------------------------------------------------------------
+   HOVER (pointer devices only: a tap never leaves a hover state behind)
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .hoc-pdp__crumb a:hover {
+    text-decoration-color: currentColor;
+  }
+  .hoc-pdp__thumbs button:hover {
+    opacity: 1;
+  }
+  .hoc-pdp__pack:hover {
+    border-color: rgb(var(--hoc-ink-rgb) / 0.4);
+  }
+  .hoc-pdp__qty button:hover {
+    background: rgb(var(--hoc-ink-rgb) / 0.06);
+  }
+  .hoc-pdp-brew .hoc-pdp__qty button:hover {
+    background: rgb(255 255 255 / 0.08);
+  }
+  .hoc-pdp-brew__modes label:hover input:not(:checked) + span {
+    border-color: var(--hoc-teal-light);
+  }
+  .hoc-pdp-more__item a:hover .hoc-pdp-more__media > .hoc-doypack {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET AND PHONE
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .hoc-pdp__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .hoc-pdp__slide {
+    aspect-ratio: 1;
+    max-height: 64svh;
+  }
+  .hoc-pdp__panel {
+    position: static;
+  }
+  .hoc-pdp-inside__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hoc-pdp-brew__grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-areas: "intro intro" "console glass";
+  }
+}
+@media (max-width: 699px) {
+  .hoc-pdp__title {
+    font-size: clamp(3rem, 15vw, 4.4rem);
+  }
+  .hoc-pdp__slide > .hoc-pdp__pack-image {
+    height: 82%;
+  }
+  .hoc-pdp__fact {
+    padding-inline-end: 0.5rem;
+  }
+  .hoc-pdp__fact + .hoc-pdp__fact {
+    padding-inline-start: 0.6rem;
+  }
+  .hoc-pdp__packs {
+    gap: 0.55rem;
+  }
+  .hoc-pdp__pack {
+    padding: 0.85rem 2.1rem 0.9rem 0.8rem;
+  }
+  .hoc-pdp__pack--thumb {
+    column-gap: 0.7rem;
+  }
+  .hoc-pdp__pack-thumb {
+    width: 2.4rem;
+  }
+  .hoc-pdp__pack:has(input:checked)::after {
+    top: 0.7rem;
+    right: 0.7rem;
+  }
+  .hoc-pdp-inside__plates {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* The glass sits right above the serve buttons, so a tap on "Iced" lands
+     where you are looking. */
+  .hoc-pdp-brew__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "glass" "console";
+    row-gap: 2.5rem;
+  }
+  .hoc-brewglass {
+    --glass-w: clamp(132px, 38vw, 170px);
+  }
+  .hoc-brewglass__clock {
+    font-size: 2rem;
+  }
+  .hoc-pdp-brew__readout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hoc-pdp-brew__readout > div:nth-child(3) {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+  .hoc-pdp-brew__readout > div:nth-child(n + 3) {
+    border-top: 1px solid var(--hairline);
+  }
+  .hoc-pdp-more__head {
+    display: block;
+  }
+  .hoc-pdp-more__head .hoc-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+  }
+  .hoc-pdp-more__rail {
+    grid-auto-columns: 70%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hoc-pdp__thumbs button,
+  .hoc-pdp__bar,
+  .hoc-pdp-more__media > .hoc-doypack {
+    transition: none;
+  }
+}
