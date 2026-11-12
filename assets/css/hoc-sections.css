@@ -2567,6 +2567,31 @@ html:not(.hoc-js) .hoc-alchemy__controls {
   line-height: .97;
 }
 .hoc-range__intro { font-size: var(--fs-small); line-height: 1.7; padding-bottom: .3rem; }
+/* Homepage: the title on one line, the way to every blend as a real button
+   in the middle of the row. */
+.hoc-range__head--cta {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+}
+.hoc-range__head--cta h2 {
+  max-width: none;
+  white-space: nowrap;
+}
+.hoc-range__cta {
+  justify-self: center;
+  margin-bottom: .4rem;
+}
+.hoc-range__head--cta .hoc-range__intro {
+  justify-self: end;
+  text-align: right;
+}
+/* The same way out again once the three have been seen. */
+.hoc-range__foot {
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(2rem, 5vh, 3.5rem);
+}
 .hoc-range__intro span { color: var(--on-surface-dim); }
 
 /* --- desktop three-column stage ---------------------------------------- */
@@ -2814,6 +2839,10 @@ html:not(.hoc-js) .hoc-alchemy__controls {
 /* --- mobile: no parallax, no sticky, no 700vh trap (§44) ---------------- */
 @media (max-width: 899px), (max-height: 619px) {
   .hoc-range__head { align-items: start; flex-direction: column; gap: 1.5rem; }
+  .hoc-range__head--cta { grid-template-columns: minmax(0, 1fr); }
+  .hoc-range__head--cta h2 { white-space: normal; }
+  .hoc-range__cta { justify-self: start; margin-bottom: 0; }
+  .hoc-range__head--cta .hoc-range__intro { justify-self: start; text-align: left; }
   .hoc-range__intro { max-width: 32ch; }
   .hoc-range__stage {
     display: block;
