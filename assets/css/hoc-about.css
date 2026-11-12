@@ -868,3 +868,112 @@
   line-height: 1.05;
   color: var(--on-surface);
 }
+
+
+/* ==========================================================================
+   PHOTOGRAPHS — added through the page so it no longer reads as text only.
+   Every frame crops its picture (object-fit: cover) to a fixed shape, so the
+   rhythm holds whatever the source proportions.
+   ========================================================================== */
+.hoc-ab-open__media,
+.hoc-ab-palette__media,
+.hoc-ab-rule__media,
+.hoc-ab-day__photos figure,
+.hoc-ab-venue__media,
+.hoc-ab-formats__media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface-soft);
+}
+.hoc-ab-open__media img,
+.hoc-ab-palette__media img,
+.hoc-ab-rule__media img,
+.hoc-ab-day__photos img,
+.hoc-ab-venue__media img,
+.hoc-ab-formats__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 1. opening band */
+.hoc-ab-open__media {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  aspect-ratio: 21 / 9;
+}
+.hoc-ab-open__media img {
+  object-position: 50% 45%;
+}
+
+/* 3. principles: picture beside each rule */
+.hoc-ab-rule__media {
+  aspect-ratio: 4 / 3;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+@media (min-width: 600px) {
+  .hoc-ab-rule {
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+    column-gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: start;
+  }
+  .hoc-ab-rule__media {
+    grid-row: 1 / span 2;
+  }
+}
+
+/* 4. palette band */
+.hoc-ab-palette__media {
+  aspect-ratio: 21 / 8;
+  margin-block: 0 clamp(2rem, 4vw, 3rem);
+}
+
+/* 5. morning, afternoon, evening */
+.hoc-ab-day__photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.6vw, 1.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.hoc-ab-day__photos figure {
+  aspect-ratio: 4 / 5;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+.hoc-ab-day__photos figcaption {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.7rem;
+  padding: 0.35rem 0.6rem;
+  background: var(--hoc-bone);
+  color: var(--hoc-ink);
+}
+@media (max-width: 599px) {
+  .hoc-ab-day__photos {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: 72%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .hoc-ab-day__photos li {
+    scroll-snap-align: start;
+  }
+}
+
+/* 6. venues and formats */
+.hoc-ab-venue__media {
+  aspect-ratio: 3 / 2;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
+.hoc-ab-formats__media {
+  aspect-ratio: 3 / 2;
+  margin-bottom: 1rem;
+  border-start-start-radius: var(--curve-sm);
+  border-end-end-radius: var(--curve-sm);
+}
