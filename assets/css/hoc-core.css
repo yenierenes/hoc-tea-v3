@@ -1090,6 +1090,14 @@ html.hoc-js [data-split] {
 html.hoc-js [data-split].is-split {
   opacity: 1;
 }
+/* SplitText clips each line to its own box. Display type sets tighter than
+   its glyphs, so the tails of p, y, g, j were cut off. The mask gets room
+   below (and a little above for accents) and gives it back with negative
+   margins, so the lines do not move. */
+[data-split] .hocsl-mask {
+  padding-block: 0.08em 0.26em;
+  margin-block: -0.08em -0.26em;
+}
 html.hoc-reduced [data-split] {
   opacity: 1 !important;
 }

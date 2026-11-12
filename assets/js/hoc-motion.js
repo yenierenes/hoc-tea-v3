@@ -94,12 +94,15 @@
       try {
         SplitText.create(el, {
           type: "lines",
+          linesClass: "hocsl", // one word: SplitText names the mask .hocsl-mask (room for descenders, CSS)
           mask: "lines", // 3.13 wraps each line so it can slide out of a mask
           autoSplit: true, // re-split on font load and on resize
           onSplit: function (self) {
             el.classList.add("is-split");
             return gsap.from(self.lines, {
-              yPercent: 112,
+              // Starts fully below its mask, which now reaches a little
+              // further down so p, y, g keep their tails.
+              yPercent: 140,
               duration: 1.05,
               ease: EASE,
               stagger: 0.075,
