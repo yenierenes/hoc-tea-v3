@@ -2581,6 +2581,19 @@ html:not(.hoc-js) .hoc-alchemy__controls {
 .hoc-range__cta {
   justify-self: center;
   margin-bottom: .4rem;
+  white-space: nowrap;
+}
+/* Narrower desktops: the short intro drops under the title so the title and
+   the button keep one line each (longer titles, e.g. Turkish, need it). */
+@media (min-width: 900px) and (max-width: 1399px) {
+  .hoc-range__head--cta {
+    grid-template-columns: auto 1fr;
+  }
+  .hoc-range__head--cta .hoc-range__intro {
+    grid-column: 1 / -1;
+    justify-self: start;
+    text-align: left;
+  }
 }
 .hoc-range__head--cta .hoc-range__intro {
   justify-self: end;

@@ -14,6 +14,15 @@
 
   var HOC = (root.HOC = root.HOC || {});
 
+  /* Language. The Turkish pages (/tr/) load assets/js/hoc-i18n-tr.js, which
+     fills HOC.i18n with the strings the scripts write at runtime (bag, atlas,
+     buttons). Everything else on a page is already in its language. */
+  HOC.lang = (root.document && root.document.documentElement.lang) || "en";
+  HOC.t = function (s) {
+    var d = HOC.i18n;
+    return d && Object.prototype.hasOwnProperty.call(d, s) ? d[s] : s;
+  };
+
   /* ======================================================================
      1. CAPABILITY TIER  §38 §39
 
@@ -624,7 +633,7 @@
           // inside the window must not capture "Added" as the label.
           if (restoreTimer) root.clearTimeout(restoreTimer);
           else restoreLabel = label.textContent;
-          label.textContent = "Added";
+          label.textContent = HOC.t("Added");
           restoreTimer = root.setTimeout(function () {
             restoreTimer = 0;
             label.textContent = restoreLabel;
@@ -676,7 +685,12 @@
       }
     });
     $$('[data-hoc="bag-open"]').forEach(function (b) {
-      b.setAttribute("aria-label", n ? "Bag, " + n + (n === 1 ? " item" : " items") : "Bag");
+      b.setAttribute(
+        "aria-label",
+        HOC.lang === "tr"
+          ? n ? "Sepet, " + n + " ürün" : "Sepet"
+          : n ? "Bag, " + n + (n === 1 ? " item" : " items") : "Bag"
+      );
     });
     lastCount = n;
   }
@@ -716,7 +730,7 @@
 
       if (!bag.items.length) {
         itemsEl.innerHTML =
-          '<p class="hoc-drawer__empty hoc-body">Nothing steeping yet.</p>';
+          '<p class="hoc-drawer__empty hoc-body">' + HOC.t("Nothing steeping yet.") + "</p>";
         return;
       }
 
@@ -737,16 +751,16 @@
               b.name +
               "</p>" +
               '<p class="hoc-micro">' +
-              p.label +
+              HOC.t(p.label) +
               " · " +
               p.weight +
               "</p>" +
               '<div class="hoc-qty">' +
-              '<button data-step="-1" aria-label="Decrease quantity">&minus;</button>' +
+              '<button data-step="-1" aria-label="' + HOC.t("Decrease quantity") + '">&minus;</button>' +
               "<output>" +
               i.qty +
               "</output>" +
-              '<button data-step="1" aria-label="Increase quantity"' + (i.qty >= 99 ? " disabled" : "") + ">+</button>" +
+              '<button data-step="1" aria-label="' + HOC.t("Increase quantity") + '"' + (i.qty >= 99 ? " disabled" : "") + ">+</button>" +
               "</div>" +
               "</div>" +
               '<p class="hoc-cartitem__price">' +
@@ -775,13 +789,13 @@
       return (
         '<div class="hoc-upsell">' +
         '<span class="hoc-upsell__media">' + packThumb(pick, "doypack") + "</span>" +
-        "<div><p class=\"hoc-micro\">Try another ritual.</p>" +
+        "<div><p class=\"hoc-micro\">" + HOC.t("Try another ritual.") + "</p>" +
         '<p class="hoc-cartitem__name">' +
         pick.name +
         "</p></div>" +
         '<button class="hoc-link" data-hoc-upsell="' +
         pick.slug +
-        '">Add</button>' +
+        '">' + HOC.t("Add") + "</button>" +
         "</div>"
       );
     }
@@ -1088,7 +1102,7 @@
       ["name", "botanical", "profile", "aroma", "color", "note"].forEach(
         function (k) {
           var n = $('[data-fact="' + k + '"]', lead);
-          if (n && ing[k]) n.textContent = ing[k];
+          if (n && ing[k]) n.textContent = HOC.t(ing[k]);
         }
       );
       if (art) {
@@ -1817,9 +1831,9 @@
           e.preventDefault();
           var input = $("input[type=email]", form);
           var ok = input.value && /.+@.+\..+/.test(input.value);
-          msg.textContent = ok
+          msg.textContent = HOC.t(ok
             ? "Thank you — check your inbox."
-            : "That email doesn't look right.";
+            : "That email doesn't look right.");
           msg.style.color = ok ? "" : "#d08a6e";
           if (ok) form.reset();
         });

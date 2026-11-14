@@ -1,0 +1,1698 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tüm harmanlar — HOC Tea</title>
+<meta name="description" content="Bütün HOC harmanları, tek tek: dökme hâli, fincandaki rengi ve geldiği doypack. Matcha, hojicha ve ube çok yakında.">
+<meta name="theme-color" content="#164a52">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/hoc-core.css?v=b4e54e2899">
+<link rel="stylesheet" href="../../assets/css/hoc-sections.css?v=94914971be">
+<link rel="stylesheet" href="../../assets/css/hoc-matcha.css?v=b33c5dcdae">
+
+<script>window.HOC = { assetBase: '../../' };</script>
+<script>document.documentElement.classList.add('hoc-js');</script>
+</head>
+<body class="template-blends">
+
+  <a class="hoc-skip" href="#main">İçeriğe geç</a>
+
+  <header class="hoc-header" data-theme-mode="light" data-hoc="header">
+    <div class="hoc-header__inner">
+      <nav class="hoc-header__nav hoc-header__nav--start" aria-label="Ana menü">
+        <a class="hoc-navlink" href="../#range">Mağaza</a>
+        <a class="hoc-navlink" href="../blends/" aria-current="page">Harmanlar</a>
+        <a class="hoc-navlink" href="../#ritual">Ritüel</a>
+        <a class="hoc-navlink" href="../about/">Hakkımızda</a>
+      </nav>
+
+      <a class="hoc-header__brand hoc-lockup" href="../#hero" aria-label="HOC Tea — ana sayfa">
+        <svg class="hoc-mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#hoc-mark"></use></svg>
+        <span class="hoc-lockup__word">Hoctea</span>
+      </a>
+
+      <nav class="hoc-header__nav hoc-header__nav--end" aria-label="İkincil menü">
+        <a class="hoc-navlink" href="../#hospitality">Horeca</a>
+        <a class="hoc-navlink" href="#newsletter">Hesabım</a>
+        <a class="hoc-navlink hoc-lang" data-hoc-lang href="../../blends/" hreflang="en" lang="en">EN</a>
+        <!-- The count only appears once something is in the bag: "Bag", then
+             "Bag (2)". The number lives alone in its span so the cart script
+             can empty it; the brackets are drawn by CSS around a non-empty
+             count, and the button's accessible name carries the item count. -->
+        <button class="hoc-navlink hoc-bag" data-hoc="bag-open" aria-haspopup="dialog" aria-label="Sepet">
+          <span class="hoc-bag__label">Sepet</span><span class="hoc-bag__count" data-hoc="bag-count" aria-hidden="true"></span>
+        </button>
+        <button class="hoc-burger" data-hoc="menu-toggle" aria-expanded="false"
+                aria-controls="hoc-menu" aria-label="Menü"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hoc-menu" id="hoc-menu" data-hoc="menu" hidden>
+    <nav class="hoc-menu__list" aria-label="Mobil menü">
+      <a class="hoc-menu__link" href="../#range">Mağaza</a>
+      <a class="hoc-menu__link" href="../blends/" aria-current="page">Harmanlar</a>
+      <a class="hoc-menu__link" href="../#ritual">Ritüel</a>
+      <a class="hoc-menu__link" href="../about/">Hakkımızda</a>
+      <a class="hoc-menu__link" href="../#hospitality">Horeca</a>
+    </nav>
+    <div class="hoc-menu__foot hoc-micro">
+      <a href="#newsletter">Hesabım</a>
+      <a href="#newsletter">Instagram</a>
+      <a data-hoc-lang href="../../blends/" hreflang="en" lang="en">English</a>
+    </div>
+  </div>
+<main id="main">
+
+  <section class="hoc-section hoc-pagehead" data-header-theme="dark">
+    <div class="hoc-wrap">
+      <nav class="hoc-pagehead__crumb hoc-micro" aria-label="Bulunduğunuz yer"><a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span aria-current="page">Harmanlar</span></nav>
+      <h1 class="hoc-display-xl hoc-pagehead__title" data-split="lines">Harmanlar</h1>
+      <p class="hoc-pagehead__lede hoc-lede">Sıcak ve soğuk ritüeller için on dört bitkisel harman, tek tek. Matcha, hojicha ve ube yolda.</p>
+    </div>
+  </section>
+
+    <section class="hoc-section hoc-range hoc-range--headless" id="range" data-header-theme="dark"
+             data-hoc="range" aria-labelledby="range-title">
+      <h2 class="hoc-sr" id="range-title">Tüm harmanlar</h2>
+
+
+      <div class="hoc-range__stage" data-hoc="range-stage">
+        <ul class="hoc-range__col hoc-range__col--left" data-hoc="range-col" data-speed="-0.08">
+
+          <li class="hoc-range__cell" data-index="0">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#164A52;--accent-2:#9CC3C6;--accent-wash:#D6E2E3;--accent-ink:#0F363C;--liquid:#8C2A33"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="gift-of-nature"
+                 data-ingredients="Hibiscus|Mint Leaf|Lemongrass" data-label="Gift of Nature">
+              <img
+        src="../../assets/img/pile-gift-of-nature.webp?v=ecd68be307"
+        srcset="../../assets/img/pile-gift-of-nature-420.webp?v=6c2828f4b4 420w, ../../assets/img/pile-gift-of-nature-640.webp?v=566a571770 640w, ../../assets/img/pile-gift-of-nature-900.webp?v=ecd68be307 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Gift of Nature — dökme harman: hibiskus, nane yaprağı, limon otu"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3"
+        srcset="../../assets/img/pack-gift-of-nature-420.webp?v=9b51650d20 420w, ../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3 640w, ../../assets/img/pack-gift-of-nature-900.webp?v=9f23da778d 900w, ../../assets/img/pack-gift-of-nature-1200.webp?v=46f5374fad 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#164A52;--accent-2:#9CC3C6;--accent-wash:#D6E2E3;--accent-ink:#0F363C;--liquid:#8C2A33">
+              <h3 class="hoc-range__name">Gift of Nature</h3>
+              <p class="hoc-micro hoc-micro--accent">Canlı · Ferah · Bitkisel</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="gift-of-nature">Sepete ekle</button>
+                <a class="hoc-link" href="../products/gift-of-nature/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="1">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#553B91;--accent-2:#8A75BD;--accent-wash:#E2DEED;--accent-ink:#342654;--liquid:#4D3A8C"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="mystic-butterfly"
+                 data-ingredients="Butterfly Pea Flower|Hibiscus|Cinnamon Stick" data-label="Mystic Butterfly">
+              <img
+        src="../../assets/img/pile-mystic-butterfly.webp?v=42630e2230"
+        srcset="../../assets/img/pile-mystic-butterfly-420.webp?v=8edc1d8317 420w, ../../assets/img/pile-mystic-butterfly-640.webp?v=42e47a9c87 640w, ../../assets/img/pile-mystic-butterfly-900.webp?v=42630e2230 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Mystic Butterfly — dökme harman: mavi kelebek çiçeği, hibiskus, çubuk tarçın"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58"
+        srcset="../../assets/img/pack-mystic-butterfly-420.webp?v=df7d0e2059 420w, ../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58 640w, ../../assets/img/pack-mystic-butterfly-900.webp?v=1d3d99960f 900w, ../../assets/img/pack-mystic-butterfly-1200.webp?v=fc3c9650e9 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#553B91;--accent-2:#8A75BD;--accent-wash:#E2DEED;--accent-ink:#342654;--liquid:#4D3A8C">
+              <h3 class="hoc-range__name">Mystic Butterfly</h3>
+              <p class="hoc-micro hoc-micro--accent">Çiçeksi · Ekşi · Renk değiştiren</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="mystic-butterfly">Sepete ekle</button>
+                <a class="hoc-link" href="../products/mystic-butterfly/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="2">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#376395;--accent-2:#7196C1;--accent-wash:#DDE5EE;--accent-ink:#243C57;--liquid:#2F62A8"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="mesmerize"
+                 data-ingredients="Mango|Pineapple|Lemongrass|Butterfly Pea Flower" data-label="Mesmerize">
+              <img
+        src="../../assets/img/pile-mesmerize.webp?v=3c16522329"
+        srcset="../../assets/img/pile-mesmerize-420.webp?v=a94291ca96 420w, ../../assets/img/pile-mesmerize-640.webp?v=c556801266 640w, ../../assets/img/pile-mesmerize-900.webp?v=3c16522329 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Mesmerize — dökme harman: mango, ananas, limon otu, mavi kelebek çiçeği"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-mesmerize-640.webp?v=7c41fc0dca"
+        srcset="../../assets/img/pack-mesmerize-420.webp?v=8ec970ffcf 420w, ../../assets/img/pack-mesmerize-640.webp?v=7c41fc0dca 640w, ../../assets/img/pack-mesmerize-900.webp?v=2009b362b5 900w, ../../assets/img/pack-mesmerize-1200.webp?v=e1e6fd2fa8 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#376395;--accent-2:#7196C1;--accent-wash:#DDE5EE;--accent-ink:#243C57;--liquid:#2F62A8">
+              <h3 class="hoc-range__name">Mesmerize</h3>
+              <p class="hoc-micro hoc-micro--accent">Tropikal · Tatlı · Canlı</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="mesmerize">Sepete ekle</button>
+                <a class="hoc-link" href="../products/mesmerize/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="3">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#913B41;--accent-2:#BD7579;--accent-wash:#EDDEDF;--accent-ink:#542629;--liquid:#A8462F"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="sunset-valley"
+                 data-ingredients="Rooibos|Strawberry|Apple|Bourbon Vanilla" data-label="Sunset Valley">
+              <img
+        src="../../assets/img/pile-sunset-valley.webp?v=7d27b155a1"
+        srcset="../../assets/img/pile-sunset-valley-420.webp?v=864ba5d17c 420w, ../../assets/img/pile-sunset-valley-640.webp?v=b6e6c095d3 640w, ../../assets/img/pile-sunset-valley-900.webp?v=7d27b155a1 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Sunset Valley — dökme harman: rooibos, çilek, elma, bourbon vanilya"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-sunset-valley-640.webp?v=fafb68c9e0"
+        srcset="../../assets/img/pack-sunset-valley-420.webp?v=a5fb176613 420w, ../../assets/img/pack-sunset-valley-640.webp?v=fafb68c9e0 640w, ../../assets/img/pack-sunset-valley-900.webp?v=51dab6be42 900w, ../../assets/img/pack-sunset-valley-1200.webp?v=2cd4913928 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#913B41;--accent-2:#BD7579;--accent-wash:#EDDEDF;--accent-ink:#542629;--liquid:#A8462F">
+              <h3 class="hoc-range__name">Sunset Valley</h3>
+              <p class="hoc-micro hoc-micro--accent">Yumuşak · Tatlı · Yuvarlak</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="sunset-valley">Sepete ekle</button>
+                <a class="hoc-link" href="../products/sunset-valley/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="4">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#9B6231;--accent-2:#C6966C;--accent-wash:#EFE5DC;--accent-ink:#5A3B21;--liquid:#B4682A"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="asian-breeze"
+                 data-ingredients="Rooibos|Mango|Pineapple|Dried Ginger|Cinnamon Stick|Lemon Peel" data-label="Asian Breeze">
+              <img
+        src="../../assets/img/pile-asian-breeze.webp?v=751eab5773"
+        srcset="../../assets/img/pile-asian-breeze-420.webp?v=124948781e 420w, ../../assets/img/pile-asian-breeze-640.webp?v=1bc66cf35b 640w, ../../assets/img/pile-asian-breeze-900.webp?v=751eab5773 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Asian Breeze — dökme harman: rooibos, mango, ananas, kuru zencefil, çubuk tarçın, limon kabuğu"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057"
+        srcset="../../assets/img/pack-asian-breeze-420.webp?v=640d2f8f0e 420w, ../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057 640w, ../../assets/img/pack-asian-breeze-900.webp?v=72fdaefdef 900w, ../../assets/img/pack-asian-breeze-1200.webp?v=5d3a80d105 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#9B6231;--accent-2:#C6966C;--accent-wash:#EFE5DC;--accent-ink:#5A3B21;--liquid:#B4682A">
+              <h3 class="hoc-range__name">Asian Breeze</h3>
+              <p class="hoc-micro hoc-micro--accent">Tropikal · Baharatlı · Sıcak</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="asian-breeze">Sepete ekle</button>
+                <a class="hoc-link" href="../products/asian-breeze/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="5">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#85475E;--accent-2:#B37F92;--accent-wash:#EBE0E4;--accent-ink:#4E2D39;--liquid:#9E4A5E"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="souls-rest"
+                 data-ingredients="Oolong|Dried Rose|Hibiscus|Chamomile" data-label="Soul's Rest">
+              <img
+        src="../../assets/img/pile-souls-rest.webp?v=c03384b3da"
+        srcset="../../assets/img/pile-souls-rest-420.webp?v=86b7b7a791 420w, ../../assets/img/pile-souls-rest-640.webp?v=3a8ae868c1 640w, ../../assets/img/pile-souls-rest-900.webp?v=c03384b3da 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Soul's Rest — dökme harman: oolong, kurutulmuş gül, hibiskus, papatya"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f"
+        srcset="../../assets/img/pack-souls-rest-420.webp?v=159b1d2257 420w, ../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f 640w, ../../assets/img/pack-souls-rest-900.webp?v=d2e3429f07 900w, ../../assets/img/pack-souls-rest-1200.webp?v=64de53f207 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#85475E;--accent-2:#B37F92;--accent-wash:#EBE0E4;--accent-ink:#4E2D39;--liquid:#9E4A5E">
+              <h3 class="hoc-range__name">Soul's Rest</h3>
+              <p class="hoc-micro hoc-micro--accent">Çiçeksi · Narin · Dingin</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €17</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="souls-rest">Sepete ekle</button>
+                <a class="hoc-link" href="../products/souls-rest/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="6">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#6B8B41;--accent-2:#9DB87A;--accent-wash:#E6ECDF;--accent-ink:#405129;--liquid:#6E8A3F"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="gold-skies"
+                 data-ingredients="Green Tea|Lemongrass|Strawberry|Blackberry|Butterfly Pea Flower" data-label="Gold Skies">
+              <img
+        src="../../assets/img/pile-gold-skies.webp?v=19c950d00d"
+        srcset="../../assets/img/pile-gold-skies-420.webp?v=37b6445498 420w, ../../assets/img/pile-gold-skies-640.webp?v=113e82a796 640w, ../../assets/img/pile-gold-skies-900.webp?v=19c950d00d 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Gold Skies — dökme harman: yeşil çay, limon otu, çilek, böğürtlen, mavi kelebek çiçeği"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gold-skies-640.webp?v=d9113171e2"
+        srcset="../../assets/img/pack-gold-skies-420.webp?v=71865a59f8 420w, ../../assets/img/pack-gold-skies-640.webp?v=d9113171e2 640w, ../../assets/img/pack-gold-skies-900.webp?v=0fa6fe3add 900w, ../../assets/img/pack-gold-skies-1200.webp?v=20d58d312c 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#6B8B41;--accent-2:#9DB87A;--accent-wash:#E6ECDF;--accent-ink:#405129;--liquid:#6E8A3F">
+              <h3 class="hoc-range__name">Gold Skies</h3>
+              <p class="hoc-micro hoc-micro--accent">Kırmızı meyveli · Yeşil · Hafif</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="gold-skies">Sepete ekle</button>
+                <a class="hoc-link" href="../products/gold-skies/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="7">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#89436B;--accent-2:#B67C9D;--accent-wash:#ECDFE6;--accent-ink:#502A40;--liquid:#B0362A"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="pink-senses"
+                 data-ingredients="Jasmine|Pineapple|Hibiscus|White Tea|Cinnamon Stick" data-label="Pink Senses">
+              <img
+        src="../../assets/img/pile-pink-senses.webp?v=0eb61fd2c5"
+        srcset="../../assets/img/pile-pink-senses-420.webp?v=22166d043d 420w, ../../assets/img/pile-pink-senses-640.webp?v=a0f375b76f 640w, ../../assets/img/pile-pink-senses-900.webp?v=0eb61fd2c5 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Pink Senses — dökme harman: yasemin, ananas, hibiskus, beyaz çay, çubuk tarçın"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10"
+        srcset="../../assets/img/pack-pink-senses-420.webp?v=62049059ee 420w, ../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10 640w, ../../assets/img/pack-pink-senses-900.webp?v=f4f9b4a93b 900w, ../../assets/img/pack-pink-senses-1200.webp?v=d28daacec3 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#89436B;--accent-2:#B67C9D;--accent-wash:#ECDFE6;--accent-ink:#502A40;--liquid:#B0362A">
+              <h3 class="hoc-range__name">Pink Senses</h3>
+              <p class="hoc-micro hoc-micro--accent">Çiçeksi · Tropikal · Zarif</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €18</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="pink-senses">Sepete ekle</button>
+                <a class="hoc-link" href="../products/pink-senses/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="8">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#6C4983;--accent-2:#9E81B1;--accent-wash:#E7E0EB;--accent-ink:#402E4D;--liquid:#C2A41A"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="innerbloom"
+                 data-ingredients="Jasmine|Chamomile|Lavender|Lemon Balm" data-label="Innerbloom">
+              <img
+        src="../../assets/img/pile-innerbloom.webp?v=5feecddc57"
+        srcset="../../assets/img/pile-innerbloom-420.webp?v=0d6bb9040d 420w, ../../assets/img/pile-innerbloom-640.webp?v=e09cdf4c2a 640w, ../../assets/img/pile-innerbloom-900.webp?v=5feecddc57 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Innerbloom — dökme harman: yasemin, papatya, lavanta, melisa"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-innerbloom-640.webp?v=2a510f6206"
+        srcset="../../assets/img/pack-innerbloom-420.webp?v=5093b02764 420w, ../../assets/img/pack-innerbloom-640.webp?v=2a510f6206 640w, ../../assets/img/pack-innerbloom-900.webp?v=18a4ce93a3 900w, ../../assets/img/pack-innerbloom-1200.webp?v=bdd16e3df3 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#6C4983;--accent-2:#9E81B1;--accent-wash:#E7E0EB;--accent-ink:#402E4D;--liquid:#C2A41A">
+              <h3 class="hoc-range__name">Innerbloom</h3>
+              <p class="hoc-micro hoc-micro--accent">Çiçeksi · Yumuşak · Sakin</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="innerbloom">Sepete ekle</button>
+                <a class="hoc-link" href="../products/innerbloom/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="9">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#8B5241;--accent-2:#B8887A;--accent-wash:#ECE2DF;--accent-ink:#513329;--liquid:#C06A4A"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="white-tea-melody"
+                 data-ingredients="Strawberry|White Tea|Lemon Peel|Apple|Mango|Cinnamon Stick" data-label="White Tea Melody">
+              <img
+        src="../../assets/img/pile-white-tea-melody.webp?v=aacaaa13e7"
+        srcset="../../assets/img/pile-white-tea-melody-420.webp?v=04be5cf67c 420w, ../../assets/img/pile-white-tea-melody-640.webp?v=0e9a3ecb80 640w, ../../assets/img/pile-white-tea-melody-900.webp?v=aacaaa13e7 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="White Tea Melody — dökme harman: çilek, beyaz çay, limon kabuğu, elma, mango, çubuk tarçın"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-white-tea-melody-640.webp?v=097eb381c9"
+        srcset="../../assets/img/pack-white-tea-melody-420.webp?v=eb72ae8da4 420w, ../../assets/img/pack-white-tea-melody-640.webp?v=097eb381c9 640w, ../../assets/img/pack-white-tea-melody-900.webp?v=5623c46020 900w, ../../assets/img/pack-white-tea-melody-1200.webp?v=f1ac914885 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#8B5241;--accent-2:#B8887A;--accent-wash:#ECE2DF;--accent-ink:#513329;--liquid:#C06A4A">
+              <h3 class="hoc-range__name">White Tea Melody</h3>
+              <p class="hoc-micro hoc-micro--accent">Meyveli · Hafif · Sıcak</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €17</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="white-tea-melody">Sepete ekle</button>
+                <a class="hoc-link" href="../products/white-tea-melody/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="10">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#854785;--accent-2:#B37FB3;--accent-wash:#EBE0EB;--accent-ink:#4E2D4E;--liquid:#8A3B63"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="reflection"
+                 data-ingredients="Passionflower|Apple|Lemongrass|Hibiscus|Blackberry" data-label="Reflection">
+              <img
+        src="../../assets/img/pile-reflection.webp?v=409dec8773"
+        srcset="../../assets/img/pile-reflection-420.webp?v=89dd859883 420w, ../../assets/img/pile-reflection-640.webp?v=ad648beffc 640w, ../../assets/img/pile-reflection-900.webp?v=409dec8773 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Reflection — dökme harman: çarkıfelek, elma, limon otu, hibiskus, böğürtlen"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-reflection-640.webp?v=9c30e31c0f"
+        srcset="../../assets/img/pack-reflection-420.webp?v=6ddac1aa6a 420w, ../../assets/img/pack-reflection-640.webp?v=9c30e31c0f 640w, ../../assets/img/pack-reflection-900.webp?v=468148415d 900w, ../../assets/img/pack-reflection-1200.webp?v=70a8a21c77 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#854785;--accent-2:#B37FB3;--accent-wash:#EBE0EB;--accent-ink:#4E2D4E;--liquid:#8A3B63">
+              <h3 class="hoc-range__name">Reflection</h3>
+              <p class="hoc-micro hoc-micro--accent">Meyveli · Ekşi · Dolgun</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="reflection">Sepete ekle</button>
+                <a class="hoc-link" href="../products/reflection/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="11">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#975235;--accent-2:#C3886F;--accent-wash:#EEE2DD;--accent-ink:#583323;--liquid:#A85426"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="winter-tale"
+                 data-ingredients="Rooibos|Mate|Fresh Ginger|Strawberry|Orange Peel" data-label="Winter Tale">
+              <img
+        src="../../assets/img/pile-winter-tale.webp?v=f223005500"
+        srcset="../../assets/img/pile-winter-tale-420.webp?v=eccb94b7c0 420w, ../../assets/img/pile-winter-tale-640.webp?v=bbcdfa4990 640w, ../../assets/img/pile-winter-tale-900.webp?v=f223005500 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Winter Tale — dökme harman: rooibos, mate, taze zencefil, çilek, portakal kabuğu"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-winter-tale-640.webp?v=8d0788afd7"
+        srcset="../../assets/img/pack-winter-tale-420.webp?v=429d16de44 420w, ../../assets/img/pack-winter-tale-640.webp?v=8d0788afd7 640w, ../../assets/img/pack-winter-tale-900.webp?v=631c41d23e 900w, ../../assets/img/pack-winter-tale-1200.webp?v=c9d2d98322 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#975235;--accent-2:#C3886F;--accent-wash:#EEE2DD;--accent-ink:#583323;--liquid:#A85426">
+              <h3 class="hoc-range__name">Winter Tale</h3>
+              <p class="hoc-micro hoc-micro--accent">Baharatlı · Narenciyeli · Isıtan</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="winter-tale">Sepete ekle</button>
+                <a class="hoc-link" href="../products/winter-tale/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="12">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="wintertide"
+                 data-ingredients="Apple|Mango|Rosehip|Fennel|Passionflower" data-label="Wintertide">
+              <img
+        src="../../assets/img/pile-wintertide.webp?v=b255bb89fb"
+        srcset="../../assets/img/pile-wintertide-420.webp?v=50593f5f81 420w, ../../assets/img/pile-wintertide-640.webp?v=904b4d17e4 640w, ../../assets/img/pile-wintertide-900.webp?v=b255bb89fb 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Wintertide — dökme harman: elma, mango, kuşburnu, rezene, çarkıfelek"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a"
+        srcset="../../assets/img/pack-wintertide-420.webp?v=93734c03ed 420w, ../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a 640w, ../../assets/img/pack-wintertide-900.webp?v=937e04ef72 900w, ../../assets/img/pack-wintertide-1200.webp?v=69ac0ce502 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F">
+              <h3 class="hoc-range__name">Wintertide</h3>
+              <p class="hoc-micro hoc-micro--accent">Tatlı · Anason notalı · Ekşi</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="wintertide">Sepete ekle</button>
+                <a class="hoc-link" href="../products/wintertide/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="13">
+            <div class="hoc-range__pile" data-hoc="botanical-pile" style="--accent:#954437;--accent-2:#C17C71;--accent-wash:#EEDFDD;--accent-ink:#572B24;--liquid:#A63B2E"
+                 data-atlas="../../assets/img/botanical-atlas.webp?v=73ade9fb8a" data-seed="bloomera"
+                 data-ingredients="Apple|Cinnamon Stick|Hibiscus|Orange Peel" data-label="Bloomera">
+              <img
+        src="../../assets/img/pile-bloomera.webp?v=9e0e81fef8"
+        srcset="../../assets/img/pile-bloomera-420.webp?v=d39bb382ac 420w, ../../assets/img/pile-bloomera-640.webp?v=17962d92d0 640w, ../../assets/img/pile-bloomera-900.webp?v=9e0e81fef8 900w"
+        sizes="(max-width: 899px) 62vw, 26vw"
+        width="640" height="640"
+        alt="Bloomera — dökme harman: elma, çubuk tarçın, hibiskus, portakal kabuğu"
+        loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-bloomera-640.webp?v=5830276783"
+        srcset="../../assets/img/pack-bloomera-420.webp?v=587fb70166 420w, ../../assets/img/pack-bloomera-640.webp?v=5830276783 640w, ../../assets/img/pack-bloomera-900.webp?v=e6393c2039 900w, ../../assets/img/pack-bloomera-1200.webp?v=a18b64415c 1200w"
+        sizes="40vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#954437;--accent-2:#C17C71;--accent-wash:#EEDFDD;--accent-ink:#572B24;--liquid:#A63B2E">
+              <h3 class="hoc-range__name">Bloomera</h3>
+              <p class="hoc-micro hoc-micro--accent">Baharatlı · Meyveli · Ekşi</p>
+              <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+              <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="bloomera">Sepete ekle</button>
+                <a class="hoc-link" href="../products/bloomera/">Harmanı incele</a>
+              </div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="14">
+            <div class="hoc-range__pile hoc-range__pile--photo" style="--accent:#4E7A2C;--accent-2:#A9C77B;--accent-wash:#E4ECD8;--accent-ink:#2F4A1B;--liquid:#7FA23A">
+              <img src="../../assets/img/matcha-photo-900.webp?v=7f064febc9" srcset="../../assets/img/matcha-photo-480.webp?v=3b11bf5a9c 480w, ../../assets/img/matcha-photo-900.webp?v=7f064febc9 900w"
+                   sizes="(max-width: 899px) 62vw, 26vw" width="900" height="900" alt="Bir kâse çırpılmış matcha" loading="lazy" decoding="async">
+            </div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack" src="../../assets/img/sticker-matcha-600.webp?v=da03f5287e" srcset="../../assets/img/sticker-matcha-600.webp?v=da03f5287e 600w, ../../assets/img/sticker-matcha-1000.webp?v=fd429f10e5 1000w" sizes="40vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#4E7A2C;--accent-2:#A9C77B;--accent-wash:#E4ECD8;--accent-ink:#2F4A1B;--liquid:#7FA23A">
+              <h3 class="hoc-range__name">Matcha</h3>
+              <p class="hoc-micro hoc-micro--accent">Japon · Yeşil çay tozu · Çırpılarak hazırlanır</p>
+              <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+              <div class="hoc-range__actions"><a class="hoc-link" href="#matcha">Bir kâsenin nasıl hazırlandığını görün</a></div>
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="15">
+            <div class="hoc-range__pile hoc-range__pile--photo hoc-range__pile--empty" style="--accent:#835C34;--accent-2:#C5A27C;--accent-wash:#EFE6DA;--accent-ink:#4E3620;--liquid:#AA7745" role="img" aria-label="Hojicha: fotoğraf yakında"><span class="hoc-micro" aria-hidden="true">Fotoğraf yakında</span></div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack" src="../../assets/img/sticker-hojicha-600.webp?v=f50690e93a" srcset="../../assets/img/sticker-hojicha-600.webp?v=f50690e93a 600w, ../../assets/img/sticker-hojicha-1000.webp?v=7d97ec9c46 1000w" sizes="40vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#835C34;--accent-2:#C5A27C;--accent-wash:#EFE6DA;--accent-ink:#4E3620;--liquid:#AA7745">
+              <h3 class="hoc-range__name">Hojicha</h3>
+              <p class="hoc-micro hoc-micro--accent">Japon · Kavrulmuş · Yeşil çay tozu</p>
+              <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+
+            </div>
+          </li>
+          <li class="hoc-range__cell" data-index="16">
+            <div class="hoc-range__pile hoc-range__pile--photo hoc-range__pile--empty" style="--accent:#6E3F69;--accent-2:#CC7DA3;--accent-wash:#F1E2EA;--accent-ink:#45263F;--liquid:#9A5A84" role="img" aria-label="Ube: fotoğraf yakında"><span class="hoc-micro" aria-hidden="true">Fotoğraf yakında</span></div>
+            <div class="hoc-range__mobile-pack"><img class="hoc-doypack" src="../../assets/img/sticker-ube-600.webp?v=2a753f8931" srcset="../../assets/img/sticker-ube-600.webp?v=2a753f8931 600w, ../../assets/img/sticker-ube-1000.webp?v=a48d469bca 1000w" sizes="40vw" width="1000" height="1500" alt="" loading="lazy" decoding="async"></div>
+            <!-- Mobile only. There is no sticky centre panel below 900px, so
+                 each blend carries its own copy and the section becomes a
+                 plain stack (§44). -->
+            <div class="hoc-range__mcopy" style="--accent:#6E3F69;--accent-2:#CC7DA3;--accent-wash:#F1E2EA;--accent-ink:#45263F;--liquid:#9A5A84">
+              <h3 class="hoc-range__name">Ube</h3>
+              <p class="hoc-micro hoc-micro--accent">Mor tatlı patates · Toz</p>
+              <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+
+            </div>
+          </li>
+        </ul>
+
+        <div class="hoc-range__centre">
+          <div class="hoc-range__sticky" data-hoc="range-sticky">
+            <div class="hoc-range__frame">
+
+          <article class="hoc-range__panel is-on"
+                   data-panel-index="0" style="--accent:#164A52;--accent-2:#9CC3C6;--accent-wash:#D6E2E3;--accent-ink:#0F363C;--liquid:#8C2A33"
+                   >
+            <h3 class="hoc-range__name">Gift of Nature</h3>
+            <p class="hoc-micro hoc-micro--accent">Canlı · Ferah · Bitkisel</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-mint"></use></svg><span class="hoc-micro">Nane yaprağı</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-lemongrass"></use></svg><span class="hoc-micro">Limon otu</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="gift-of-nature">Sepete ekle</button>
+                <a class="hoc-link" href="../products/gift-of-nature/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="1" style="--accent:#553B91;--accent-2:#8A75BD;--accent-wash:#E2DEED;--accent-ink:#342654;--liquid:#4D3A8C"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Mystic Butterfly</h3>
+            <p class="hoc-micro hoc-micro--accent">Çiçeksi · Ekşi · Renk değiştiren</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-butterfly-pea"></use></svg><span class="hoc-micro">Mavi kelebek çiçeği</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-cinnamon"></use></svg><span class="hoc-micro">Çubuk tarçın</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="mystic-butterfly">Sepete ekle</button>
+                <a class="hoc-link" href="../products/mystic-butterfly/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="2" style="--accent:#376395;--accent-2:#7196C1;--accent-wash:#DDE5EE;--accent-ink:#243C57;--liquid:#2F62A8"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Mesmerize</h3>
+            <p class="hoc-micro hoc-micro--accent">Tropikal · Tatlı · Canlı</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-mango"></use></svg><span class="hoc-micro">Mango</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-pineapple"></use></svg><span class="hoc-micro">Ananas</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-lemongrass"></use></svg><span class="hoc-micro">Limon otu</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-butterfly-pea"></use></svg><span class="hoc-micro">Mavi kelebek çiçeği</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="mesmerize">Sepete ekle</button>
+                <a class="hoc-link" href="../products/mesmerize/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="3" style="--accent:#913B41;--accent-2:#BD7579;--accent-wash:#EDDEDF;--accent-ink:#542629;--liquid:#A8462F"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Sunset Valley</h3>
+            <p class="hoc-micro hoc-micro--accent">Yumuşak · Tatlı · Yuvarlak</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-rooibos"></use></svg><span class="hoc-micro">Rooibos</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-strawberry"></use></svg><span class="hoc-micro">Çilek</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-apple"></use></svg><span class="hoc-micro">Elma</span></li><li><span class="hoc-micro">Bourbon vanilya</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="sunset-valley">Sepete ekle</button>
+                <a class="hoc-link" href="../products/sunset-valley/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="4" style="--accent:#9B6231;--accent-2:#C6966C;--accent-wash:#EFE5DC;--accent-ink:#5A3B21;--liquid:#B4682A"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Asian Breeze</h3>
+            <p class="hoc-micro hoc-micro--accent">Tropikal · Baharatlı · Sıcak</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-rooibos"></use></svg><span class="hoc-micro">Rooibos</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-mango"></use></svg><span class="hoc-micro">Mango</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-pineapple"></use></svg><span class="hoc-micro">Ananas</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-ginger"></use></svg><span class="hoc-micro">Kuru zencefil</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-cinnamon"></use></svg><span class="hoc-micro">Çubuk tarçın</span></li><li><span class="hoc-micro">Limon kabuğu</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="asian-breeze">Sepete ekle</button>
+                <a class="hoc-link" href="../products/asian-breeze/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="5" style="--accent:#85475E;--accent-2:#B37F92;--accent-wash:#EBE0E4;--accent-ink:#4E2D39;--liquid:#9E4A5E"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Soul's Rest</h3>
+            <p class="hoc-micro hoc-micro--accent">Çiçeksi · Narin · Dingin</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Oolong</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-rose"></use></svg><span class="hoc-micro">Kurutulmuş gül</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-chamomile"></use></svg><span class="hoc-micro">Papatya</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €17</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="souls-rest">Sepete ekle</button>
+                <a class="hoc-link" href="../products/souls-rest/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="6" style="--accent:#6B8B41;--accent-2:#9DB87A;--accent-wash:#E6ECDF;--accent-ink:#405129;--liquid:#6E8A3F"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Gold Skies</h3>
+            <p class="hoc-micro hoc-micro--accent">Kırmızı meyveli · Yeşil · Hafif</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Yeşil çay</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-lemongrass"></use></svg><span class="hoc-micro">Limon otu</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-strawberry"></use></svg><span class="hoc-micro">Çilek</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-blackberry"></use></svg><span class="hoc-micro">Böğürtlen</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-butterfly-pea"></use></svg><span class="hoc-micro">Mavi kelebek çiçeği</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="gold-skies">Sepete ekle</button>
+                <a class="hoc-link" href="../products/gold-skies/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="7" style="--accent:#89436B;--accent-2:#B67C9D;--accent-wash:#ECDFE6;--accent-ink:#502A40;--liquid:#B0362A"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Pink Senses</h3>
+            <p class="hoc-micro hoc-micro--accent">Çiçeksi · Tropikal · Zarif</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Yasemin</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-pineapple"></use></svg><span class="hoc-micro">Ananas</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><span class="hoc-micro">Beyaz çay</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-cinnamon"></use></svg><span class="hoc-micro">Çubuk tarçın</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €18</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="pink-senses">Sepete ekle</button>
+                <a class="hoc-link" href="../products/pink-senses/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="8" style="--accent:#6C4983;--accent-2:#9E81B1;--accent-wash:#E7E0EB;--accent-ink:#402E4D;--liquid:#C2A41A"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Innerbloom</h3>
+            <p class="hoc-micro hoc-micro--accent">Çiçeksi · Yumuşak · Sakin</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Yasemin</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-chamomile"></use></svg><span class="hoc-micro">Papatya</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-lavender"></use></svg><span class="hoc-micro">Lavanta</span></li><li><span class="hoc-micro">Melisa</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="innerbloom">Sepete ekle</button>
+                <a class="hoc-link" href="../products/innerbloom/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="9" style="--accent:#8B5241;--accent-2:#B8887A;--accent-wash:#ECE2DF;--accent-ink:#513329;--liquid:#C06A4A"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">White Tea Melody</h3>
+            <p class="hoc-micro hoc-micro--accent">Meyveli · Hafif · Sıcak</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-strawberry"></use></svg><span class="hoc-micro">Çilek</span></li><li><span class="hoc-micro">Beyaz çay</span></li><li><span class="hoc-micro">Limon kabuğu</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-apple"></use></svg><span class="hoc-micro">Elma</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-mango"></use></svg><span class="hoc-micro">Mango</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-cinnamon"></use></svg><span class="hoc-micro">Çubuk tarçın</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €17</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="white-tea-melody">Sepete ekle</button>
+                <a class="hoc-link" href="../products/white-tea-melody/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="10" style="--accent:#854785;--accent-2:#B37FB3;--accent-wash:#EBE0EB;--accent-ink:#4E2D4E;--liquid:#8A3B63"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Reflection</h3>
+            <p class="hoc-micro hoc-micro--accent">Meyveli · Ekşi · Dolgun</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Çarkıfelek</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-apple"></use></svg><span class="hoc-micro">Elma</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-lemongrass"></use></svg><span class="hoc-micro">Limon otu</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-blackberry"></use></svg><span class="hoc-micro">Böğürtlen</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="reflection">Sepete ekle</button>
+                <a class="hoc-link" href="../products/reflection/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="11" style="--accent:#975235;--accent-2:#C3886F;--accent-wash:#EEE2DD;--accent-ink:#583323;--liquid:#A85426"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Winter Tale</h3>
+            <p class="hoc-micro hoc-micro--accent">Baharatlı · Narenciyeli · Isıtan</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-rooibos"></use></svg><span class="hoc-micro">Rooibos</span></li><li><span class="hoc-micro">Mate</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-ginger"></use></svg><span class="hoc-micro">Taze zencefil</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-strawberry"></use></svg><span class="hoc-micro">Çilek</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-orange-peel"></use></svg><span class="hoc-micro">Portakal kabuğu</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €16</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="winter-tale">Sepete ekle</button>
+                <a class="hoc-link" href="../products/winter-tale/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="12" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Wintertide</h3>
+            <p class="hoc-micro hoc-micro--accent">Tatlı · Anason notalı · Ekşi</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-apple"></use></svg><span class="hoc-micro">Elma</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-mango"></use></svg><span class="hoc-micro">Mango</span></li><li><span class="hoc-micro">Kuşburnu</span></li><li><span class="hoc-micro">Rezene</span></li><li><span class="hoc-micro">Çarkıfelek</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €15</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="wintertide">Sepete ekle</button>
+                <a class="hoc-link" href="../products/wintertide/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="13" style="--accent:#954437;--accent-2:#C17C71;--accent-wash:#EEDFDD;--accent-ink:#572B24;--liquid:#A63B2E"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Bloomera</h3>
+            <p class="hoc-micro hoc-micro--accent">Baharatlı · Meyveli · Ekşi</p>
+            <ul class="hoc-range__ings"><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-apple"></use></svg><span class="hoc-micro">Elma</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-cinnamon"></use></svg><span class="hoc-micro">Çubuk tarçın</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-hibiscus"></use></svg><span class="hoc-micro">Hibiskus</span></li><li><svg class="hoc-bot" viewBox="0 0 100 100" aria-hidden="true"><use href="#b-orange-peel"></use></svg><span class="hoc-micro">Portakal kabuğu</span></li></ul>
+            <p class="hoc-range__price"><span class="hoc-micro">Başlangıç</span> €14</p>
+            <div class="hoc-range__actions">
+                <button class="hoc-btn hoc-btn--solid" data-hoc="add" data-blend="bloomera">Sepete ekle</button>
+                <a class="hoc-link" href="../products/bloomera/">Harmanı incele</a>
+              </div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="14" style="--accent:#4E7A2C;--accent-2:#A9C77B;--accent-wash:#E4ECD8;--accent-ink:#2F4A1B;--liquid:#7FA23A"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Matcha</h3>
+            <p class="hoc-micro hoc-micro--accent">Japon · Yeşil çay tozu · Çırpılarak hazırlanır</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Matcha</span></li></ul>
+            <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+            <div class="hoc-range__actions"><a class="hoc-link" href="#matcha">Bir kâsenin nasıl hazırlandığını görün</a></div>
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="15" style="--accent:#835C34;--accent-2:#C5A27C;--accent-wash:#EFE6DA;--accent-ink:#4E3620;--liquid:#AA7745"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Hojicha</h3>
+            <p class="hoc-micro hoc-micro--accent">Japon · Kavrulmuş · Yeşil çay tozu</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Kavrulmuş matcha tozu</span></li></ul>
+            <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+
+          </article>
+          <article class="hoc-range__panel"
+                   data-panel-index="16" style="--accent:#6E3F69;--accent-2:#CC7DA3;--accent-wash:#F1E2EA;--accent-ink:#45263F;--liquid:#9A5A84"
+                   aria-hidden="true">
+            <h3 class="hoc-range__name">Ube</h3>
+            <p class="hoc-micro hoc-micro--accent">Mor tatlı patates · Toz</p>
+            <ul class="hoc-range__ings"><li><span class="hoc-micro">Mor tatlı patates tozu</span></li></ul>
+            <p class="hoc-range__price hoc-range__price--soon"><span class="hoc-micro">Çok yakında</span></p>
+
+          </article>
+            </div>
+            <div class="hoc-range__notes"><p class="hoc-range__note is-on" data-note-index="0">Ekşi · Serinletici · Narenciye</p><p class="hoc-range__note" data-note-index="1" aria-hidden="true">Çiçeksi · Ekşi · Sıcak baharat</p><p class="hoc-range__note" data-note-index="2" aria-hidden="true">Mango · Keskin · Taze</p><p class="hoc-range__note" data-note-index="3" aria-hidden="true">Vanilya · Kırmızı meyve · Odunsu</p><p class="hoc-range__note" data-note-index="4" aria-hidden="true">Zencefil · Mango · Tarçın</p><p class="hoc-range__note" data-note-index="5" aria-hidden="true">Gül · Ekşi · Ballı</p><p class="hoc-range__note" data-note-index="6" aria-hidden="true">Kırmızı meyve · Yeşil · Narenciye</p><p class="hoc-range__note" data-note-index="7" aria-hidden="true">Yasemin · Ananas · Tarçın</p><p class="hoc-range__note" data-note-index="8" aria-hidden="true">Lavanta · Papatya · Bitkisel</p><p class="hoc-range__note" data-note-index="9" aria-hidden="true">Çilek · Mango · Kabuk</p><p class="hoc-range__note" data-note-index="10" aria-hidden="true">Böğürtlen · Ekşi · Narenciye</p><p class="hoc-range__note" data-note-index="11" aria-hidden="true">Zencefil · Portakal · Malt notası</p><p class="hoc-range__note" data-note-index="12" aria-hidden="true">Kuşburnu · Rezene · Elma</p><p class="hoc-range__note" data-note-index="13" aria-hidden="true">Tarçın · Elma · Kabuk</p><p class="hoc-range__note" data-note-index="14" aria-hidden="true">Taze · Yuvarlak · Canlı yeşil</p><p class="hoc-range__note" data-note-index="15" aria-hidden="true">Kavrulmuş matcha tozu · 250 g</p><p class="hoc-range__note" data-note-index="16" aria-hidden="true">Mor tatlı patates tozu · 250 g</p></div>
+          </div>
+        </div>
+
+        <ul class="hoc-range__col hoc-range__col--right" data-hoc="range-col" data-speed="0.06">
+
+          <li class="hoc-range__cell" data-index="0">
+            <a class="hoc-range__pack hoc-shape" href="../products/gift-of-nature/" aria-label="Keşfet: Gift of Nature" style="--accent:#164A52;--accent-2:#9CC3C6;--accent-wash:#D6E2E3;--accent-ink:#0F363C;--liquid:#8C2A33">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3"
+        srcset="../../assets/img/pack-gift-of-nature-420.webp?v=9b51650d20 420w, ../../assets/img/pack-gift-of-nature-640.webp?v=f2862797c3 640w, ../../assets/img/pack-gift-of-nature-900.webp?v=9f23da778d 900w, ../../assets/img/pack-gift-of-nature-1200.webp?v=46f5374fad 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="1">
+            <a class="hoc-range__pack hoc-shape" href="../products/mystic-butterfly/" aria-label="Keşfet: Mystic Butterfly" style="--accent:#553B91;--accent-2:#8A75BD;--accent-wash:#E2DEED;--accent-ink:#342654;--liquid:#4D3A8C">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58"
+        srcset="../../assets/img/pack-mystic-butterfly-420.webp?v=df7d0e2059 420w, ../../assets/img/pack-mystic-butterfly-640.webp?v=e12f5e7c58 640w, ../../assets/img/pack-mystic-butterfly-900.webp?v=1d3d99960f 900w, ../../assets/img/pack-mystic-butterfly-1200.webp?v=fc3c9650e9 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="2">
+            <a class="hoc-range__pack hoc-shape" href="../products/mesmerize/" aria-label="Keşfet: Mesmerize" style="--accent:#376395;--accent-2:#7196C1;--accent-wash:#DDE5EE;--accent-ink:#243C57;--liquid:#2F62A8">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-mesmerize-640.webp?v=7c41fc0dca"
+        srcset="../../assets/img/pack-mesmerize-420.webp?v=8ec970ffcf 420w, ../../assets/img/pack-mesmerize-640.webp?v=7c41fc0dca 640w, ../../assets/img/pack-mesmerize-900.webp?v=2009b362b5 900w, ../../assets/img/pack-mesmerize-1200.webp?v=e1e6fd2fa8 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="3">
+            <a class="hoc-range__pack hoc-shape" href="../products/sunset-valley/" aria-label="Keşfet: Sunset Valley" style="--accent:#913B41;--accent-2:#BD7579;--accent-wash:#EDDEDF;--accent-ink:#542629;--liquid:#A8462F">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-sunset-valley-640.webp?v=fafb68c9e0"
+        srcset="../../assets/img/pack-sunset-valley-420.webp?v=a5fb176613 420w, ../../assets/img/pack-sunset-valley-640.webp?v=fafb68c9e0 640w, ../../assets/img/pack-sunset-valley-900.webp?v=51dab6be42 900w, ../../assets/img/pack-sunset-valley-1200.webp?v=2cd4913928 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="4">
+            <a class="hoc-range__pack hoc-shape" href="../products/asian-breeze/" aria-label="Keşfet: Asian Breeze" style="--accent:#9B6231;--accent-2:#C6966C;--accent-wash:#EFE5DC;--accent-ink:#5A3B21;--liquid:#B4682A">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057"
+        srcset="../../assets/img/pack-asian-breeze-420.webp?v=640d2f8f0e 420w, ../../assets/img/pack-asian-breeze-640.webp?v=5ff928b057 640w, ../../assets/img/pack-asian-breeze-900.webp?v=72fdaefdef 900w, ../../assets/img/pack-asian-breeze-1200.webp?v=5d3a80d105 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="5">
+            <a class="hoc-range__pack hoc-shape" href="../products/souls-rest/" aria-label="Keşfet: Soul's Rest" style="--accent:#85475E;--accent-2:#B37F92;--accent-wash:#EBE0E4;--accent-ink:#4E2D39;--liquid:#9E4A5E">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f"
+        srcset="../../assets/img/pack-souls-rest-420.webp?v=159b1d2257 420w, ../../assets/img/pack-souls-rest-640.webp?v=16ce68b50f 640w, ../../assets/img/pack-souls-rest-900.webp?v=d2e3429f07 900w, ../../assets/img/pack-souls-rest-1200.webp?v=64de53f207 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="6">
+            <a class="hoc-range__pack hoc-shape" href="../products/gold-skies/" aria-label="Keşfet: Gold Skies" style="--accent:#6B8B41;--accent-2:#9DB87A;--accent-wash:#E6ECDF;--accent-ink:#405129;--liquid:#6E8A3F">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-gold-skies-640.webp?v=d9113171e2"
+        srcset="../../assets/img/pack-gold-skies-420.webp?v=71865a59f8 420w, ../../assets/img/pack-gold-skies-640.webp?v=d9113171e2 640w, ../../assets/img/pack-gold-skies-900.webp?v=0fa6fe3add 900w, ../../assets/img/pack-gold-skies-1200.webp?v=20d58d312c 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="7">
+            <a class="hoc-range__pack hoc-shape" href="../products/pink-senses/" aria-label="Keşfet: Pink Senses" style="--accent:#89436B;--accent-2:#B67C9D;--accent-wash:#ECDFE6;--accent-ink:#502A40;--liquid:#B0362A">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10"
+        srcset="../../assets/img/pack-pink-senses-420.webp?v=62049059ee 420w, ../../assets/img/pack-pink-senses-640.webp?v=7ce8115a10 640w, ../../assets/img/pack-pink-senses-900.webp?v=f4f9b4a93b 900w, ../../assets/img/pack-pink-senses-1200.webp?v=d28daacec3 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="8">
+            <a class="hoc-range__pack hoc-shape" href="../products/innerbloom/" aria-label="Keşfet: Innerbloom" style="--accent:#6C4983;--accent-2:#9E81B1;--accent-wash:#E7E0EB;--accent-ink:#402E4D;--liquid:#C2A41A">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-innerbloom-640.webp?v=2a510f6206"
+        srcset="../../assets/img/pack-innerbloom-420.webp?v=5093b02764 420w, ../../assets/img/pack-innerbloom-640.webp?v=2a510f6206 640w, ../../assets/img/pack-innerbloom-900.webp?v=18a4ce93a3 900w, ../../assets/img/pack-innerbloom-1200.webp?v=bdd16e3df3 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="9">
+            <a class="hoc-range__pack hoc-shape" href="../products/white-tea-melody/" aria-label="Keşfet: White Tea Melody" style="--accent:#8B5241;--accent-2:#B8887A;--accent-wash:#ECE2DF;--accent-ink:#513329;--liquid:#C06A4A">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-white-tea-melody-640.webp?v=097eb381c9"
+        srcset="../../assets/img/pack-white-tea-melody-420.webp?v=eb72ae8da4 420w, ../../assets/img/pack-white-tea-melody-640.webp?v=097eb381c9 640w, ../../assets/img/pack-white-tea-melody-900.webp?v=5623c46020 900w, ../../assets/img/pack-white-tea-melody-1200.webp?v=f1ac914885 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="10">
+            <a class="hoc-range__pack hoc-shape" href="../products/reflection/" aria-label="Keşfet: Reflection" style="--accent:#854785;--accent-2:#B37FB3;--accent-wash:#EBE0EB;--accent-ink:#4E2D4E;--liquid:#8A3B63">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-reflection-640.webp?v=9c30e31c0f"
+        srcset="../../assets/img/pack-reflection-420.webp?v=6ddac1aa6a 420w, ../../assets/img/pack-reflection-640.webp?v=9c30e31c0f 640w, ../../assets/img/pack-reflection-900.webp?v=468148415d 900w, ../../assets/img/pack-reflection-1200.webp?v=70a8a21c77 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="11">
+            <a class="hoc-range__pack hoc-shape" href="../products/winter-tale/" aria-label="Keşfet: Winter Tale" style="--accent:#975235;--accent-2:#C3886F;--accent-wash:#EEE2DD;--accent-ink:#583323;--liquid:#A85426">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-winter-tale-640.webp?v=8d0788afd7"
+        srcset="../../assets/img/pack-winter-tale-420.webp?v=429d16de44 420w, ../../assets/img/pack-winter-tale-640.webp?v=8d0788afd7 640w, ../../assets/img/pack-winter-tale-900.webp?v=631c41d23e 900w, ../../assets/img/pack-winter-tale-1200.webp?v=c9d2d98322 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="12">
+            <a class="hoc-range__pack hoc-shape" href="../products/wintertide/" aria-label="Keşfet: Wintertide" style="--accent:#3F6B65;--accent-2:#95AEAA;--accent-wash:#E2E9E7;--accent-ink:#284542;--liquid:#C0752F">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a"
+        srcset="../../assets/img/pack-wintertide-420.webp?v=93734c03ed 420w, ../../assets/img/pack-wintertide-640.webp?v=8b6d4ea73a 640w, ../../assets/img/pack-wintertide-900.webp?v=937e04ef72 900w, ../../assets/img/pack-wintertide-1200.webp?v=69ac0ce502 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="13">
+            <a class="hoc-range__pack hoc-shape" href="../products/bloomera/" aria-label="Keşfet: Bloomera" style="--accent:#954437;--accent-2:#C17C71;--accent-wash:#EEDFDD;--accent-ink:#572B24;--liquid:#A63B2E">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack hoc-doypack--white"
+        src="../../assets/img/pack-bloomera-640.webp?v=5830276783"
+        srcset="../../assets/img/pack-bloomera-420.webp?v=587fb70166 420w, ../../assets/img/pack-bloomera-640.webp?v=5830276783 640w, ../../assets/img/pack-bloomera-900.webp?v=e6393c2039 900w, ../../assets/img/pack-bloomera-1200.webp?v=a18b64415c 1200w"
+        sizes="(max-width: 899px) 64vw, 22vw"
+        width="900" height="1422"
+        alt=""
+        loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="14">
+            <a class="hoc-range__pack hoc-shape" href="#matcha" aria-label="Matcha: bir kâsenin nasıl hazırlandığını görün" style="--accent:#4E7A2C;--accent-2:#A9C77B;--accent-wash:#E4ECD8;--accent-ink:#2F4A1B;--liquid:#7FA23A">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack" src="../../assets/img/sticker-matcha-600.webp?v=da03f5287e" srcset="../../assets/img/sticker-matcha-600.webp?v=da03f5287e 600w, ../../assets/img/sticker-matcha-1000.webp?v=fd429f10e5 1000w" sizes="(max-width: 899px) 64vw, 22vw" width="1000" height="1500" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="15">
+            <a class="hoc-range__pack hoc-shape" href="#range" aria-label="Hojicha: çok yakında" style="--accent:#835C34;--accent-2:#C5A27C;--accent-wash:#EFE6DA;--accent-ink:#4E3620;--liquid:#AA7745">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack" src="../../assets/img/sticker-hojicha-600.webp?v=f50690e93a" srcset="../../assets/img/sticker-hojicha-600.webp?v=f50690e93a 600w, ../../assets/img/sticker-hojicha-1000.webp?v=7d97ec9c46 1000w" sizes="(max-width: 899px) 64vw, 22vw" width="1000" height="1500" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li class="hoc-range__cell" data-index="16">
+            <a class="hoc-range__pack hoc-shape" href="#range" aria-label="Ube: çok yakında" style="--accent:#6E3F69;--accent-2:#CC7DA3;--accent-wash:#F1E2EA;--accent-ink:#45263F;--liquid:#9A5A84">
+              <div class="hoc-range__packground" aria-hidden="true"></div>
+              <img class="hoc-doypack" src="../../assets/img/sticker-ube-600.webp?v=2a753f8931" srcset="../../assets/img/sticker-ube-600.webp?v=2a753f8931 600w, ../../assets/img/sticker-ube-1000.webp?v=a48d469bca 1000w" sizes="(max-width: 899px) 64vw, 22vw" width="1000" height="1500" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+  <section class="hoc-section hoc-matcha" id="matcha" data-header-theme="dark" data-hoc="matcha" aria-labelledby="matcha-title">
+    <div class="hoc-wrap">
+      <div class="hoc-matcha__intro">
+        <header class="hoc-matcha__head">
+          <h2 class="hoc-matcha__name hoc-display-l" id="matcha-title" data-split="lines">Matcha</h2>
+          <p class="hoc-matcha__type">Premium Japon yeşil çay tozu</p>
+        </header>
+
+        <figure class="hoc-matcha__photo">
+          <div class="hoc-matcha__frame">
+            <img src="../../assets/img/matcha-scene-720.webp?v=3162bc369d"
+                 srcset="../../assets/img/matcha-scene-720.webp?v=3162bc369d 720w, ../../assets/img/matcha-scene-1200.webp?v=fb3a62463b 1200w"
+                 sizes="(max-width: 899px) 92vw, 46vw" width="1200" height="1500"
+                 alt="Bambu çırpıcısıyla bir kâse matcha; yanında küçük bir tabak matcha tozu ve bambu kaşık." loading="lazy" decoding="async">
+          </div>
+          <figcaption class="hoc-matcha__credit">Fotoğraf: Katrin Bolovtsova, Pexels</figcaption>
+        </figure>
+
+        <div class="hoc-matcha__detail">
+          <p class="hoc-matcha__body">Demlenmek yerine suyla çırpılan ince yeşil çay tozu. Taze ve yuvarlak bir tat, kâsede canlı bir yeşil.</p>
+          <div class="hoc-matcha__buy">
+            <div class="hoc-matcha__pack"><img class="hoc-doypack" src="../../assets/img/sticker-matcha-600.webp?v=da03f5287e" srcset="../../assets/img/sticker-matcha-600.webp?v=da03f5287e 600w, ../../assets/img/sticker-matcha-1000.webp?v=fd429f10e5 1000w" sizes="(max-width: 899px) 34vw, 11vw" width="1000" height="1500" alt="Matcha doypack, 250 g" loading="lazy" decoding="async"></div>
+            <div class="hoc-matcha__status">
+              <p class="hoc-matcha__weight">Doypack, 250 g</p>
+              <p class="hoc-matcha__soon"><span class="hoc-micro">Çok yakında</span></p>
+              <p class="hoc-matcha__note">Henüz satışta değil. Geldiğinde ilk siz duymak için <a class="hoc-link-inline" href="#newsletter">HOC listesine katılın</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hoc-matcha__make" data-matcha-make>
+        <header class="hoc-matcha__makehead">
+          <h3 class="hoc-matcha__title">Bir kâse nasıl hazırlanır?</h3>
+          <p class="hoc-matcha__lede">Bir kâse için 2&nbsp;g toz, 70&nbsp;ml su ve bambu çırpıcıyla yaklaşık 15&nbsp;saniye yeter.</p>
+        </header>
+        <div class="hoc-matcha__stage" data-matcha-stage>
+          <div class="hoc-matcha__fig">
+          <svg class="hoc-matcha__svg" viewBox="32 48 584 480" role="img" aria-labelledby="mt-title" focusable="false">
+            <title id="mt-title">Su sürahisi ile bambu çırpıcı arasında, çırpılmış matcha dolu bir kâsenin çizimi.</title>
+            <defs>
+              <clipPath id="mt-open"><ellipse cx="320" cy="332" rx="121" ry="42"/></clipPath>
+              <clipPath id="mt-body"><path d="M190 330A130 48 0 0 1 450 330C450 392 418 452 372 470L363 474L365 491Q320 501 275 491L277 474L268 470C222 452 190 392 190 330Z"/></clipPath>
+              <clipPath id="mt-air"><rect width="640" height="356"/><rect x="462" width="178" height="560"/></clipPath>
+            </defs>
+
+            <!-- where the pitcher and the whisk stand -->
+            <g class="m-ground">
+              <path class="m-l m-hair m-ground-p" d="M70 494H166"/>
+              <path class="m-l m-hair m-ground-w" d="M498 510H582"/>
+            </g>
+
+            <!-- the pitcher (yuzamashi), resting back left; base centre (118, 486) -->
+            <g class="m-pitcher">
+              <ellipse class="m-l" cx="118" cy="400" rx="50" ry="17"/>
+              <path class="m-l" d="M68 400C66 434 73 468 85 481Q118 491 151 481C163 468 170 434 168 400"/>
+              <path class="m-l" d="M158 389Q180 387 194 381Q188 396 167 407"/>
+              <path class="m-l m-fine" d="M68 412C48 412 46 444 71 448"/>
+              <path class="m-l m-fine" d="M92 484L93 490Q118 496 143 490L144 484"/>
+              <path class="m-l m-fine m-soft" d="M67 424Q118 440 169 424"/>
+            </g>
+
+            <!-- the bowl (chawan). Its silhouette is filled with the ground so
+                 it hides what stands behind it. -->
+            <g class="m-bowl">
+              <path class="m-occlude" d="M190 330A130 48 0 0 1 450 330C450 392 418 452 372 470L363 474L365 491Q320 501 275 491L277 474L268 470C222 452 190 392 190 330Z"/>
+              <path class="m-l m-hair" d="M246 500H394"/>
+              <path class="m-l" d="M190 330A130 48 0 0 1 450 330"/>
+              <path class="m-l" d="M190 330C190 392 222 452 268 470Q320 486 372 470C418 452 450 392 450 330"/>
+              <path class="m-l m-fine" d="M199 332A121 42 0 0 1 441 332"/>
+              <path class="m-l" d="M277 474L275 491Q320 501 365 491L363 474"/>
+            </g>
+
+            <!-- inside the bowl: everything here is seen through the opening -->
+            <g clip-path="url(#mt-open)">
+              <path class="m-t m-wipe m-water" d="M212 336C236 306 292 296 350 299C381 301 409 311 426 327"/>
+              <path class="m-t m-mound" d="M294 371C301 358 311 352 320 352C329 352 339 358 346 371Z"/>
+              <g class="m-liquid">
+                <ellipse class="m-tea" cx="320" cy="368" rx="104" ry="40"/>
+                <path class="m-meniscus" d="M216 368A104 40 0 0 1 424 368"/>
+              </g>
+              <ellipse class="m-froth-base" cx="320" cy="368" rx="104" ry="40"/>
+              <g class="m-froth m-dots"><circle cx="228.8" cy="354.5" r="0.9"/><circle cx="238.8" cy="352.5" r="1.1"/><circle cx="251.1" cy="343.8" r="0.9"/><circle cx="254.3" cy="353.7" r="1"/><circle cx="254.4" cy="357.6" r="0.9"/><circle cx="264.9" cy="353.7" r="1.1"/><circle cx="271.7" cy="350.9" r="0.7"/><circle cx="273.1" cy="350.7" r="1.3"/><circle cx="274.1" cy="343.4" r="1.2"/><circle cx="274.8" cy="352.2" r="0.9"/><circle cx="276" cy="352.4" r="1.2"/><circle cx="278.3" cy="360.6" r="1.2"/><circle cx="279.4" cy="346.2" r="1.1"/><circle cx="280.2" cy="337.8" r="0.6"/><circle cx="281.3" cy="339" r="0.7"/><circle cx="283.4" cy="338.1" r="1"/><circle cx="289.5" cy="332.9" r="0.7"/><circle cx="290.6" cy="349.8" r="1.2"/><circle cx="292" cy="340.7" r="1"/><circle cx="292.1" cy="344" r="1.2"/><circle cx="294.8" cy="365.5" r="1.1"/><circle cx="298" cy="336.5" r="1.2"/><circle cx="299.9" cy="350.9" r="1.1"/><circle cx="304.4" cy="365" r="0.7"/><circle cx="307.1" cy="349.9" r="0.7"/><circle cx="316.3" cy="347.9" r="1"/><circle cx="317.7" cy="337.5" r="1"/><circle cx="321.5" cy="354.3" r="0.7"/><circle cx="323.4" cy="342.4" r="1.1"/><circle cx="324.5" cy="346.3" r="0.9"/><circle cx="325.4" cy="335" r="0.8"/><circle cx="327.9" cy="340.7" r="1.3"/><circle cx="328.1" cy="345.6" r="1.1"/><circle cx="330.2" cy="364.1" r="0.7"/><circle cx="330.5" cy="363.8" r="1.3"/><circle cx="330.7" cy="358.9" r="0.7"/><circle cx="330.9" cy="347.8" r="0.9"/><circle cx="330.9" cy="370.4" r="1.3"/><circle cx="332.2" cy="367.2" r="0.9"/><circle cx="336" cy="361.3" r="0.7"/><circle cx="338.9" cy="339.1" r="1.2"/><circle cx="340.2" cy="362.1" r="1.2"/><circle cx="340.8" cy="359.8" r="0.9"/><circle cx="343.2" cy="362.8" r="1.3"/><circle cx="345.2" cy="355.7" r="1.1"/><circle cx="345.8" cy="355.7" r="0.8"/><circle cx="349.2" cy="361.1" r="1.1"/><circle cx="350.2" cy="362.9" r="1"/><circle cx="350.6" cy="342.1" r="0.7"/><circle cx="357.3" cy="365.8" r="0.9"/><circle cx="361" cy="345.5" r="1.1"/><circle cx="361" cy="338.9" r="1"/><circle cx="363.1" cy="360.4" r="0.8"/><circle cx="364.7" cy="366" r="1"/><circle cx="364.8" cy="338.1" r="1.2"/><circle cx="367.2" cy="349.2" r="1"/><circle cx="375.1" cy="357.2" r="1.1"/><circle cx="376" cy="351.9" r="0.7"/><circle cx="376.8" cy="344.4" r="0.9"/><circle cx="378" cy="361.4" r="1.2"/><circle cx="378.2" cy="347.5" r="0.9"/><circle cx="383.2" cy="346.6" r="1"/><circle cx="384.6" cy="357.2" r="1.2"/><circle cx="390.4" cy="350.1" r="0.7"/><circle cx="390.7" cy="357.5" r="0.6"/><circle cx="391.6" cy="355.7" r="1.3"/><circle cx="392.3" cy="350.8" r="0.9"/><circle cx="395.5" cy="345.2" r="0.8"/><circle cx="407.5" cy="353.7" r="1.1"/><circle cx="409.3" cy="353.4" r="1.2"/></g>
+              <path class="m-t m-wpath" d="M238 357L262 343L286 366L310 341L334 366L358 341L382 364L402 350"/>
+              <g class="m-t m-bubbles"><circle cx="244" cy="354" r="2.6"/><circle cx="258" cy="347" r="1.9"/><circle cx="276" cy="357" r="3.1"/><circle cx="292" cy="349" r="2.2"/><circle cx="306" cy="360" r="2.6"/><circle cx="322" cy="345" r="1.8"/><circle cx="337" cy="356" r="3.2"/><circle cx="352" cy="347" r="2.2"/><circle cx="370" cy="357" r="2.7"/><circle cx="389" cy="351" r="2"/></g>
+              <path class="m-t m-swirl m-green" d="M286 352A34 11 0 1 1 354 352A34 11 0 1 1 286 352"/>
+              <path class="m-peak m-green" d="M309 351Q320 340 331 351"/>
+            </g>
+
+            <!-- the near rim, over the contents -->
+            <path class="m-l m-rim" d="M450 330A130 48 0 0 1 190 330"/>
+            <path class="m-l m-fine m-rim" d="M441 332A121 42 0 0 1 199 332"/>
+
+            <!-- the bowl's front: a leaf sprig that turns to the guest -->
+            <g clip-path="url(#mt-body)">
+              <g class="m-front">
+                <path class="m-l m-fine" d="M320 455C318 442 322 428 319 412"/>
+                <path class="m-l m-fine" d="M320 437C306 436 297 427 297 415C310 415 319 424 320 437Z"/>
+                <path class="m-l m-fine" d="M320 426C334 425 343 416 343 404C330 404 321 413 320 426Z"/>
+              </g>
+            </g>
+
+            <!-- steam: warming, pouring, and the last wisp over the served bowl -->
+            <g class="m-steam m-water">
+              <path class="m-t m-warm" d="M292 316C282 296 302 280 292 258C284 240 298 226 292 206"/>
+              <path class="m-t m-warm" d="M322 312C332 292 314 274 324 252C332 234 318 220 326 198"/>
+              <path class="m-t m-warm" d="M350 318C342 300 358 288 350 270C344 256 354 246 350 232"/>
+              <path class="m-t m-pour" d="M300 318C292 300 308 286 300 266C294 250 304 240 300 226"/>
+              <path class="m-t m-pour" d="M340 316C348 298 332 284 340 264C346 250 338 240 342 230"/>
+              <path class="m-last" d="M318 316C310 298 327 286 318 266C311 250 323 240 318 226"/>
+            </g>
+
+            <!-- water from the pitcher's spout, held at its pouring angle -->
+            <path class="m-t m-stream m-water" d="M277 269C277 289 270 312 261 335"/>
+
+            <!-- sieve (furui) and scoop (chashaku), only while sifting -->
+            <g class="m-t m-sieve">
+              <ellipse class="m-l" cx="320" cy="226" rx="64" ry="20"/>
+              <path class="m-l" d="M257 229C262 262 292 280 320 280C348 280 378 262 383 229"/>
+              <path class="m-l m-fine m-soft" d="M267 247Q320 266 373 247M283 264Q320 276 357 264M288 238Q296 262 307 278M320 246V280M352 238Q344 262 333 278"/>
+              <path class="m-l m-fine" d="M383 222L470 197M384 231L472 206M470 197Q482 199 472 206M256 225Q247 223 246 230"/>
+            </g>
+            <g class="m-t m-scoop"><path class="m-l" d="M338.9 168.5C399.8 143 474.3 113.8 530.3 92.2Q534.4 91.8 531.2 94.6C476.1 118.2 402.2 148.9 348.2 170.1Q338.8 173.7 336.2 180.5Q332.7 174.4 338.9 168.5Z"/><path class="m-l m-fine" d="M442.3 125.4Q446.8 127.2 444.8 131.7"/><g class="m-heap m-dots"><circle cx="334.3" cy="167.7" r="2.3"/><circle cx="338.1" cy="165.3" r="2.3"/><circle cx="342.3" cy="163.6" r="2.3"/><circle cx="346.8" cy="162.7" r="2.3"/><circle cx="338.8" cy="160.7" r="2.3"/><circle cx="334.8" cy="163" r="2.3"/><circle cx="343.2" cy="159.6" r="2.3"/><circle cx="335.3" cy="158.3" r="2.3"/><circle cx="339.5" cy="156.6" r="2.3"/></g></g>
+            <g class="m-t m-fall m-fall-a m-dots"><circle cx="320.5" cy="317.7" r="1.7"/><circle cx="323.6" cy="335.6" r="1.6"/><circle cx="303.2" cy="317.7" r="1.7"/><circle cx="318" cy="314.9" r="1.9"/><circle cx="316.8" cy="325.5" r="1.8"/><circle cx="306.4" cy="298" r="1.4"/><circle cx="315.8" cy="309.1" r="1.7"/><circle cx="305.1" cy="321.4" r="1.7"/><circle cx="316.7" cy="335.3" r="1.9"/><circle cx="330.8" cy="305.8" r="1.7"/><circle cx="310.1" cy="291.1" r="1.8"/><circle cx="339.1" cy="304.6" r="1.2"/></g>
+            <g class="m-t m-fall m-fall-b m-dots"><circle cx="308.4" cy="296.4" r="1.4"/><circle cx="310" cy="309.7" r="1.4"/><circle cx="314.3" cy="306" r="1.3"/><circle cx="301.4" cy="324.3" r="1.1"/><circle cx="324.5" cy="329.4" r="2.1"/><circle cx="319.4" cy="327" r="1.2"/><circle cx="336.9" cy="335.2" r="1.9"/><circle cx="311" cy="320.1" r="1.2"/><circle cx="311.4" cy="292.8" r="1.2"/><circle cx="324.5" cy="302.3" r="1.4"/><circle cx="306.2" cy="305.5" r="1.7"/><circle cx="312.5" cy="337.4" r="1.8"/></g>
+
+            <!-- the whisk; clipped at the tea's surface while it is in the bowl -->
+            <g clip-path="url(#mt-air)">
+              <g class="m-whisk">
+                <ellipse class="m-l" cx="540" cy="312" rx="12" ry="4"/>
+                <path class="m-l" d="M528 312V376Q540 381 552 376V312"/>
+                <path class="m-l m-fine" d="M528 350Q540 354 552 350M529 381Q540 386 551 381"/>
+                <path class="m-l m-fine" d="M528 384C516 402 494 434 494 468C494 491 500 504 511 501"/><path class="m-l m-fine" d="M528.4 384C516.8 402 495.6 434 495.6 468C495.6 491 501.4 504 512 501"/><path class="m-l m-fine" d="M529.6 384C519.2 402 500.2 434 500.2 468C500.2 491 505.4 504 514.9 501"/><path class="m-l m-fine" d="M531.5 384C523 402 507.5 434 507.5 468C507.5 491 511.7 504 519.5 501"/><path class="m-l m-fine" d="M534 384C528 402 517 434 517 468C517 491 520 504 525.5 501"/><path class="m-l m-fine" d="M536.9 384C533.8 402 528.1 434 528.1 468C528.1 491 529.6 504 532.5 501"/><path class="m-l m-fine" d="M540 384C540 402 540 434 540 468C540 491 540 504 540 501"/><path class="m-l m-fine" d="M543.1 384C546.2 402 551.9 434 551.9 468C551.9 491 550.4 504 547.5 501"/><path class="m-l m-fine" d="M546 384C552 402 563 434 563 468C563 491 560 504 554.5 501"/><path class="m-l m-fine" d="M548.5 384C557 402 572.5 434 572.5 468C572.5 491 568.3 504 560.5 501"/><path class="m-l m-fine" d="M550.4 384C560.8 402 579.8 434 579.8 468C579.8 491 574.6 504 565.1 501"/><path class="m-l m-fine" d="M551.6 384C563.2 402 584.4 434 584.4 468C584.4 491 578.6 504 568 501"/><path class="m-l m-fine" d="M552 384C564 402 586 434 586 468C586 491 580 504 569 501"/><path class="m-l m-fine m-soft" d="M535.7 386C532.6 418 529.5 454 530.7 484"/><path class="m-l m-fine m-soft" d="M537.8 386C536.3 418 534.7 454 535.4 484"/><path class="m-l m-fine m-soft" d="M540 386C540 418 540 454 540 484"/><path class="m-l m-fine m-soft" d="M542.2 386C543.7 418 545.3 454 544.6 484"/><path class="m-l m-fine m-soft" d="M544.3 386C547.4 418 550.5 454 549.3 484"/>
+              </g>
+            </g>
+          </svg>
+          </div>
+          <div class="hoc-matcha__side">
+            <ol class="hoc-matcha__steps" aria-label="Bir kâse matcha hazırlamak">
+            <li class="hoc-matcha__step is-on" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">01</span>
+              <span class="hoc-matcha__cap">Kâseyi ısıtın, sonra kurulayın.</span>
+
+            </li>
+            <li class="hoc-matcha__step" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">02</span>
+              <span class="hoc-matcha__cap">İki ölçek tozu ince bir elekten geçirin.</span>
+              <span class="hoc-matcha__data"><span>2 g</span></span>
+            </li>
+            <li class="hoc-matcha__step" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">03</span>
+              <span class="hoc-matcha__cap">Suyu kâsenin kenarından yavaşça dökün.</span>
+              <span class="hoc-matcha__data"><span>70 ml</span><span>80 °C</span></span>
+            </li>
+            <li class="hoc-matcha__step" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">04</span>
+              <span class="hoc-matcha__cap">Daire çizerek değil, W çizerek hızla çırpın.</span>
+              <span class="hoc-matcha__data"><span>15 s</span></span>
+            </li>
+            <li class="hoc-matcha__step" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">05</span>
+              <span class="hoc-matcha__cap">Köpüğü düzleyin, çırpıcıyı ortadan kaldırın.</span>
+
+            </li>
+            <li class="hoc-matcha__step" data-matcha-step>
+              <span class="hoc-matcha__num" aria-hidden="true">06</span>
+              <span class="hoc-matcha__cap">Kâsenin önü misafirinize bakacak şekilde servis edin.</span>
+
+            </li>
+            </ol>
+            <div class="hoc-matcha__bar" aria-hidden="true"><span data-matcha-bar></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+    <section class="hoc-section hoc-news" id="newsletter" data-theme="ink"
+             data-header-theme="light">
+      <div class="hoc-wrap hoc-pad">
+        <div class="hoc-news__inner">
+          <h2 class="hoc-display-xl" data-split="lines">Demde kalın.</h2>
+          <form class="hoc-news__form" data-hoc="newsletter" novalidate>
+            <label class="hoc-micro" for="hoc-email">HOC listesine katılın.</label>
+            <div class="hoc-news__field">
+              <input id="hoc-email" name="email" type="email" autocomplete="email"
+                     placeholder="siz@ornek.com" required>
+              <button class="hoc-btn" type="submit">Katıl</button>
+            </div>
+            <p class="hoc-news__msg hoc-micro" data-hoc="newsletter-msg" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="hoc-section hoc-footer" id="footer" data-theme="ink" data-header-theme="light">
+      <div class="hoc-wrap">
+        <div class="hoc-footer__grid">
+          <div class="hoc-footer__brand">
+            <a class="hoc-lockup" href="../#hero" aria-label="HOC Tea — ana sayfa">
+              <svg class="hoc-mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#hoc-mark"></use></svg>
+              <span class="hoc-lockup__word">Hoctea</span>
+            </a>
+            <p class="hoc-micro hoc-footer__tag">Tea &amp; More</p>
+          </div>
+
+          <nav class="hoc-footer__col" aria-label="Mağaza">
+            <p class="hoc-micro hoc-footer__h">Mağaza</p>
+            <ul><li><a href="../blends/">Tüm harmanlar</a></li><li><a href="../#range">Buzlu çay</a></li><li><a href="../#range">Hediye</a></li><li><a href="../#range">Teneke kutular ve dolumlar</a></li></ul>
+          </nav>
+          <nav class="hoc-footer__col" aria-label="Ritüel">
+            <p class="hoc-micro hoc-footer__h">Ritüel</p>
+            <ul><li><a href="../#range">Nasıl demlenir</a></li><li><a href="../#range">Soğuk demleme</a></li><li><a href="../#range">Malzeme rehberi</a></li><li><a href="../#range">Notlar</a></li></ul>
+          </nav>
+          <nav class="hoc-footer__col" aria-label="İşletmeler">
+            <p class="hoc-micro hoc-footer__h">İşletmeler</p>
+            <ul><li><a href="../#range">Kafeler için</a></li><li><a href="../#range">Oteller için</a></li><li><a href="../#range">Numune isteyin</a></li><li><a href="../#range">Toptan satış</a></li></ul>
+          </nav>
+          <nav class="hoc-footer__col" aria-label="Hikâyemiz">
+            <p class="hoc-micro hoc-footer__h">Hikâyemiz</p>
+            <ul><li><a href="../about/">HOC hakkında</a></li><li><a href="../#range">Tedarik</a></li><li><a href="../#range">İletişim</a></li><li><a href="../#range">Instagram</a></li></ul>
+          </nav>
+        </div>
+
+        <div class="hoc-current" data-hoc="footer-current" data-atlas="../../assets/img/botanical-atlas-petals.webp?v=d1b16089cf" aria-label="HOC bitkisel koleksiyonu">
+          <div class="hoc-current__head hoc-micro">
+            <p>Doğası gereği bitkisel.</p>
+            <button class="hoc-current__pause" type="button" data-current-pause aria-pressed="false" hidden>Akışı durdur</button>
+          </div>
+          <div class="hoc-current__viewport">
+            <ul class="hoc-current__track">
+              <li class="hoc-current__item" data-ingredients="Hibiscus|Mint Leaf|Lemongrass" data-seed="gift-of-nature">
+                <a class="hoc-current__blend" href="../products/gift-of-nature/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-gift-of-nature.webp?v=ecd68be307"
+        srcset="../../assets/img/pile-gift-of-nature-420.webp?v=6c2828f4b4 420w, ../../assets/img/pile-gift-of-nature-640.webp?v=566a571770 640w, ../../assets/img/pile-gift-of-nature-900.webp?v=ecd68be307 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Gift of Nature</span>
+                </a>
+                <p class="hoc-current__saying">Doğa, bir fincanda.</p>
+              </li><li class="hoc-current__item" data-ingredients="Butterfly Pea Flower|Hibiscus|Cinnamon Stick" data-seed="mystic-butterfly">
+                <a class="hoc-current__blend" href="../products/mystic-butterfly/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-mystic-butterfly.webp?v=42630e2230"
+        srcset="../../assets/img/pile-mystic-butterfly-420.webp?v=8edc1d8317 420w, ../../assets/img/pile-mystic-butterfly-640.webp?v=42e47a9c87 640w, ../../assets/img/pile-mystic-butterfly-900.webp?v=42630e2230 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Mystic Butterfly</span>
+                </a>
+                <p class="hoc-current__saying">Farklı bir şey demleyin.</p>
+              </li><li class="hoc-current__item" data-ingredients="Mango|Pineapple|Lemongrass|Butterfly Pea Flower" data-seed="mesmerize">
+                <a class="hoc-current__blend" href="../products/mesmerize/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-mesmerize.webp?v=3c16522329"
+        srcset="../../assets/img/pile-mesmerize-420.webp?v=a94291ca96 420w, ../../assets/img/pile-mesmerize-640.webp?v=c556801266 640w, ../../assets/img/pile-mesmerize-900.webp?v=3c16522329 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Mesmerize</span>
+                </a>
+                <p class="hoc-current__saying">Size ait bir ritüel.</p>
+              </li><li class="hoc-current__item" data-ingredients="Rooibos|Strawberry|Apple|Bourbon Vanilla" data-seed="sunset-valley">
+                <a class="hoc-current__blend" href="../products/sunset-valley/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-sunset-valley.webp?v=7d27b155a1"
+        srcset="../../assets/img/pile-sunset-valley-420.webp?v=864ba5d17c 420w, ../../assets/img/pile-sunset-valley-640.webp?v=b6e6c095d3 640w, ../../assets/img/pile-sunset-valley-900.webp?v=7d27b155a1 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Sunset Valley</span>
+                </a>
+                <p class="hoc-current__saying">Sıcak. Soğuk. HOC.</p>
+              </li><li class="hoc-current__item" data-ingredients="Rooibos|Mango|Pineapple|Dried Ginger|Cinnamon Stick|Lemon Peel" data-seed="asian-breeze">
+                <a class="hoc-current__blend" href="../products/asian-breeze/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-asian-breeze.webp?v=751eab5773"
+        srcset="../../assets/img/pile-asian-breeze-420.webp?v=124948781e 420w, ../../assets/img/pile-asian-breeze-640.webp?v=1bc66cf35b 640w, ../../assets/img/pile-asian-breeze-900.webp?v=751eab5773 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Asian Breeze</span>
+                </a>
+                <p class="hoc-current__saying">Gününüze renk katın.</p>
+              </li><li class="hoc-current__item" data-ingredients="Oolong|Dried Rose|Hibiscus|Chamomile" data-seed="souls-rest">
+                <a class="hoc-current__blend" href="../products/souls-rest/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-souls-rest.webp?v=c03384b3da"
+        srcset="../../assets/img/pile-souls-rest-420.webp?v=86b7b7a791 420w, ../../assets/img/pile-souls-rest-640.webp?v=3a8ae868c1 640w, ../../assets/img/pile-souls-rest-900.webp?v=c03384b3da 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Soul's Rest</span>
+                </a>
+                <p class="hoc-current__saying">Bırakın doğa aksın.</p>
+              </li><li class="hoc-current__item" data-ingredients="Green Tea|Lemongrass|Strawberry|Blackberry|Butterfly Pea Flower" data-seed="gold-skies">
+                <a class="hoc-current__blend" href="../products/gold-skies/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-gold-skies.webp?v=19c950d00d"
+        srcset="../../assets/img/pile-gold-skies-420.webp?v=37b6445498 420w, ../../assets/img/pile-gold-skies-640.webp?v=113e82a796 640w, ../../assets/img/pile-gold-skies-900.webp?v=19c950d00d 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Gold Skies</span>
+                </a>
+                <p class="hoc-current__saying">Doğa, bir fincanda.</p>
+              </li><li class="hoc-current__item" data-ingredients="Jasmine|Pineapple|Hibiscus|White Tea|Cinnamon Stick" data-seed="pink-senses">
+                <a class="hoc-current__blend" href="../products/pink-senses/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-pink-senses.webp?v=0eb61fd2c5"
+        srcset="../../assets/img/pile-pink-senses-420.webp?v=22166d043d 420w, ../../assets/img/pile-pink-senses-640.webp?v=a0f375b76f 640w, ../../assets/img/pile-pink-senses-900.webp?v=0eb61fd2c5 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Pink Senses</span>
+                </a>
+                <p class="hoc-current__saying">Farklı bir şey demleyin.</p>
+              </li><li class="hoc-current__item" data-ingredients="Jasmine|Chamomile|Lavender|Lemon Balm" data-seed="innerbloom">
+                <a class="hoc-current__blend" href="../products/innerbloom/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-innerbloom.webp?v=5feecddc57"
+        srcset="../../assets/img/pile-innerbloom-420.webp?v=0d6bb9040d 420w, ../../assets/img/pile-innerbloom-640.webp?v=e09cdf4c2a 640w, ../../assets/img/pile-innerbloom-900.webp?v=5feecddc57 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Innerbloom</span>
+                </a>
+                <p class="hoc-current__saying">Size ait bir ritüel.</p>
+              </li><li class="hoc-current__item" data-ingredients="Strawberry|White Tea|Lemon Peel|Apple|Mango|Cinnamon Stick" data-seed="white-tea-melody">
+                <a class="hoc-current__blend" href="../products/white-tea-melody/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-white-tea-melody.webp?v=aacaaa13e7"
+        srcset="../../assets/img/pile-white-tea-melody-420.webp?v=04be5cf67c 420w, ../../assets/img/pile-white-tea-melody-640.webp?v=0e9a3ecb80 640w, ../../assets/img/pile-white-tea-melody-900.webp?v=aacaaa13e7 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">White Tea Melody</span>
+                </a>
+                <p class="hoc-current__saying">Sıcak. Soğuk. HOC.</p>
+              </li><li class="hoc-current__item" data-ingredients="Passionflower|Apple|Lemongrass|Hibiscus|Blackberry" data-seed="reflection">
+                <a class="hoc-current__blend" href="../products/reflection/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-reflection.webp?v=409dec8773"
+        srcset="../../assets/img/pile-reflection-420.webp?v=89dd859883 420w, ../../assets/img/pile-reflection-640.webp?v=ad648beffc 640w, ../../assets/img/pile-reflection-900.webp?v=409dec8773 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Reflection</span>
+                </a>
+                <p class="hoc-current__saying">Gününüze renk katın.</p>
+              </li><li class="hoc-current__item" data-ingredients="Rooibos|Mate|Fresh Ginger|Strawberry|Orange Peel" data-seed="winter-tale">
+                <a class="hoc-current__blend" href="../products/winter-tale/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-winter-tale.webp?v=f223005500"
+        srcset="../../assets/img/pile-winter-tale-420.webp?v=eccb94b7c0 420w, ../../assets/img/pile-winter-tale-640.webp?v=bbcdfa4990 640w, ../../assets/img/pile-winter-tale-900.webp?v=f223005500 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Winter Tale</span>
+                </a>
+                <p class="hoc-current__saying">Bırakın doğa aksın.</p>
+              </li><li class="hoc-current__item" data-ingredients="Apple|Mango|Rosehip|Fennel|Passionflower" data-seed="wintertide">
+                <a class="hoc-current__blend" href="../products/wintertide/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-wintertide.webp?v=b255bb89fb"
+        srcset="../../assets/img/pile-wintertide-420.webp?v=50593f5f81 420w, ../../assets/img/pile-wintertide-640.webp?v=904b4d17e4 640w, ../../assets/img/pile-wintertide-900.webp?v=b255bb89fb 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Wintertide</span>
+                </a>
+                <p class="hoc-current__saying">Doğa, bir fincanda.</p>
+              </li><li class="hoc-current__item" data-ingredients="Apple|Cinnamon Stick|Hibiscus|Orange Peel" data-seed="bloomera">
+                <a class="hoc-current__blend" href="../products/bloomera/">
+                  <span class="hoc-current__media"><img
+        src="../../assets/img/pile-bloomera.webp?v=9e0e81fef8"
+        srcset="../../assets/img/pile-bloomera-420.webp?v=d39bb382ac 420w, ../../assets/img/pile-bloomera-640.webp?v=17962d92d0 640w, ../../assets/img/pile-bloomera-900.webp?v=9e0e81fef8 900w"
+        sizes="(max-width: 699px) 180px, 230px"
+        width="640" height="640"
+        alt=""
+        loading="lazy" decoding="async"></span>
+                  <span class="hoc-current__name">Bloomera</span>
+                </a>
+                <p class="hoc-current__saying">Farklı bir şey demleyin.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hoc-footer__legal hoc-micro">
+          <p>&copy; 2026 HOC Tea</p>
+          <p><a href="#newsletter">Yasal</a> · <a href="#newsletter">Gizlilik</a> · <a href="#newsletter">Kargo</a></p>
+        </div>
+      </div>
+    </footer>
+
+  <div class="hoc-drawer" data-hoc="drawer" role="dialog" aria-modal="true"
+       aria-label="Sepet" hidden>
+    <div class="hoc-drawer__scrim" data-hoc="drawer-close"></div>
+    <div class="hoc-drawer__panel">
+      <header class="hoc-drawer__head">
+        <p class="hoc-micro">Sepetiniz<span class="hoc-bag__count" data-hoc="bag-count"></span></p>
+        <button class="hoc-link" data-hoc="drawer-close">Kapat</button>
+      </header>
+      <div class="hoc-drawer__body" data-hoc="drawer-items">
+        <p class="hoc-drawer__empty hoc-body">Henüz demlenen bir şey yok.</p>
+      </div>
+      <footer class="hoc-drawer__foot">
+        <div class="hoc-drawer__total hoc-micro">
+          <span>Ara toplam</span><span data-hoc="bag-total">€0</span>
+        </div>
+        <button class="hoc-btn hoc-btn--solid" data-hoc="checkout">Ödemeye geç</button>
+      </footer>
+    </div>
+  </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hoc-mark" viewBox="0 0 120 120">
+  <!-- HOC mark, traced from Logo/black-png.png.
+
+       Plate: 120x120. Top-left and bottom-right rounded at 24 (20% of the
+       side); top-right and bottom-left square. That asymmetry is the brand
+       shape primitive reused across media frames, the cart drawer and CTAs (§4).
+
+       Letter geometry is measured, not eyeballed: H stems sit at x 12.2 / 35.5,
+       the tag runs x 48.5-71.5, the C is r12 about (95.5, 89.7), and every one
+       of them spans y 75.7-103.7. -->
+  <path class="hoc-mark__plate"
+        d="M24 0 H120 V96 A24 24 0 0 1 96 120 H0 V24 A24 24 0 0 1 24 0 Z"
+        fill="currentColor"/>
+  <g class="hoc-mark__art" fill="none" stroke="var(--hoc-mark-ink, #F1EFE8)"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- sprout: two leaves meeting at the stem head -->
+    <g stroke-width="2.4">
+      <path d="M59 51 C41 51 29 41 27.5 26.5 C42 25 55 33 59 47 Z"/>
+      <path d="M61 51 C79 51 91 41 92.5 26.5 C78 25 65 33 61 47 Z"/>
+    </g>
+    <g stroke-width="1.5">
+      <path d="M31 29 L52 43"/>
+      <path d="M35.5 26 L35.5 35"/>
+      <path d="M43 27.5 L43 39.5"/>
+      <path d="M31.5 36 L41 36"/>
+      <path d="M89 29 L68 43"/>
+      <path d="M84.5 26 L84.5 35"/>
+      <path d="M77 27.5 L77 39.5"/>
+      <path d="M88.5 36 L79 36"/>
+    </g>
+    <!-- stem into the tag -->
+    <path d="M60 51 V74" stroke-width="2.6"/>
+    <!-- tag: the O of HOC -->
+    <path d="M60 74.2 L71.5 84 V102.4 H48.5 V84 Z" stroke-width="2.6"/>
+    <!-- H -->
+    <path d="M12.2 75.7 V103.7 M12.2 88 H35.5 M35.5 75.7 V103.7" stroke-width="3.1"/>
+    <!-- C -->
+    <path d="M104 81.2 A12 12 0 1 0 104 98.2" stroke-width="3.1"/>
+  </g>
+</symbol></svg><svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<!-- ==========================================================================
+     HOC TEA — botanical sprite.
+
+     Single-stroke line art in the packaging illustration language. Every shape
+     is an open or closed <path> with no fill, so GSAP DrawSVG can draw it on
+     (§16, §22). viewBox is 100x100 for all symbols; stroke-width is set by the
+     consumer via CSS so the same drawing works at 40px and at 400px.
+
+     Production note §50: these are authored, not traced. When the packaging
+     vectors arrive as AI/PDF, swap the <path> data — the ids and viewBox are
+     the contract and nothing else has to change.
+     ========================================================================== -->
+
+<defs>
+  <g id="b-petal-hibiscus">
+    <path d="M50 50 C41 43 37 31 41 22 C44 15 56 15 59 22 C63 31 59 43 50 50 Z"/>
+  </g>
+</defs>
+
+<symbol id="b-hibiscus" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#b-petal-hibiscus" transform="rotate(0 50 50)"/>
+    <use href="#b-petal-hibiscus" transform="rotate(72 50 50)"/>
+    <use href="#b-petal-hibiscus" transform="rotate(144 50 50)"/>
+    <use href="#b-petal-hibiscus" transform="rotate(216 50 50)"/>
+    <use href="#b-petal-hibiscus" transform="rotate(288 50 50)"/>
+    <!-- the long protruding staminal column hibiscus is known for -->
+    <path d="M50 50 C56 61 61 70 65 79"/>
+    <circle cx="66" cy="82" r="2"/>
+    <circle cx="60.5" cy="72.5" r="1.5"/>
+    <circle cx="70" cy="77" r="1.5"/>
+    <circle cx="50" cy="50" r="3.4"/>
+  </g>
+</symbol>
+
+<symbol id="b-mint" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 92 C50 74 50 46 50 16"/>
+    <path d="M50 68 C40 68 30 62 26 51 C36 47 47 53 50 62 Z"/>
+    <path d="M50 68 C60 68 70 62 74 51 C64 47 53 53 50 62 Z"/>
+    <path d="M50 46 C42 46 33 41 29 32 C38 28 47 33 50 41 Z"/>
+    <path d="M50 46 C58 46 67 41 71 32 C62 28 53 33 50 41 Z"/>
+    <path d="M50 27 C44 27 38 23 35 17 C42 14 48 18 50 23 Z"/>
+    <path d="M50 27 C56 27 62 23 65 17 C58 14 52 18 50 23 Z"/>
+    <path d="M33 53 l14 8 M36 34 l12 7 M67 53 l-14 8 M64 34 l-12 7"/>
+  </g>
+</symbol>
+
+<symbol id="b-lemongrass" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M46 94 C40 70 30 46 12 26 C34 36 46 60 50 88"/>
+    <path d="M50 94 C50 66 52 38 58 10 C62 40 58 70 54 94"/>
+    <path d="M54 94 C62 72 74 50 92 32 C76 54 66 72 58 92"/>
+    <path d="M48 94 C46 78 42 62 33 48"/>
+    <path d="M44 90 h14"/>
+  </g>
+</symbol>
+
+<symbol id="b-butterfly-pea" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Clitoria ternatea: one broad fan-shaped standard petal that narrows to
+         the calyx, with the keel folded out below it. -->
+    <path d="M50 74 C29 70 15 55 16 38 C30 24 70 24 84 38 C85 55 71 70 50 74 Z"/>
+    <path d="M50 74 C47 60 46 46 48 33 M50 74 C53 60 54 46 52 33"/>
+    <path d="M26 33 C33 45 40 58 46 70 M74 33 C67 45 60 58 54 70"/>
+    <path d="M36 27 C40 42 43 57 47 72 M64 27 C60 42 57 57 53 72"/>
+    <!-- calyx + keel -->
+    <path d="M50 74 L50 84"/>
+    <path d="M43 82 C46 89 54 89 57 82"/>
+    <path d="M50 88 L50 96"/>
+  </g>
+</symbol>
+
+<symbol id="b-cinnamon" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- a quill, seen slightly from above so the roll is visible -->
+    <path d="M36 22 L40 84 C40 89 44 92 50 92 C56 92 60 89 60 84 L64 22"/>
+    <path d="M50 14 C58 14 64 17 64 21 C64 25 58 28 50 28 C42 28 36 25 36 21 C36 17 42 14 50 14 Z"/>
+    <path d="M44 21 C45 18 49 17 53 18 C56 19 57 21 55 22 C53 23 51 22 51 21"/>
+    <path d="M46 28 L48 86 M56 27 L54 86" stroke-opacity=".7"/>
+  </g>
+</symbol>
+
+<symbol id="b-mango" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 22 C40 22 22 40 22 60 C22 76 34 86 50 86 C70 86 84 68 84 46 C84 32 76 22 62 22 Z"/>
+    <path d="M62 22 C58 30 54 42 54 56"/>
+    <path d="M62 22 C66 16 72 12 80 11 C79 18 74 22 68 23"/>
+    <path d="M62 22 L62 12"/>
+  </g>
+</symbol>
+
+<symbol id="b-pineapple" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 36 C34 36 26 48 26 62 C26 78 36 90 50 90 C64 90 74 78 74 62 C74 48 66 36 50 36 Z"/>
+    <path d="M31 50 L69 74 M31 66 L60 86 M40 42 L74 62 M69 50 L31 74 M69 66 L40 86 M60 42 L26 62"/>
+    <path d="M50 36 C50 26 46 16 40 10 C48 12 52 20 52 30"/>
+    <path d="M50 36 C52 26 58 16 66 12 C64 22 58 30 52 34"/>
+    <path d="M50 36 C46 28 42 22 34 18 C38 26 42 32 47 36"/>
+  </g>
+</symbol>
+
+<symbol id="b-strawberry" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 90 C32 78 24 62 24 48 C24 36 34 30 44 34 C47 35 49 36 50 38 C51 36 53 35 56 34 C66 30 76 36 76 48 C76 62 68 78 50 90 Z"/>
+    <path d="M50 34 L50 20"/>
+    <path d="M50 26 C44 22 36 21 30 24 C34 30 42 32 48 30"/>
+    <path d="M50 26 C56 22 64 21 70 24 C66 30 58 32 52 30"/>
+    <path d="M38 48 h.01 M50 52 h.01 M62 48 h.01 M44 62 h.01 M56 62 h.01 M50 74 h.01"
+          stroke-linecap="round" stroke-width="3"/>
+  </g>
+</symbol>
+
+<symbol id="b-apple" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 32 C44 26 34 26 28 34 C20 44 22 62 32 76 C38 84 44 86 50 82 C56 86 62 84 68 76 C78 62 80 44 72 34 C66 26 56 26 50 32 Z"/>
+    <path d="M50 32 L50 16"/>
+    <path d="M50 22 C56 14 66 12 74 14 C72 24 62 28 54 26"/>
+  </g>
+</symbol>
+
+<symbol id="b-lavender" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 94 L50 44"/>
+    <path d="M50 44 C43 42 40 36 43 31 C46 27 52 28 53 33"/>
+    <path d="M50 34 C43 32 40 26 43 21 C46 17 52 18 53 23"/>
+    <path d="M50 24 C44 22 42 17 44 13 C47 9 52 10 53 15"/>
+    <path d="M50 44 C57 42 60 36 57 31 C54 27 48 28 47 33"/>
+    <path d="M50 34 C57 32 60 26 57 21 C54 17 48 18 47 23"/>
+    <path d="M50 14 C51 10 50 6 48 4"/>
+    <path d="M50 66 C42 66 36 62 33 55 C40 54 47 58 50 63"/>
+    <path d="M50 66 C58 66 64 62 67 55 C60 54 53 58 50 63"/>
+  </g>
+</symbol>
+
+<symbol id="b-chamomile" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <g id="b-cham-petals">
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(0 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(45 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(90 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(135 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(180 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(225 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(270 50 46)"/>
+      <path d="M50 38 C46 30 46 20 50 12 C54 20 54 30 50 38 Z" transform="rotate(315 50 46)"/>
+    </g>
+    <circle cx="50" cy="46" r="7.5"/>
+    <path d="M50 80 L50 96 M50 86 C44 84 41 80 41 75 C46 75 49 78 50 82"/>
+  </g>
+</symbol>
+
+<symbol id="b-ginger" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- rhizome: one long body with knuckles and two finger shoots -->
+    <path d="M16 46 C12 38 17 30 26 30 C34 30 39 36 40 43
+             C46 38 56 37 62 41 C70 34 82 36 86 44
+             C90 52 85 61 76 61 C70 61 65 58 63 53
+             C58 60 48 62 41 58 C38 66 30 69 23 65 C16 61 14 53 16 46 Z"/>
+    <path d="M40 43 C41 48 41 54 41 58"/>
+    <path d="M62 41 C62 46 62 50 63 53"/>
+    <path d="M26 30 C25 24 27 18 32 15"/>
+    <path d="M76 61 C79 67 79 74 76 80"/>
+    <path d="M50 44 C50 48 50 52 49 56" stroke-opacity=".7"/>
+  </g>
+</symbol>
+
+<symbol id="b-orange-peel" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M78 16 C58 12 34 22 26 42 C18 62 28 84 48 88 C62 91 74 82 76 70 C78 58 70 48 58 48 C48 48 42 56 44 64 C46 71 54 74 59 70"/>
+    <path d="M78 16 C68 20 60 26 54 34 C46 24 40 20 32 18"/>
+  </g>
+</symbol>
+
+<symbol id="b-rooibos" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 94 C50 70 52 44 58 16"/>
+    <path d="M53 74 C44 70 34 66 24 66 M53 74 C60 66 68 60 78 56"/>
+    <path d="M54 60 C45 56 36 51 28 48 M54 60 C61 52 70 46 80 42"/>
+    <path d="M56 44 C48 40 40 35 33 31 M56 44 C63 37 71 31 80 27"/>
+    <path d="M58 28 C52 24 46 20 41 17 M58 28 C64 22 71 17 78 14"/>
+  </g>
+</symbol>
+
+<symbol id="b-rose" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 20 C34 20 22 32 22 48 C22 64 34 76 50 76 C66 76 78 64 78 48 C78 32 66 20 50 20 Z"/>
+    <path d="M50 32 C41 32 34 39 34 48 C34 57 41 64 50 64 C59 64 66 57 66 48"/>
+    <path d="M50 42 C45 42 42 45 42 49 C42 53 45 56 50 56 C54 56 57 53 57 49"/>
+    <path d="M28 36 C34 30 42 26 50 26 M72 60 C66 68 58 72 50 72"/>
+    <path d="M50 76 L50 94 M50 84 C44 82 40 78 39 72 C45 72 49 76 50 80"/>
+  </g>
+</symbol>
+
+<symbol id="b-blackberry" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="34" r="9"/>
+    <circle cx="36" cy="46" r="9"/>
+    <circle cx="64" cy="46" r="9"/>
+    <circle cx="43" cy="62" r="9"/>
+    <circle cx="57" cy="62" r="9"/>
+    <circle cx="50" cy="48" r="8"/>
+    <path d="M50 25 L50 12"/>
+    <path d="M50 18 C43 16 38 12 36 6 C44 6 49 10 51 15"/>
+    <path d="M50 18 C57 16 62 12 64 6 C56 6 51 10 49 15"/>
+  </g>
+</symbol>
+
+<!-- Decorative sprig used as the footer / manifesto ground mark §22 -->
+<symbol id="b-sprig" viewBox="0 0 200 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 88 C50 84 96 68 128 42 C146 27 166 18 190 14"/>
+    <path d="M52 80 C48 70 50 58 58 51 C64 58 63 71 56 79 Z"/>
+    <path d="M78 70 C74 60 76 48 84 41 C90 48 89 61 82 69 Z"/>
+    <path d="M104 56 C100 46 102 34 110 27 C116 34 115 47 108 55 Z"/>
+    <path d="M130 40 C128 30 132 19 141 14 C145 22 142 34 134 39 Z"/>
+    <path d="M40 84 C32 80 26 72 26 62 C34 64 40 72 41 81 Z"/>
+    <path d="M66 74 C58 71 51 63 50 53 C58 55 65 62 67 71 Z"/>
+    <path d="M92 62 C84 59 77 51 76 41 C84 43 91 50 93 59 Z"/>
+    <circle cx="118" cy="49" r="3"/>
+    <circle cx="150" cy="26" r="3"/>
+    <circle cx="70" cy="80" r="3"/>
+  </g>
+</symbol>
+<symbol id="b-branch" viewBox="0 0 900 100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.0 78.0 Q22.7 77.9 37.5 77.7 Q52.2 77.5 66.9 77.4 Q81.7 77.2 96.4 77.0 Q111.1 76.7 125.9 76.4 Q140.6 76.1 155.3 75.8 Q170.1 75.4 184.8 74.9 Q199.5 74.4 214.3 73.9 Q229.0 73.3 243.7 72.7 Q258.5 72.0 273.2 71.2 Q287.9 70.4 302.7 69.5 Q317.4 68.6 332.1 67.6 Q346.9 66.6 361.6 65.5 Q376.3 64.4 391.1 63.2 Q405.8 62.0 420.5 60.8 Q435.3 59.5 450.0 58.2 Q464.7 56.8 479.5 55.5 Q494.2 54.1 508.9 52.7 Q523.7 51.3 538.4 50.0 Q553.1 48.6 567.9 47.2 Q582.6 45.8 597.3 44.5 Q612.1 43.2 626.8 41.9 Q641.5 40.6 656.3 39.4 Q671.0 38.2 685.7 37.0 Q700.5 35.9 715.2 34.9 Q729.9 33.9 744.7 32.9 Q759.4 32.0 774.1 31.2 Q788.9 30.4 803.6 29.6 Q818.3 29.0 833.1 28.3 Q847.8 27.8 862.5 27.2 Q877.3 26.8 892.0 26.3"/>
+    <path d="M56.6 77.5 C61.0 85.8 65.8 89.1 69.3 86.4 C65.7 78.6 60.9 75.2 56.6 77.5 Z"/>
+    <path d="M109.7 76.7 C115.3 65.4 121.7 60.6 126.5 64.3 C121.9 74.9 115.5 79.6 109.7 76.7 Z"/>
+    <path d="M162.7 75.6 C166.8 83.0 171.2 86.0 174.4 83.5 C171.0 76.5 166.5 73.5 162.7 75.6 Z"/>
+    <path d="M215.7 73.8 C218.4 68.1 221.5 65.7 224.0 67.5 C221.8 72.8 218.7 75.2 215.7 73.8 Z"/>
+    <path d="M268.8 71.4 C274.3 80.9 280.2 84.7 284.1 81.2 C279.5 72.3 273.7 68.6 268.8 71.4 Z"/>
+    <path d="M321.8 68.3 C326.6 57.3 332.5 52.5 337.2 55.7 C333.3 66.0 327.5 70.8 321.8 68.3 Z"/>
+    <path d="M374.9 64.5 C378.6 70.5 382.3 72.8 384.8 70.5 C381.7 64.9 377.9 62.6 374.9 64.5 Z"/>
+    <path d="M427.9 60.1 C430.7 53.4 434.2 50.4 437.1 52.3 C434.9 58.6 431.4 61.6 427.9 60.1 Z"/>
+    <path d="M480.9 55.4 C487.5 65.7 494.2 69.5 498.4 65.5 C492.9 55.8 486.2 52.0 480.9 55.4 Z"/>
+    <path d="M534.0 50.4 C538.0 40.5 543.0 36.1 547.3 38.8 C544.2 48.0 539.1 52.4 534.0 50.4 Z"/>
+    <path d="M587.0 45.4 C590.3 50.6 593.7 52.6 595.8 50.6 C593.1 45.7 589.7 43.7 587.0 45.4 Z"/>
+    <path d="M640.1 40.7 C643.4 32.5 647.7 28.9 651.2 31.2 C648.5 38.9 644.3 42.5 640.1 40.7 Z"/>
+    <path d="M693.1 36.5 C699.7 47.3 706.6 51.4 711.1 47.4 C705.5 37.2 698.7 33.1 693.1 36.5 Z"/>
+    <path d="M746.1 32.8 C749.8 24.6 754.1 21.0 757.7 23.4 C754.8 31.1 750.4 34.7 746.1 32.8 Z"/>
+    <path d="M799.2 29.8 C802.3 35.2 805.5 37.2 807.7 35.3 C805.2 30.3 801.9 28.3 799.2 29.8 Z"/>
+    <path d="M852.2 27.6 C856.7 18.0 862.0 14.0 866.1 16.9 C862.4 25.9 857.1 29.9 852.2 27.6 Z"/>
+    <circle cx="177.3" cy="85.4" r="2.6"/>
+    <circle cx="439.4" cy="50.3" r="2.6"/>
+    <circle cx="715.5" cy="50.1" r="2.6"/>
+  </g>
+</symbol>
+</svg>
+
+<script src="../../assets/vendor/gsap.min.js?v=b9a1a52787"></script><script src="../../assets/vendor/ScrollTrigger.min.js?v=4aeb84b07a"></script><script src="../../assets/vendor/SplitText.min.js?v=03f532f721"></script><script src="../../assets/vendor/CustomEase.min.js?v=155a4e7ffe"></script><script src="../../assets/vendor/DrawSVGPlugin.min.js?v=1022fa54a7"></script><script src="../../assets/vendor/Flip.min.js?v=b42ca485d0"></script><script src="../../assets/vendor/ScrambleTextPlugin.min.js?v=258f54d8bd"></script><script src="../../assets/vendor/Observer.min.js?v=298b0ea32d"></script><script src="../../assets/vendor/lenis.min.js?v=804047c1d9"></script><script src="../../assets/vendor/embla-carousel.umd.js?v=181961bf7d"></script>
+<script src="../../assets/js/hoc-data.js?v=79c17d7a85"></script><script src="../../assets/js/hoc-i18n-tr.js?v=fa33f81b1a"></script><script src="../../assets/js/hoc-core.js?v=14224cd333"></script><script src="../../assets/js/hoc-botanicals.js?v=1a611aface"></script><script src="../../assets/js/hoc-webgl.js?v=5d4a3d1df4"></script><script src="../../assets/js/hoc-motion.js?v=a957d83088"></script><script src="../../assets/js/hoc-matcha.js?v=1939055ebe"></script>
+</body></html>

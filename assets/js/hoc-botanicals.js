@@ -462,7 +462,7 @@
     function pause() {
       paused = !paused;
       button.setAttribute("aria-pressed", String(paused));
-      button.textContent = paused ? "Resume flow" : "Pause flow";
+      button.textContent = root.HOC && HOC.t ? HOC.t(paused ? "Resume flow" : "Pause flow") : paused ? "Resume flow" : "Pause flow";
       if (paused) stop(); else wake();
     }
     function enter(e) { if (e.pointerType !== "touch") hovering = true; }
@@ -483,7 +483,7 @@
     return {
       init: function () {
         if (!entries.length || !viewport || !button) return;
-        button.textContent = "Pause flow"; button.setAttribute("aria-pressed", "false");
+        button.textContent = root.HOC && HOC.t ? HOC.t("Pause flow") : "Pause flow"; button.setAttribute("aria-pressed", "false");
         if (!approached) {
           near = new IntersectionObserver(function (events) {
             if (!events[events.length - 1].isIntersecting) return;

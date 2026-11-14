@@ -353,20 +353,25 @@
       var m = mode();
       var n = cups();
       var ml = R.ml * n;
-      var lead = n + (n === 1 ? " cup" : " cups");
+      var TR = root.HOC && HOC.lang === "tr";
+      var lead = TR ? n + " fincan" : n + (n === 1 ? " cup" : " cups");
       var said;
       if (m === "cold" && R.coldG) {
         var g = fmt((R.coldG * ml) / R.coldMl);
         set("g", g);
         set("ml", ml);
-        set("c", "Cold");
+        set("c", TR ? "Soğuk" : "Cold");
         set("cu", "");
         set("t", R.coldH);
-        set("tu", "h");
-        set("method",
-          "Add the leaf to cold water (" + R.coldG + " g to a litre), cover, and leave it in the fridge for " +
-          R.coldH + " hours. Strain and serve.");
-        said = "Cold brew, " + lead + ": " + g + " g of leaf in " + ml + " ml of cold water, " + R.coldH + " hours in the fridge.";
+        set("tu", TR ? "sa" : "h");
+        set("method", TR
+          ? "Yaprakları soğuk suya ekleyin (litreye " + R.coldG + " g), üzerini kapatıp buzdolabında " + R.coldH +
+            " saat bekletin. Süzüp servis edin."
+          : "Add the leaf to cold water (" + R.coldG + " g to a litre), cover, and leave it in the fridge for " +
+            R.coldH + " hours. Strain and serve.");
+        said = TR
+          ? "Soğuk demleme, " + lead + ": " + ml + " ml soğuk suya " + g + " g yaprak, buzdolabında " + R.coldH + " saat."
+          : "Cold brew, " + lead + ": " + g + " g of leaf in " + ml + " ml of cold water, " + R.coldH + " hours in the fridge.";
       } else {
         var gr = range(R.gLo * n, R.gHi * n);
         var t = range(R.mLo, R.mHi);
@@ -375,13 +380,18 @@
         set("c", R.c);
         set("cu", "°C");
         set("t", t);
-        set("tu", "min");
-        set("method",
-          m === "iced"
+        set("tu", TR ? "dk" : "min");
+        set("method", TR
+          ? m === "iced"
+            ? "Önce sıcak demleyin: " + R.c + " °C su, " + t + " dakika. Süzün, soğumaya bırakın, ardından buz dolu bir bardağa dökün."
+            : "Yaprağın üzerine " + R.c + " °C su dökün, " + t + " dakika demleyip süzün."
+          : m === "iced"
             ? "Brew it hot: water at " + R.c + " °C, " + t + " minutes. Strain, let it cool, then pour it over a glass of ice."
             : "Pour water at " + R.c + " °C over the leaf, steep " + t + " minutes, then strain.");
-        said = (m === "iced" ? "Iced, " : "Hot, ") + lead + ": " + gr + " g of leaf, " + ml + " ml of water at " + R.c +
-          " °C, " + t + " minutes.";
+        said = TR
+          ? (m === "iced" ? "Buzlu, " : "Sıcak, ") + lead + ": " + gr + " g yaprak, " + R.c + " °C'de " + ml + " ml su, " + t + " dakika."
+          : (m === "iced" ? "Iced, " : "Hot, ") + lead + ": " + gr + " g of leaf, " + ml + " ml of water at " + R.c +
+            " °C, " + t + " minutes.";
       }
       if (status && touched) status.textContent = said;
     }
