@@ -14,6 +14,31 @@
   var liftOrder = [.12, .18, .35, .08, .75, .72, .68, .28, .62, .68, .78, .73,
     .55, .38, .10, .06, .32, .70, .05, .22, .04, .16, .08, .30, .74, .58, .65, .62];
 
+  // Each pile reads one sheet. "botanical" is the 6 x 5 atlas above, used by
+  // the fourteen blends. "powder" (botanical-atlas-powders, 6 x 3) holds six
+  // real crumbs of each powder (matcha, hojicha, ube; one product to a row),
+  // cut from a photographed pinch by tools/build-powder-atlas.py. A powder's
+  // pile is not a few big pieces but a cone of thousands of those grains,
+  // seen from a little above, lit from the upper left; when it opens, fine
+  // powder blows off its face toward the colour. A page names its sheet with
+  // data-sheet; the static build sets atlas.hocSheet itself.
+  var sheets = {
+    botanical: { cols: 6, rows: 5, tile: 256, names: names, scales: scales, lift: liftOrder, shadow: .19 },
+    powder: {
+      cols: 6, rows: 3, tile: 64, shadow: .16,
+      names: ["Matcha 1", "Matcha 2", "Matcha 3", "Matcha 4", "Matcha 5", "Matcha 6",
+        "Hojicha 1", "Hojicha 2", "Hojicha 3", "Hojicha 4", "Hojicha 5", "Hojicha 6",
+        "Ube 1", "Ube 2", "Ube 3", "Ube 4", "Ube 5", "Ube 6"],
+      // Sizes are shares of the canvas. radius/height: the cone (taller than
+      // wide, a poured heap with a rounded tip); base: where its foot sits
+      // below the canvas centre; elevation: the camera, degrees above level.
+      heap: { grains: 14000, dust: 1100, size: [.0055, .012], radius: .235,
+        height: .35, base: .16, elevation: 17 }
+    }
+  };
+  function sheetOf(name) { return sheets[name] || sheets.botanical; }
+  var TAU = Math.PI * 2;
+
   function random(seed) {
     var n = 2166136261;
     for (var i = 0; i < seed.length; i++) n = Math.imul(n ^ seed.charCodeAt(i), 16777619);
@@ -25,9 +50,10 @@
     };
   }
 
-  function pieces(recipe, seed) {
-    var rand = random(seed);
-    var types = recipe.map(function (name) { return names.indexOf(name.trim()); }).filter(function (i) { return i >= 0; });
+  function pieces(recipe, seed, sheet) {
+    var rand = random(seed), s = sheetOf(sheet), scales = s.scales, liftOrder = s.lift;
+    if (s.heap) return heap(recipe, rand, s);
+    var types = recipe.map(function (name) { return s.names.indexOf(name.trim()); }).filter(function (i) { return i >= 0; });
     if (!types.length) return [];
     var result = [];
     for (var i = 0; i < 205; i++) {
@@ -50,6 +76,160 @@
     return result;
   }
 
+  // A powder heap: a recipe names the powder ("Matcha") and every grain of
+  // it ("Matcha 1" ... "Matcha 6") is used.
+  //
+  // Grains sit on the surface of a cone (area-uniform, so as dense at the
+  // foot as at the tip), jittered so the face is lumpy, and a ring of dust
+  // lies on the ground around the foot. Each is shaded from the cone's normal
+  // against a light from the upper left, darker where the heap meets the
+  // ground, and drawn far to near. Grains on the hidden back are not made.
+  // About one in eight on the lit face is loose: those are what blow away.
+  var LIGHT = unit(-.55, .42, .72);
+  var SHADES = [.48, .6, .72, .84, .96, 1.08, 1.2];
+  function unit(x, y, z) { var m = Math.sqrt(x * x + y * y + z * z) || 1; return [x / m, y / m, z / m]; }
+  function heap(recipe, rand, s) {
+    var g = s.heap, types = [];
+    recipe.forEach(function (name) {
+      name = name.trim();
+      s.names.forEach(function (n, i) { if (n.indexOf(name + " ") === 0) types.push(i); });
+    });
+    if (!types.length) return [];
+    var R = g.radius, H = g.height, el = g.elevation * Math.PI / 180;
+    var ce = Math.cos(el), se = Math.sin(el), k = .09, top = Math.sqrt(1 + k * k) - k;
+    var result = [], ph1 = rand() * TAU, ph2 = rand() * TAU, ph3 = rand() * TAU;
+    // A poured heap is never a true cone: a slow bulge round it, a few
+    // slumps down its face.
+    function swell(th, t) {
+      return 1 + t * (.035 * Math.sin(2 * th + ph1) + .022 * Math.sin(5 * th + ph2)) +
+        .018 * Math.sin(9 * t + 3 * th + ph3) * t;
+    }
+    // Height at t (0 = axis, 1 = foot): a rounded tip, a slight flare at the foot.
+    function profile(t) { return H * Math.pow(Math.max(0, 1 - (Math.sqrt(t * t + k * k) - k) / top), 1.15); }
+    function grain(x, y, z, b, size, loose) {
+      var shade = Math.round(clamp((b - SHADES[0]) / (SHADES[SHADES.length - 1] - SHADES[0]), 0, 1) * (SHADES.length - 1));
+      var p = { type: types[Math.floor(rand() * types.length)], x: x, y: g.base - z * ce + y * se,
+        depth: y * ce + z * se, size: size, angle: rand() * TAU, shade: shade, loose: loose };
+      if (loose) {
+        // Downwind is to the right, where the colour runs; it rises a little.
+        p.dx = .08 + rand() * .24; p.dy = -(.02 + rand() * .1);
+        p.speed = 1 / (6500 + rand() * 8000); p.offset = rand(); p.sway = rand() * TAU;
+      }
+      result.push(p);
+    }
+    for (var made = 0, tries = 0; made < g.grains && tries < g.grains * 3; tries++) {
+      var th = rand() * TAU, t = Math.sqrt(rand());
+      var slope = (profile(Math.max(0, t - .02)) - profile(Math.min(1, t + .02))) / (R * (Math.min(1, t + .02) - Math.max(0, t - .02)));
+      var n = unit(slope * Math.cos(th), slope * Math.sin(th), 1);
+      var facing = n[1] * ce + n[2] * se;
+      if (facing < -.04) continue;
+      var r = R * t * swell(th, t) * (1 + (rand() - .5) * .03), z = profile(t) + (rand() - .5) * .006;
+      var b = .44 + .8 * Math.max(0, n[0] * LIGHT[0] + n[1] * LIGHT[1] + n[2] * LIGHT[2]);
+      b *= .74 + .26 * smoothstep(z / (H * .22));          // where it meets the ground
+      b *= .9 + .1 * smoothstep(facing / .3);              // the turning edge
+      b *= 1 + (rand() - .5) * .16;
+      var size = g.size[0] + rand() * (g.size[1] - g.size[0]);
+      grain(r * Math.cos(th), r * Math.sin(th), Math.max(0, z), b, size,
+        facing > .3 && rand() < .05 + .16 * z / H);
+      made++;
+    }
+    for (var i = 0; i < g.dust; i++) {
+      var a = rand() * TAU, d = R * swell(a, 1) * (.93 + Math.pow(rand(), 3.2) * .5);
+      // The ground is lit too, except in the heap's shadow to the lower right.
+      var lit = .62 + rand() * .26 - (Math.cos(a) > 0 && Math.sin(a) > -.3 ? .1 : 0);
+      grain(d * Math.cos(a), d * Math.sin(a), 0, lit, (g.size[0] + rand() * (g.size[1] - g.size[0])) * .7, false);
+    }
+    result.sort(function (p, q) { return p.depth - q.depth; });
+    // The silhouette, for the solid body under the grains: apex, then the
+    // front of the foot from left to right.
+    var outline = [[0, g.base - H * ce]];
+    for (var j = 0; j <= 24; j++) {
+      var ta = Math.PI - j / 24 * Math.PI, rr = R * swell(ta, 1) * .96;
+      outline.push([rr * Math.cos(ta), g.base + rr * Math.sin(ta) * se]);
+    }
+    result.heap = { radius: R, height: H, base: g.base, se: se, ce: ce, outline: outline };
+    return result;
+  }
+
+  // The body never moves, so it is drawn once per canvas size and reused;
+  // each frame adds only the loose grains. Spread 0 is the still heap (and
+  // the static WebP); as it opens, loose grains stream off downwind, fading
+  // as they go, and settle back onto the face to go again.
+  function stamp(ctx, tile, x, y, size, angle, w, h) {
+    var c = Math.cos(angle), s = Math.sin(angle);
+    ctx.setTransform(c, s, -s, c, (.5 + x) * w, (.5 + y) * h);
+    ctx.drawImage(tile, -size * w / 2, -size * w / 2, size * w, size * w);
+  }
+  function shades(atlas) {
+    if (atlas.hocShades) return atlas.hocShades;
+    return (atlas.hocShades = atlas.hocSprites.map(function (sprite) {
+      return SHADES.map(function (f) {
+        var tile = document.createElement("canvas"), tc = tile.getContext("2d");
+        tile.width = sprite.width; tile.height = sprite.height;
+        tc.drawImage(sprite, 0, 0);
+        tc.globalCompositeOperation = "source-atop";
+        tc.fillStyle = f < 1 ? "rgba(26,18,10," + (1 - f).toFixed(3) + ")" : "rgba(255,250,240," + ((f - 1) * .85).toFixed(3) + ")";
+        tc.fillRect(0, 0, tile.width, tile.height);
+        return tile;
+      });
+    }));
+  }
+  // Mean colour of the grains this heap uses, from their mid-tone tiles.
+  function toneOf(tiles, items) {
+    var seen = {}, sum = [0, 0, 0], n = 0;
+    items.forEach(function (p) { seen[p.type] = 1; });
+    Object.keys(seen).forEach(function (type) {
+      var tile = tiles[type][3], d = tile.getContext("2d").getImageData(0, 0, tile.width, tile.height).data;
+      for (var i = 0; i < d.length; i += 4) if (d[i + 3] > 200) { sum[0] += d[i]; sum[1] += d[i + 1]; sum[2] += d[i + 2]; n++; }
+    });
+    return n ? sum.map(function (v) { return v / n; }) : [128, 128, 128];
+  }
+  function rgbs(c, f) { return "rgb(" + c.map(function (v) { return Math.round(clamp(v * f, 0, 255)); }).join(",") + ")"; }
+  function drawHeap(ctx, w, h, atlas, items, spread, time, hover, handX, handY) {
+    var tiles = shades(atlas), body = items.body;
+    if (!body || body.width !== w || body.height !== h) {
+      body = items.body = document.createElement("canvas");
+      body.width = w; body.height = h;
+      var bc = body.getContext("2d"), hp = items.heap, rx = hp.radius * 1.45 * w;
+      // Contact shadow, thrown to the lower right.
+      bc.setTransform(1, 0, 0, .24, (.5 + hp.radius * .3) * w, (.5 + hp.base + hp.radius * hp.se * .3) * h);
+      var shadow = bc.createRadialGradient(0, 0, 0, 0, 0, rx);
+      shadow.addColorStop(0, "rgba(40,30,18,.36)");
+      shadow.addColorStop(.5, "rgba(40,30,18,.17)");
+      shadow.addColorStop(1, "rgba(40,30,18,0)");
+      bc.fillStyle = shadow;
+      bc.beginPath(); bc.arc(0, 0, rx, 0, TAU); bc.fill();
+      // A solid body in the powder's own colour, lit like the grains, so the
+      // gaps between them read as depth rather than as the page.
+      var tone = toneOf(tiles, items), lx = (.5 - hp.radius) * w, rx2 = (.5 + hp.radius) * w;
+      bc.setTransform(1, 0, 0, 1, 0, 0);
+      var body2 = bc.createLinearGradient(lx, 0, rx2, 0);
+      body2.addColorStop(0, rgbs(tone, .98)); body2.addColorStop(.4, rgbs(tone, .86));
+      body2.addColorStop(1, rgbs(tone, .5));
+      bc.fillStyle = body2;
+      bc.beginPath();
+      hp.outline.forEach(function (pt, i) { bc[i ? "lineTo" : "moveTo"]((.5 + pt[0]) * w, (.5 + pt[1]) * h); });
+      bc.closePath(); bc.fill();
+      items.forEach(function (p) { if (!p.loose) stamp(bc, tiles[p.type][p.shade], p.x, p.y, p.size, p.angle, w, h); });
+      bc.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    ctx.drawImage(body, 0, 0);
+    items.forEach(function (p) {
+      if (!p.loose) return;
+      var x = p.x, y = p.y, open = smoothstep((spread - p.offset * .3) / .7);
+      if (open > 0) {
+        var t = (time * p.speed + p.offset) % 1;
+        var go = open * t;
+        x += p.dx * go + (Math.sin(time * .0007 + p.sway) * .006 + handX * hover * .02) * go;
+        y += p.dy * go - .05 * go * t + (Math.cos(time * .0006 + p.sway) * .005 + handY * hover * .015) * go;
+        ctx.globalAlpha = 1 - open * (1 - smoothstep(t / .08) * (1 - smoothstep((t - .3) / .7)));
+      }
+      stamp(ctx, tiles[p.type][p.shade], x, y, p.size, p.angle, w, h);
+      ctx.globalAlpha = 1;
+    });
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  }
+
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
   function smoothstep(value) {
     value = clamp(value, 0, 1);
@@ -62,20 +242,21 @@
     var ctx = canvas.getContext("2d"), w = canvas.width, h = canvas.height;
     ctx.clearRect(0, 0, w, h);
     if (!atlas.hocSprites) {
-      var sw = atlas.width / 6, sh = atlas.height / 5;
-      atlas.hocSprites = names.map(function (_, i) {
+      var s = sheetOf(atlas.hocSheet), sw = atlas.width / s.cols, sh = atlas.height / s.rows, t = s.tile;
+      atlas.hocSprites = s.names.map(function (_, i) {
         var tile = document.createElement("canvas");
-        tile.width = tile.height = 256;
+        tile.width = tile.height = t;
         var tc = tile.getContext("2d");
-        tc.shadowColor = "rgba(39,30,18,.19)";
-        tc.shadowBlur = 7; tc.shadowOffsetY = 3;
-        tc.drawImage(atlas, i % 6 * sw, Math.floor(i / 6) * sh, sw, sh, 0, 0, 256, 256);
+        tc.shadowColor = "rgba(39,30,18," + s.shadow + ")";
+        tc.shadowBlur = 7 * t / 256; tc.shadowOffsetY = 3 * t / 256;
+        tc.drawImage(atlas, i % s.cols * sw, Math.floor(i / s.cols) * sh, sw, sh, 0, 0, t, t);
         return tile;
       });
     }
     var time = flow ? flow.time : 0;
     var hover = flow ? flow.hover || 0 : 0;
     var handX = flow ? flow.x || 0 : 0, handY = flow ? flow.y || 0 : 0;
+    if (items.heap) return drawHeap(ctx, w, h, atlas, items, spread, time, hover, handX, handY);
     items.forEach(function (p) {
       var local = smoothstep((spread - p.phase * .18) / .82);
       var radius = Math.hypot(p.x, p.y);
@@ -94,12 +275,13 @@
       y += (Math.cos(time * .0007 + p.pulse * .3) * (.006 + hover * .008) + handY * hover * .013) * buoyancy;
       y += Math.sin(time * .001 + p.pulse) * .003 * p.float * local;
       var size = p.size * w;
-      ctx.save();
-      ctx.translate(x * w, y * h);
-      ctx.rotate(p.angle + p.turn * local * .12 + Math.sin(time * .0008 + p.pulse) * (.018 + hover * .05) * local);
+      var angle = p.angle + p.turn * local * .12 + Math.sin(time * .0008 + p.pulse) * (.018 + hover * .05) * local;
+      // translate + rotate in one call
+      var c = Math.cos(angle), sn = Math.sin(angle);
+      ctx.setTransform(c, sn, -sn, c, x * w, y * h);
       ctx.drawImage(atlas.hocSprites[p.type], -size / 2, -size / 2, size, size);
-      ctx.restore();
     });
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
   // A domain-warped noise field, computed once. Sampling this field makes the
@@ -274,13 +456,15 @@
     }
     function prepare() {
       if (loading || reduced()) return;
-      items = pieces((el.dataset.ingredients || "").split("|"), el.dataset.seed || "hoc");
+      items = pieces((el.dataset.ingredients || "").split("|"), el.dataset.seed || "hoc", el.dataset.sheet);
       if (!items.length) return;
       loading = true;
       load(el.dataset.atlas).then(function (image) {
         if (disposed) return;
         loading = false;
         atlas = image;
+        // One image per URL, so one sheet per image: set before the first draw.
+        if (!atlas.hocSheet) atlas.hocSheet = el.dataset.sheet || "botanical";
         canvas = document.createElement("canvas"); canvas.setAttribute("aria-hidden", "true");
         ink = document.createElement("canvas"); ink.className = "hoc-range__infusion";
         ink.setAttribute("aria-hidden", "true"); ink.width = FW; ink.height = FH;

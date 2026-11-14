@@ -419,8 +419,12 @@
      MATCHA — coming soon. Not a blend: it is listed on the Blends page,
      after the fourteen, with no price and no add-to-bag until it launches.
      Facts from its doypack (matcha_pink_blue_hojicha_ube_doypack.pdf, p.1):
-     "Premium Japanese green tea powder", 250 g. The range photograph is a
-     licensed stock image (credit in README) until our own shot exists.
+     "Premium Japanese green tea powder", 250 g.
+
+     `pile` names the powder its pile in the range (the left column) is made
+     of: every grain of it on the powder sheet (assets/img/
+     botanical-atlas-powders, "Matcha 1" ... "Matcha 6" in hoc-botanicals.js).
+     `pileAlt` describes that picture.
      ------------------------------------------------------------------ */
   var MATCHA = {
     slug: "matcha",
@@ -435,8 +439,8 @@
     wash: "#E4ECD8",
     accentInk: "#2F4A1B",
     liquid: "#7FA23A",
-    photo: "matcha-photo",
-    photoAlt: "A bowl of whisked matcha",
+    pile: ["Matcha"],
+    pileAlt: "A heap of matcha powder",
     sticker: true,
     comingSoon: true,
     cta: "See how a bowl is made"
@@ -444,8 +448,8 @@
 
   /* HOJICHA and UBE — coming soon, from the same doypack file (pp.4–5).
      Only what the packs say: roasted matcha powder / purple sweet potato
-     powder, premium, 250 g. Colours are taken from each printed pack. No
-     photograph yet, so the round photo slot waits for one. */
+     powder, premium, 250 g. Colours are taken from each printed pack. Their
+     piles come from the same powder sheet as matcha's. */
   var HOJICHA = {
     slug: "hojicha",
     name: "Hojicha",
@@ -459,6 +463,8 @@
     wash: "#EFE6DA",
     accentInk: "#4E3620",
     liquid: "#AA7745",
+    pile: ["Hojicha"],
+    pileAlt: "A heap of hojicha powder",
     sticker: true,
     comingSoon: true
   };
@@ -476,6 +482,8 @@
     wash: "#F1E2EA",
     accentInk: "#45263F",
     liquid: "#9A5A84",
+    pile: ["Ube"],
+    pileAlt: "A heap of ube powder",
     sticker: true,
     comingSoon: true
   };
